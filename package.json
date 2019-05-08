@@ -1,7 +1,9 @@
 {
   "name": "markdown-online-editor",
   "version": "0.1.0",
+  "author": "nicejade <yunjeff@163.com>",
   "private": true,
+  "description": "📝基于 Vue、Vditor，所构建的在线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",
   "scripts": {
     "start": "yarn serve",
     "serve": "vue-cli-service serve --open",
@@ -9,7 +11,7 @@
     "watcher": "onchange '**/*.md' \"src/**/**/*.{js,css,scss,vue}\" -- prettier --write {{changed}}",
     "prettier": "prettier --write \"src/**/**/*.{js,css,scss,vue}\"",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit",
+    "test": "vue-cli-service test:unit",
     "deploy": "bash ./commands/deploy.sh",
     "analyz": "NODE_ENV=production  npm_config_report=true npm run build",
     "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",
