@@ -45,6 +45,6 @@ jobs:
       - run: yarn build
 
       # run deploy
-      - run: git config --global user.email "jeffygisgreat@gmail.com"
-      - run: git config --global user.name "nicejade"
-      - run: yarn run deploy
+      # - run: git config --global user.email "jeffygisgreat@gmail.com"
+      # - run: git config --global user.name "nicejade"
+      # - run: yarn run deploy
