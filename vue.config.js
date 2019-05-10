@@ -146,23 +146,23 @@ module.exports = {
   // see => https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa
   // https://developers.google.com/web/tools/workbox/modules/workbox-webpack-plugin
   pwa: {
-    name: 'Vue-Cli3 实践',
+    name: 'Arya - 在线 Markdown 编辑器',
     themeColor: '#4DBA87',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
     iconPaths: {
-      favicon32: 'img/icons/fuji-mountain-32x32.png',
-      favicon16: 'img/icons/fuji-mountain-16x16.png',
-      appleTouchIcon: 'img/icons/apple-touch-icon-152x152.png',
+      favicon32: 'img/icons/favicon-32x32.png',
+      favicon16: 'img/icons/favicon-16x16.png',
+      appleTouchIcon: 'img/icons/apple-touch-icon.png',
       maskIcon: 'img/icons/safari-pinned-tab.svg',
-      msTileImage: 'img/icons/msapplication-icon-144x144.png',
+      msTileImage: 'img/icons/mstile-150x150.png'
     },
     // configure the workbox plugin (GenerateSW or InjectManifest)
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
-      swSrc: 'public/service-worker.js',
+      swSrc: 'public/service-worker.js'
       // ...other Workbox options...
     }
   },
