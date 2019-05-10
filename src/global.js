@@ -1,21 +1,20 @@
 /** @format */
 
 import Vue from 'vue'
-import Cookies from 'js-cookie'
 import Filters from './filters'
 
 /* ------------------------Vue Global Config------------------------------ */
 Vue.config.productionTip = false
 
-const lang = Cookies.get('lang') || 'en'
-Vue.config.lang = lang
+/* ------------------------- Global Variable ------------------------------- */
+import { appTitle } from './config/constant'
+window.$appTitle = appTitle
 
 /* ------------------------Vue Global Variable------------------------------ */
-import { $apis, $utils, $document, $auth, $lodash } from '@helper'
+import { $apis, $utils, $document, $lodash } from '@helper'
 Vue.prototype.$_ = $lodash
 Vue.prototype.$apis = $apis
 Vue.prototype.$utils = $utils
-Vue.prototype.$auth = $auth
 Vue.prototype.$document = $document
 
 for (let key in Filters) {
@@ -23,6 +22,11 @@ for (let key in Filters) {
 }
 
 /* ------------------------Vue Global Components------------------------------ */
+import { Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
+
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 

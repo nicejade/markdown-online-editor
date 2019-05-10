@@ -1,6 +1,7 @@
 /** @format */
 
 import Vue from 'vue'
+const $lodash = require('./lodash').default
 
 if (typeof String.prototype.startsWith !== 'function') {
   Window.String.prototype.startsWith = function(prefix) {
@@ -50,6 +51,15 @@ export default {
     }
     let paramStr = str.join('&')
     return paramStr ? `${url}?${paramStr}` : url
+  },
+
+  assembleExternalLink(url) {
+    const separator = $lodash.endsWith(url, '/') ? '' : '/'
+    return `${url}${separator}?utm_source=markdown.lovejade.cn`
+  },
+
+  openAuthorSite(p) {
+    window.open(`${this.assembleExternalLink('https://aboutme.lovejade.cn/')}&position=${p}`)
   },
 
   /* -----------------------------localStorage------------------------------------ */

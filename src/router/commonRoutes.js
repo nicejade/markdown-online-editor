@@ -6,10 +6,9 @@ export default [
   {
     path: '/',
     meta: {
-      title: '在线 Markdown 编辑器',
-      ignoreAuth: true
+      title: window.$appTitle
     },
-    component: resolve => require(['@pages/index'], resolve)
+    component: resolve => require(['@pages/Main'], resolve)
   },
   {
     path: '/',
@@ -18,8 +17,7 @@ export default [
   {
     path: '*',
     meta: {
-      title: 'Page Not Found',
-      ignoreAuth: true
+      title: 'Page Not Found'
     },
     component: NotFound
   }

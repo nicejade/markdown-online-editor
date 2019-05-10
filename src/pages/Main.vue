@@ -2,20 +2,14 @@
 
 <template>
   <div class="index-page">
-    <section class="header-wrapper">
-      <h1 class="header-area">
-        <a href="/" class="header-link">
-          <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
-          <strong class="header-text">{{ titleText }}</strong>
-        </a>
-      </h1>
-    </section>
+    <HeaderNav />
     <div id="vditor" class="vditor" />
   </div>
 </template>
 
 <script>
 import Vditor from 'vditor'
+import HeaderNav from './partials/HeaderNav'
 
 export default {
   name: 'index-page',
@@ -34,6 +28,7 @@ export default {
       cache: true,
       width: '80%',
       height: '3160',
+      tab: '\t',
       preview: {
         delay: 100,
         show: true
@@ -43,7 +38,9 @@ export default {
     vditor.focus()
   },
 
-  components: {}
+  components: {
+    HeaderNav
+  }
 }
 </script>
 
@@ -55,33 +52,13 @@ export default {
   height: 100%;
   background-color: $white;
   @include flex-box-center(column);
-  .header-wrapper {
-    position: fixed;
-    top: 0;
-    height: $header-height;
-    .header-area {
-      height: 100%;
-      .header-link {
-        .mark-markdown {
-          width: 80px;
-          vertical-align: middle;
-        }
-        .header-text {
-          font-size: 30px;
-          color: transparent;
-          background-clip: text;
-          background-image: linear-gradient(to bottom, #928dab, #1f1c2c);
-          vertical-align: middle;
-        }
-      }
-    }
-  }
   .vditor {
     position: absolute;
     top: $header-height;
+    max-width: $max-body-width;
     width: 80%;
-    height: calc(100vh - 120px);
-    max-width: 960px;
+    height: calc(100vh - 100px);
+    margin: 20px auto;
     text-align: left;
   }
 }
