@@ -3,11 +3,12 @@
 const path = require('path')
 const fs = require('fs')
 const SizePlugin = require('size-plugin')
+const PrerenderSPAPlugin = new require('prerender-spa-plugin')
 
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
 /* 是否开启 SPA 预渲染，如果要开启，则须另外安装 prerender-spa-plugin 插件 */
-const isOpenPrerenderSPA = false
+const isOpenPrerenderSPA = true
 
 function resolveRealPath(dir) {
   return path.join(__dirname, dir)
@@ -65,6 +66,7 @@ module.exports = {
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
       .set('@helper', resolveRealPath('src/helper'))
+      .set('@config', resolveRealPath('src/config'))
       .set('@pages', resolveRealPath('src/pages'))
       .set('@assets', resolveRealPath('src/assets'))
       .set('@router', resolveRealPath('src/router'))
@@ -128,12 +130,14 @@ module.exports = {
 
   configureWebpack: {
     plugins: [
-      (isProductionEnvFlag && isOpenPrerenderSPA) ? new require('prerender-spa-plugin')({
-        // Required - The path to the webpack-outputted app to prerender.
-        staticDir: path.join(__dirname, 'dist'),
-        // Required - Routes to render.
-        routes: ['/', '/explore']
-      }) : () => {},
+      isProductionEnvFlag && isOpenPrerenderSPA
+        ? new PrerenderSPAPlugin({
+            // Required - The path to the webpack-outputted app to prerender.
+            staticDir: path.join(__dirname, 'dist'),
+            // Required - Routes to render.
+            routes: ['/']
+          })
+        : () => {},
       isProductionEnvFlag ? new SizePlugin() : () => {}
     ]
   },
@@ -176,7 +180,7 @@ module.exports = {
     hotOnly: false,
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
     proxy: null, // string | Object
-    before: app => {}
+    before: () => {}
   },
 
   // options for 3rd party plugins
