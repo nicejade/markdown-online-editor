@@ -42,7 +42,7 @@ jobs:
       - run: yarn test
 
       # run build
-      - run: yarn build
+      # - run: yarn build
 
       # run deploy
       # - run: git config --global user.email "jeffygisgreat@gmail.com"
