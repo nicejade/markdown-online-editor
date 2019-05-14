@@ -10,6 +10,7 @@
 <script>
 import Vditor from 'vditor'
 import HeaderNav from './partials/HeaderNav'
+import defaultText from '@config/default'
 
 export default {
   name: 'index-page',
@@ -17,29 +18,40 @@ export default {
   data() {
     return {
       isBigScreenFlag: window.innerWidth > 768,
-      titleText: '在线 Markdown 编辑器'
+      vditor: null
     }
   },
 
   created() {},
 
+  components: {
+    HeaderNav
+  },
+
   mounted() {
     const options = {
       cache: true,
       width: '80%',
-      height: '3160',
+      height: '0',
       tab: '\t',
+      counter: '716800',
       preview: {
         delay: 100,
         show: true
       }
     }
-    const vditor = new Vditor('vditor', options)
-    vditor.focus()
+    this.vditor = new Vditor('vditor', options)
+    this.vditor.focus()
+    this.setDefaultText()
   },
 
-  components: {
-    HeaderNav
+  methods: {
+    setDefaultText() {
+      const savedValue = this.vditor.getValue()
+      if (!savedValue) {
+        this.vditor.insertValue(defaultText)
+      }
+    }
   }
 }
 </script>
