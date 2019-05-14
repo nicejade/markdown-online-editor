@@ -91,7 +91,9 @@ export default {
     onAuthorClick() {
       this.$utils.openAuthorSite('header')
     },
-    onAboutAryaClick() {},
+    onAboutAryaClick() {
+      this.$router.push('/about-arya')
+    },
     onThemeClick() {},
     onFullScreenClick() {
       const isFullScreen =
@@ -144,7 +146,7 @@ export default {
     background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   .header-area {
     width: 80%;
-    max-width: 960px;
+    max-width: $max-body-width;
     height: 100%;
     margin: auto;
     text-align: left;
