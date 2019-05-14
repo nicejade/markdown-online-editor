@@ -9,7 +9,6 @@
 <script>
 import Vditor from 'vditor'
 import AboutAryaMd from '@config/aboutArya'
-import { async } from 'q'
 
 export default {
   name: 'about-arya',
