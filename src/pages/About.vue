@@ -51,7 +51,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~vditor/src/assets/scss/classic';
 .about-arya {
   width: 100%;
   height: 100%;

@@ -11,6 +11,13 @@ export default [
     component: resolve => require(['@pages/Main'], resolve)
   },
   {
+    path: '/export/:type',
+    meta: {
+      title: window.$appTitle
+    },
+    component: resolve => require(['@pages/Export'], resolve)
+  },
+  {
     path: '/about-arya',
     meta: {
       title: window.$appTitle

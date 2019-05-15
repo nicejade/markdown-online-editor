@@ -16,7 +16,8 @@ Vue.prototype.$utils = $utils
 Vue.prototype.$document = $document
 
 /* ------------------------Vue Global Components------------------------------ */
-import { Dropdown, DropdownMenu, DropdownItem, Loading } from 'element-ui'
+import { Button, Dropdown, DropdownMenu, DropdownItem, Loading } from 'element-ui'
+Vue.use(Button)
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)

@@ -17,6 +17,7 @@ export default {
 <style lang="scss">
 @import './assets/styles/element/index.css';
 @import './assets/styles/style.scss';
+@import '~vditor/src/assets/scss/classic';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

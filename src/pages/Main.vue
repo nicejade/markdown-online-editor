@@ -57,8 +57,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~vditor/src/assets/scss/classic';
-
 .index-page {
   width: 100%;
   height: 100%;

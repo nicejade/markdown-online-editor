@@ -3,10 +3,10 @@
 <template>
   <section class="header-wrapper">
     <h1 class="header-area">
-      <a href="/" class="header-link">
+      <router-link to="/about-arya" class="header-link">
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
         <strong class="header-text">{{ titleText }}</strong>
-      </a>
+      </router-link>
       <div class="button-group">
         <span class="hint--bottom" @click="onAuthorClick" aria-label="关于作者">
           <icon class="header-icon" name="author" />
@@ -17,30 +17,34 @@
         <span class="hint--bottom" @click="onThemeClick" aria-label="变更主题">
           <icon class="header-icon" name="adjust" />
         </span>
-        <el-dropdown trigger="click">
+        <el-dropdown trigger="click" @command="handleCommand">
           <span class="hint--bottom el-dropdown-link" aria-label="设置">
             <icon class="header-icon" name="setting" />
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item disabled divided>
+            <el-dropdown-item disabled>
               <icon class="dropdown-icon" name="set-style" />
               <span class="dropdown-text">自定义样式</span>
+            </el-dropdown-item>
+            <el-dropdown-item command="/export/png" divided>
+              <icon class="dropdown-icon" name="download" />
+              <span class="dropdown-text">{{ exportTextMap['/export/png'] }}</span>
+            </el-dropdown-item>
+            <el-dropdown-item command="/export/jpeg">
+              <icon class="dropdown-icon" name="download" />
+              <span class="dropdown-text">{{ exportTextMap['/export/jpeg'] }}</span>
+            </el-dropdown-item>
+            <el-dropdown-item command="/export/pdf">
+              <icon class="dropdown-icon" name="download" />
+              <span class="dropdown-text">{{ exportTextMap['/export/pdf'] }}</span>
+            </el-dropdown-item>
+            <el-dropdown-item command="export-html" disabled divided>
+              <icon class="dropdown-icon" name="download" />
+              <span class="dropdown-text">导出 HTML</span>
             </el-dropdown-item>
             <el-dropdown-item disabled divided>
               <icon class="dropdown-icon" name="download" />
               <span class="dropdown-text">导出公众号</span>
-            </el-dropdown-item>
-            <el-dropdown-item disabled>
-              <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">导出图片</span>
-            </el-dropdown-item>
-            <el-dropdown-item disabled>
-              <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">导出 PDF </span>
-            </el-dropdown-item>
-            <el-dropdown-item disabled divided>
-              <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">导出 HTML</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -54,13 +58,15 @@
 
 <script>
 import 'hint.css'
+import { exportTextMap } from '@config/constant'
 
 export default {
   name: 'HeaderNav',
 
   data() {
     return {
-      titleText: window.$appTitle
+      titleText: window.$appTitle,
+      exportTextMap
     }
   },
 
@@ -102,6 +108,9 @@ export default {
         document.msFullscreenElement ||
         document.webkitFullscreenElement
       isFullScreen ? this.cancelFullScreen() : this.launchFullScreen()
+    },
+    handleCommand(command) {
+      this.$router.push(command)
     }
   }
 }
@@ -126,6 +135,7 @@ export default {
 .el-dropdown-menu {
   margin: 0;
   .dropdown-icon {
+    fill: $deep-black;
     vertical-align: middle;
     margin-right: 10px;
   }
@@ -156,6 +166,7 @@ export default {
         vertical-align: middle;
       }
       .header-text {
+        margin-left: 10px;
         font-size: 20px;
         color: transparent;
         background-clip: text;
@@ -167,6 +178,7 @@ export default {
       float: right;
       .header-icon {
         margin: 0 10px;
+        fill: $deep-black;
       }
       .full-screen {
         margin-right: -10px;
