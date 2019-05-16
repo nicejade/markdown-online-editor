@@ -88,6 +88,12 @@ export default {
     .vditor-preview {
       padding: 0 10px;
     }
+    .vditor-reset {
+      table {
+        display: inline-block;
+        overflow-x: auto;
+      }
+    }
   }
 }
 </style>

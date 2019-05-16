@@ -5,7 +5,7 @@
     <h1 class="header-area">
       <router-link to="/about-arya" class="header-link">
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
-        <strong class="header-text">{{ titleText }}</strong>
+        <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </router-link>
       <div class="button-group">
         <span class="hint--bottom" @click="onAuthorClick" aria-label="关于作者">
@@ -14,9 +14,9 @@
         <span class="hint--bottom" @click="onAboutAryaClick" aria-label="关于 Arya">
           <icon class="header-icon" name="document" />
         </span>
-        <span class="hint--bottom" @click="onThemeClick" aria-label="变更主题">
+        <!-- <span class="hint--bottom" @click="onThemeClick" aria-label="变更主题">
           <icon class="header-icon" name="adjust" />
-        </span>
+        </span> -->
         <el-dropdown trigger="click" @command="handleCommand">
           <span class="hint--bottom el-dropdown-link" aria-label="设置">
             <icon class="header-icon" name="setting" />
@@ -65,6 +65,7 @@ export default {
 
   data() {
     return {
+      isMobile: window.innerWidth <= 768,
       titleText: window.$appTitle,
       exportTextMap
     }
@@ -161,6 +162,9 @@ export default {
     margin: auto;
     text-align: left;
     .header-link {
+      display: inline-flex;
+      height: $header-height;
+      line-height: $header-height;
       .mark-markdown {
         width: $header-height;
         vertical-align: middle;
@@ -182,6 +186,20 @@ export default {
       }
       .full-screen {
         margin-right: -10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .header-wrapper {
+    .header-area {
+      display: flex;
+      width: 100%;
+      padding: 0 10px;
+      @include flex-box-center(row, space-between);
+      .header-link {
+        display: inline;
       }
     }
   }

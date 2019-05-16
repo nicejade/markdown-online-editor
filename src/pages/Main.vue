@@ -17,7 +17,7 @@ export default {
 
   data() {
     return {
-      isBigScreenFlag: window.innerWidth > 768,
+      isMobile: window.innerWidth <= 960,
       vditor: null
     }
   },
@@ -31,13 +31,13 @@ export default {
   mounted() {
     const options = {
       cache: true,
-      width: '80%',
+      width: this.isMobile ? '100%' : '80%',
       height: '0',
       tab: '\t',
       counter: '716800',
       preview: {
         delay: 100,
-        show: true
+        show: !this.isMobile
       }
     }
     this.vditor = new Vditor('vditor', options)
@@ -73,9 +73,11 @@ export default {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 960px) {
   .index-page {
-    padding: 0 2 * $size-factor;
+    #vditor {
+      padding: auto 10px;
+    }
   }
 }
 </style>
