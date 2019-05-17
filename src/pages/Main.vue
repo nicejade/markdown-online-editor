@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-  <div class="index-page">
+  <div class="index-page" v-loading="isLoading">
     <HeaderNav />
     <div id="vditor" class="vditor" />
   </div>
@@ -17,6 +17,7 @@ export default {
 
   data() {
     return {
+      isLoading: true,
       isMobile: window.innerWidth <= 960,
       vditor: null
     }
@@ -29,23 +30,30 @@ export default {
   },
 
   mounted() {
-    const options = {
-      cache: true,
-      width: this.isMobile ? '100%' : '80%',
-      height: '0',
-      tab: '\t',
-      counter: '716800',
-      preview: {
-        delay: 100,
-        show: !this.isMobile
-      }
-    }
-    this.vditor = new Vditor('vditor', options)
-    this.vditor.focus()
-    this.setDefaultText()
+    this.initVditor()
+    this.$nextTick(async () => {
+      await this.vditor.getHTML(true)
+      this.isLoading = false
+    })
   },
 
   methods: {
+    initVditor() {
+      const options = {
+        cache: true,
+        width: this.isMobile ? '100%' : '80%',
+        height: '0',
+        tab: '\t',
+        counter: '999999',
+        preview: {
+          delay: 100,
+          show: !this.isMobile
+        }
+      }
+      this.vditor = new Vditor('vditor', options)
+      this.vditor.focus()
+      this.setDefaultText()
+    },
     setDefaultText() {
       const savedValue = this.vditor.getValue()
       if (!savedValue) {
