@@ -1,12 +1,12 @@
 <!-- @format -->
 
 <template>
-  <div class="export-page" v-loading="isLoading">
+  <div class="export-page">
     <div class="button-group">
       <el-button round @click="onBackToMainPage">返回主页</el-button>
       <el-button round @click="onExportBtnClick" type="primary">{{ btnTextStr }}</el-button>
     </div>
-    <div id="export-vditor" />
+    <div id="export-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
   </div>
 </template>
 
@@ -14,6 +14,7 @@
 import Vditor from 'vditor'
 import domtoimage from 'dom-to-image'
 import html2pdf from 'html2pdf.js'
+import { saveAs } from 'file-saver'
 import { exportTextMap } from '@config/constant'
 
 export default {
@@ -56,17 +57,36 @@ export default {
       const savedMdContent = localStorage.getItem('vditorvditor')
       this.vditor.setValue(savedMdContent)
     },
-    exportToImg(element, type, filename) {
+    exportAndSaveImg(element, type, filename) {
+      const isSupportDownload = 'download' in document.createElement('a')
+      isSupportDownload
+        ? this.exportImgUseDownload(element, type, filename)
+        : this.exportImgUseFileSaver(element, type, filename)
+    },
+    exportImgUseDownload(element, type, filename) {
       const apiMapping = {
         png: 'toPng',
         jpeg: 'toJpeg'
       }
       domtoimage[apiMapping[type]](element)
-        .then(function(dataUrl) {
+        .then(dataUrl => {
+          console.log('this.isLoading', this.isLoading)
+          this.isLoading = false
           const link = document.createElement('a')
           link.download = filename
           link.href = dataUrl
           link.click()
+        })
+        .catch(function(error) {
+          console.error('Oops, Something went wrong!', error)
+        })
+    },
+    exportImgUseFileSaver(element, type, filename) {
+      domtoimage
+        .toBlob(element)
+        .then(blob => {
+          this.isLoading = false
+          saveAs(blob, filename)
         })
         .catch(function(error) {
           console.error('Oops, Something went wrong!', error)
@@ -84,19 +104,32 @@ export default {
         .set(opt)
         .from(element)
         .save()
+      this.isLoading = false
+    },
+    getExportTimestamp() {
+      const date = new Date()
+      const y = date.getFullYear()
+      let mo = this.$utils.makeUpZero(date.getMonth() + 1)
+      const d = this.$utils.makeUpZero(date.getDate())
+      const h = this.$utils.makeUpZero(date.getHours())
+      const m = this.$utils.makeUpZero(date.getMinutes())
+      const s = this.$utils.makeUpZero(date.getSeconds())
+      return `${y}${mo}${d}-${h}${m}${s}`
     },
     /* ---------------------Callback Event--------------------- */
     onBackToMainPage() {
       this.$router.push('/')
     },
     onExportBtnClick() {
+      this.isLoading = true
       const element = document.getElementsByClassName('vditor-preview')[0]
       const type = this.$route.params.type
       const imgTypeArr = ['png', 'jpeg', 'webp']
       const isToImg = imgTypeArr.includes(type)
-      const filename = `arya-${Date.now()}.${type}`
+      const timestamp = this.getExportTimestamp()
+      const filename = `arya-${timestamp}.${type}`
       isToImg
-        ? this.exportToImg(element, type, filename)
+        ? this.exportAndSaveImg(element, type, filename)
         : this.exportToPdf(element, type, filename)
     }
   }

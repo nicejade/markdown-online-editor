@@ -62,6 +62,10 @@ export default {
     window.open(`${this.assembleExternalLink('https://aboutme.lovejade.cn/')}&position=${p}`)
   },
 
+  makeUpZero(num = 0) {
+    return num < 10 ? `0${num}` : num
+  },
+
   /* -----------------------------localStorage------------------------------------ */
   /*
    * set localStorage
