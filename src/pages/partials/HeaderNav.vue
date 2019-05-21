@@ -3,17 +3,26 @@
 <template>
   <section class="header-wrapper">
     <h1 class="header-area">
-      <router-link to="/about-arya" class="header-link">
+      <router-link to="/about-arya?markdown.lovejade.cn&pid=main-title" class="header-link">
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </router-link>
       <div class="button-group">
-        <span class="hint--bottom" @click="onAuthorClick" aria-label="关于作者">
-          <icon class="header-icon" name="author" />
-        </span>
-        <span class="hint--bottom" @click="onAboutAryaClick" aria-label="关于 Arya">
-          <icon class="header-icon" name="document" />
-        </span>
+        <a href="https://aboutme.lovejade.cn/?markdown.lovejade.cn&pid=header" class="header-link">
+          <span class="hint--bottom" aria-label="关于作者">
+            <icon class="header-icon" name="author" />
+          </span>
+        </a>
+        <router-link to="/about-arya?markdown.lovejade.cn&pid=header" class="header-link">
+          <span class="hint--bottom" aria-label="关于 Arya">
+            <icon class="header-icon" name="document" />
+          </span>
+        </router-link>
+        <a href="https://github.lovejade.cn/?markdown.lovejade.cn&pid=header" class="header-link">
+          <span class="hint--bottom" aria-label="作者 Github">
+            <icon class="header-icon" name="github" />
+          </span>
+        </a>
         <!-- <span class="hint--bottom" @click="onThemeClick" aria-label="变更主题">
           <icon class="header-icon" name="adjust" />
         </span> -->
@@ -94,12 +103,6 @@ export default {
       } else if (document.webkitExitFullscreen) {
         document.webkitExitFullscreen()
       }
-    },
-    onAuthorClick() {
-      this.$utils.openAuthorSite('header')
-    },
-    onAboutAryaClick() {
-      this.$router.push('/about-arya')
     },
     onThemeClick() {},
     onFullScreenClick() {
