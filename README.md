@@ -1,6 +1,8 @@
 <p align="center"><a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com" target="_blank"><img width="100"src="https://raw.githubusercontent.com/nicejade/markdown-online-editor/master/src/assets/images/logo.png"></a></p>
 
-<h1 align="center"><strong>在线 Markdown 编辑器</strong></h1>
+<h1 align="center">
+  <a href="https://markdown.lovejade.cn/?utm_source=github.com">Arya - 在线 Markdown 编辑器</a>
+</h1>
 
 <div align="center">
   <strong>
@@ -50,14 +52,14 @@
 
 ## 相关链接
 
-- [**倾城之链**](https://nicelinks.site?utm_source=github-nicelinks)
-- [About Me](https://about.me/nicejade?utm_source=github-nicelinks)
-- [个人博客](https://jeffjade.com/nicelinks?utm_source=github-nicelinks)
-- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=github-nicelinks)
-- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=github-nicelinks)
-- [吾意静晴轩](https://docz.lovejade.cn/?utm_source=github-nicelinks)
-- [天意人间舫](https://blog.lovejade.cn/?utm_source=github-nicelinks)
-- [新浪微博](https://weibo.com/jeffjade?utm_source=github-nicelinks)
+- [**倾城之链**](https://nicelinks.site?utm_source=github.com)
+- [About Me](https://about.me/nicejade?utm_source=github.com)
+- [个人博客](https://jeffjade.com/nicelinks?utm_source=github.com)
+- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=github.com)
+- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=github.com)
+- [吾意静晴轩](https://docz.lovejade.cn/?utm_source=github.com)
+- [天意人间舫](https://blog.lovejade.cn/?utm_source=github.com)
+- [新浪微博](https://weibo.com/jeffjade?utm_source=github.com)
 - [知乎主页](https://www.zhihu.com/people/yang-qiong-pu/)
 - [简书主页](https://www.jianshu.com/u/9aae3d8f4c3d)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
