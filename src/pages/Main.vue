@@ -11,6 +11,7 @@
 import Vditor from 'vditor'
 import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
+import { toolbarConf } from '@config/constant'
 
 export default {
   name: 'index-page',
@@ -41,6 +42,7 @@ export default {
     initVditor() {
       const options = {
         cache: true,
+        toolbar: toolbarConf,
         width: this.isMobile ? '100%' : '80%',
         height: '0',
         tab: '\t',
@@ -83,7 +85,7 @@ export default {
 
 @media (max-width: 960px) {
   .index-page {
-    #vditor {
+    .vditor {
       padding: auto 10px;
     }
   }
