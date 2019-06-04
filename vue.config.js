@@ -4,6 +4,7 @@ const path = require('path')
 const fs = require('fs')
 const SizePlugin = require('size-plugin')
 const PrerenderSPAPlugin = new require('prerender-spa-plugin')
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
@@ -135,7 +136,15 @@ module.exports = {
             // Required - The path to the webpack-outputted app to prerender.
             staticDir: path.join(__dirname, 'dist'),
             // Required - Routes to render.
-            routes: ['/', '/about-arya']
+            routes: ['/about-arya'],
+            renderer: new Renderer({
+              renderAfterElementExists: '.vditor-preview'
+            }),
+            minify: {
+              collapseWhitespace: true,
+              keepClosingSlash: true,
+              sortAttributes: true
+            }
           })
         : () => {},
       isProductionEnvFlag ? new SizePlugin() : () => {}
