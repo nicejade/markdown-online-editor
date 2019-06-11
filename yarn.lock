@@ -9448,9 +9448,9 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@1.4.4:
-  version "1.4.4"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-1.4.4.tgz#9b7e302bb7c12c9239724e49f0cab21b9903017a"
+vditor@1.4.7:
+  version "1.4.7"
+  resolved "https://registry.npmjs.org/vditor/-/vditor-1.4.7.tgz#de1ddc450962919dadd409a7b89e8ed5bd0aeb7e"
   dependencies:
     highlight.js "^9.15.6"
     katex "^0.10.2"
