@@ -25,6 +25,9 @@
   <a href="https://nicelinks.site/post/5c16083e819ae45de1453caa">
     <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" alt="Prettier">
   </a>
+  <a href="https://www.jeffjade.com/2019/05/31/155-arya-markdown-online-editor/">
+    <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Chat On My Blog">
+  </a>
   <a href="https://weibo.com/aryamarkdown">
     <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Prettier">
   </a>
@@ -49,6 +52,7 @@
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
+- [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
 
 ## 相关链接
 
