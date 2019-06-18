@@ -24,6 +24,9 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
   <a href="https://weibo.com/aryamarkdown">
     <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Prettier">
   </a>
+  <a href="https://www.jeffjade.com/2019/05/31/155-arya-markdown-online-editor/">
+    <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Chat On My Blog">
+  </a>
   <a href="https://aboutme.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya">
     <img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade">
   </a>
@@ -38,14 +41,14 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 ### 1. 制作待办事宜 \`Todo\` 列表
 
 - [x] 🎉 通常 \`Markdown\` 解析器自带的基本功能；
-- [x] ✨ 支持**流程图**、**甘特图**、**时序图**、**任务列表**；
+- [x] 🍀 支持**流程图**、**甘特图**、**时序图**、**任务列表**；
 - [x] 🏁 支持粘贴 HTML 自动转换为 Markdown；
 - [x] 💃🏻 支持插入原生 Emoji、设置常用表情列表；
 - [x] 🚑 支持编辑内容保存**本地存储**，防止意外丢失；
 - [x] 📝 支持**实时预览**，主窗口大小拖拽，字符计数；
-- [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制；
+- [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
+- [x] ✨ 支持**导出**携带样式的PDF、PNG、JPEG 等；
 - [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
-- [ ] 🚧 支持**导出**携带样式的图片、PDF、HTML 等；
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
 
 ### 2. 书写一个质能守恒公式[^LaTeX]
