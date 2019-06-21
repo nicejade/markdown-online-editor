@@ -54,6 +54,27 @@
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
 - [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
 
+## 如何使用
+
+清空目前 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 编辑区默认文档，即可使用。
+
+## 如何开发
+
+```bash
+# 🎉 克隆项目
+git clone https://github.com/nicejade/markdown-online-editor.git
+cd markdown-online-editor
+
+# ➕ 安装依赖(跳过安装 )
+env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn
+
+# 🚧 开始开发
+yarn start
+
+# 🚀 部署 Github Pages(需修改 commands/deploy.sh)
+yarn deploy
+```
+
 ## 相关链接
 
 - [**倾城之链**](https://nicelinks.site?utm_source=github.com)
@@ -70,9 +91,9 @@
 - [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
 
-| 微信公众号                                             | 前端微信群                                                       | 推荐 Web 应用                                                                              |
-| ------------------------------------------------------ | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 😉 静晴轩                                              | ✨ 大前端联盟                                                    | 🎉 倾城之链                                                                                |
+| 微信公众号 | 前端微信群 | 推荐 Web 应用 |
+| --- | --- | --- |
+| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 |
 | ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) | <img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img> |
 
 ## License
