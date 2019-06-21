@@ -12,7 +12,6 @@
 
 <script>
 import Vditor from 'vditor'
-import domtoimage from 'dom-to-image'
 import html2pdf from 'html2pdf.js'
 import { saveAs } from 'file-saver'
 import { exportTextMap } from '@config/constant'
@@ -58,41 +57,6 @@ export default {
       const savedMdContent = localStorage.getItem('vditorvditor')
       this.vditor.setValue(savedMdContent)
     },
-    exportAndSaveImg(element, type, filename) {
-      const isSupportDownload = 'download' in document.createElement('a')
-      isSupportDownload
-        ? this.exportImgUseDownload(element, type, filename)
-        : this.exportImgUseFileSaver(element, type, filename)
-    },
-    exportImgUseDownload(element, type, filename) {
-      const apiMapping = {
-        png: 'toPng',
-        jpeg: 'toJpeg'
-      }
-      domtoimage[apiMapping[type]](element)
-        .then(dataUrl => {
-          console.log('this.isLoading', this.isLoading)
-          this.isLoading = false
-          const link = document.createElement('a')
-          link.download = filename
-          link.href = dataUrl
-          link.click()
-        })
-        .catch(function(error) {
-          console.error('Oops, Something went wrong!', error)
-        })
-    },
-    exportImgUseFileSaver(element, type, filename) {
-      domtoimage
-        .toBlob(element)
-        .then(blob => {
-          this.isLoading = false
-          saveAs(blob, filename)
-        })
-        .catch(function(error) {
-          console.error('Oops, Something went wrong!', error)
-        })
-    },
     exportToPdf(element, type, filename) {
       const opt = {
         margin: 1,
@@ -119,11 +83,14 @@ export default {
     },
     async exportAndDownloadImg(element, filename) {
       const canvas = await generateScreenshot(element)
-      const link = document.createElement('a')
-      link.download = filename
-      link.href = canvas.toDataURL()
-      link.click()
-      this.isLoading = false
+      const isSupportDownload = 'download' in document.createElement('a')
+      if (isSupportDownload) {
+        const link = document.createElement('a')
+        link.download = filename
+        link.href = canvas.toDataURL()
+        link.click()
+        this.isLoading = false
+      }
     },
     /* ---------------------Callback Event--------------------- */
     onBackToMainPage() {
@@ -133,14 +100,9 @@ export default {
       this.isLoading = true
       const element = document.getElementsByClassName('vditor-preview')[0]
       const type = this.$route.params.type
-      const imgTypeArr = ['png', 'jpeg', 'webp']
-      const isToImg = imgTypeArr.includes(type)
       const timestamp = this.getExportTimestamp()
       const filename = `arya-${timestamp}.${type}`
       this.exportAndDownloadImg(element, filename)
-      // isToImg
-      //   ? this.exportAndSaveImg(element, type, filename)
-      //   : this.exportToPdf(element, type, filename)
     }
   }
 }
