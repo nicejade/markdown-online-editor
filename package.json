@@ -21,6 +21,7 @@
     "preview": "node ./commands/preview.js"
   },
   "dependencies": {
+    "canvg": "^2.0.0",
     "dom-to-image": "^2.6.0",
     "element-ui": "^2.8.2",
     "file-saver": "^2.0.2",

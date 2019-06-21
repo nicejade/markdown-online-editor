@@ -109,13 +109,13 @@ export default {
     },
     getExportTimestamp() {
       const date = new Date()
-      const y = date.getFullYear()
+      const y = `${date.getFullYear()}`.replace('20', '')
       let mo = this.$utils.makeUpZero(date.getMonth() + 1)
       const d = this.$utils.makeUpZero(date.getDate())
       const h = this.$utils.makeUpZero(date.getHours())
       const m = this.$utils.makeUpZero(date.getMinutes())
       const s = this.$utils.makeUpZero(date.getSeconds())
-      return `${y}${mo}${d}-${h}${m}${s}`
+      return `${y}${mo}${d}${h}${m}${s}`
     },
     async exportAndDownloadImg(element, filename) {
       const canvas = await generateScreenshot(element)

@@ -1,6 +1,7 @@
 /** @format */
 
 import html2canvas from 'html2canvas'
+import canvg from 'canvg'
 
 let TARGET_WIDTH = 960
 let TARGET_HEIGHT = 800
@@ -66,26 +67,47 @@ function drawShadow(origCanvas) {
   return bgdCanvas
 }
 
+/**
+ * @desc 兼容使用 html2canvas 库不能完整捕获 SVG 问题；
+ * @param {Dom} targetElem - 所要导出目标 DOM
+ */
+const handleCaptureSvg = targetElem => {
+  const nodesToRecover = []
+  const nodesToRemove = []
+  const svgElem = targetElem.querySelectorAll('svg')
+  for (let key = 0, len = svgElem.length; key < len; key++) {
+    const node = svgElem[key]
+    const parentNode = node.parentNode
+    const svg = parentNode.innerHTML
+    const canvas = document.createElement('canvas')
+    canvg(canvas, svg)
+    nodesToRecover.push({
+      parent: parentNode,
+      child: node
+    })
+    parentNode.removeChild(node)
+
+    nodesToRemove.push({
+      parent: parentNode,
+      child: canvas
+    })
+    parentNode.appendChild(canvas)
+  }
+}
+
 export const generateScreenshot = async targetDom => {
+  handleCaptureSvg(targetDom)
   const domStyleObj = getComputedStyle(targetDom)
-  const domWidth = +domStyleObj.width.replace(`px`, '')
-  const domHeight = +domStyleObj.height.replace(`px`, '')
+  TARGET_WIDTH = +domStyleObj.width.replace(`px`, '')
+  TARGET_HEIGHT = +domStyleObj.height.replace(`px`, '')
 
-  const baseCanvas = document.createElement('canvas')
-  baseCanvas.width = TARGET_WIDTH + 200
-  baseCanvas.height = domHeight
-
-  TARGET_WIDTH = Math.max(domWidth, TARGET_WIDTH)
-  TARGET_HEIGHT = Math.min(domHeight, TARGET_WIDTH)
   const scale = window.devicePixelRatio
   const options = {
     scale,
-    canvas: baseCanvas,
     allowTaint: true,
-    backgroundColor: '#ffee00'
+    backgroundColor: '#fefefe'
   }
   const origCanvas = await html2canvas(targetDom, options)
-  document.body.appendChild(origCanvas)
   const roundCanvas = drawRoundedRec(origCanvas, scale)
   return drawShadow(roundCanvas)
 }
