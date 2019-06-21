@@ -8,7 +8,7 @@
     "start": "yarn serve",
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
-    "watcher": "onchange '**/*.md' \"src/**/**/*.{js,css,scss,vue}\" -- prettier --write {{changed}}",
+    "watcher": "onchange \"src/**/**/*.{js,css,scss,vue}\" -- prettier --write {{changed}}",
     "prettier": "prettier --write \"src/**/**/*.{js,css,scss,vue}\"",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
@@ -130,7 +130,7 @@
     }
   },
   "lint-staged": {
-    "**/**.{js,json,pcss,md,vue,css,scss}": [
+    "**/**.{js,json,pcss,vue,css,scss}": [
       "prettier --write"
     ]
   }
