@@ -16,6 +16,7 @@ import domtoimage from 'dom-to-image'
 import html2pdf from 'html2pdf.js'
 import { saveAs } from 'file-saver'
 import { exportTextMap } from '@config/constant'
+import { generateScreenshot } from '@helper/export'
 
 export default {
   name: 'export-page',
@@ -116,6 +117,14 @@ export default {
       const s = this.$utils.makeUpZero(date.getSeconds())
       return `${y}${mo}${d}-${h}${m}${s}`
     },
+    async exportAndDownloadImg(element, filename) {
+      const canvas = await generateScreenshot(element)
+      const link = document.createElement('a')
+      link.download = filename
+      link.href = canvas.toDataURL()
+      link.click()
+      this.isLoading = false
+    },
     /* ---------------------Callback Event--------------------- */
     onBackToMainPage() {
       this.$router.push('/')
@@ -128,9 +137,10 @@ export default {
       const isToImg = imgTypeArr.includes(type)
       const timestamp = this.getExportTimestamp()
       const filename = `arya-${timestamp}.${type}`
-      isToImg
-        ? this.exportAndSaveImg(element, type, filename)
-        : this.exportToPdf(element, type, filename)
+      this.exportAndDownloadImg(element, filename)
+      // isToImg
+      //   ? this.exportAndSaveImg(element, type, filename)
+      //   : this.exportToPdf(element, type, filename)
     }
   }
 }
