@@ -4,7 +4,7 @@
   <div class="export-page">
     <div class="button-group">
       <el-button round @click="onBackToMainPage">返回主页</el-button>
-      <el-button round @click="onExportBtnClick" type="primary">{{ btnTextStr }}</el-button>
+      <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
     </div>
     <div id="export-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
   </div>
@@ -13,21 +13,17 @@
 <script>
 import Vditor from 'vditor'
 import html2pdf from 'html2pdf.js'
-import { exportTextMap } from '@config/constant'
 
 export default {
-  name: 'export-page',
+  name: 'export-pdf',
 
   data() {
     return {
-      isLoading: true,
-      btnTextStr: ''
+      isLoading: true
     }
   },
 
-  created() {
-    this.btnTextStr = exportTextMap[location.pathname]
-  },
+  created() {},
 
   components: {},
 
