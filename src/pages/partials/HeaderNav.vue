@@ -3,7 +3,7 @@
 <template>
   <section class="header-wrapper">
     <h1 class="header-area">
-      <router-link to="/about-arya?markdown.lovejade.cn&pid=main-title" class="header-link">
+      <router-link to="/?markdown.lovejade.cn&pid=main-title" class="header-link">
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </router-link>
