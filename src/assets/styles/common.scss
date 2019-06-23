@@ -13,3 +13,48 @@ a {
   color: $brand;
   text-decoration: none;
 }
+
+// export page css
+.export-page {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: $white;
+  @include flex-box-center(column);
+  .button-group {
+    width: 100%;
+    margin: 20px auto;
+  }
+  #export-vditor {
+    max-width: 960px;
+    height: 100%;
+    min-height: 100vh;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  .vditor-toolbar {
+    display: none;
+  }
+  .vditor {
+    border: 0;
+  }
+  .vditor-preview {
+    padding: 0 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  }
+  .vditor-reset h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .export-page {
+    #export-vditor {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+    .vditor-preview {
+      padding: 0 10px;
+    }
+  }
+}

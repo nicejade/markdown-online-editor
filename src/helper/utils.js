@@ -66,6 +66,24 @@ export default {
     return num < 10 ? `0${num}` : num
   },
 
+  getTimestamp() {
+    const date = new Date()
+    const y = `${date.getFullYear()}`.replace('20', '')
+    let mo = this.makeUpZero(date.getMonth() + 1)
+    const d = this.makeUpZero(date.getDate())
+    const h = this.makeUpZero(date.getHours())
+    const m = this.makeUpZero(date.getMinutes())
+    const s = this.makeUpZero(date.getSeconds())
+    return `${y}${mo}${d}${h}${m}${s}`
+  },
+
+  getExportFileName() {
+    const type = location.pathname.split('/')[0]
+    const timestamp = this.getTimestamp()
+    const filename = `arya-${timestamp}.${type}`
+    return filename
+  },
+
   /* -----------------------------localStorage------------------------------------ */
   /*
    * set localStorage

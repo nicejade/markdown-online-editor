@@ -136,7 +136,7 @@ module.exports = {
             // Required - The path to the webpack-outputted app to prerender.
             staticDir: path.join(__dirname, 'dist'),
             // Required - Routes to render.
-            routes: ['/about-arya'],
+            routes: ['/about-arya', '/export/pdf', '/export/png', '/export/jpeg'],
             renderer: new Renderer({
               renderAfterElementExists: '.vditor-preview'
             }),

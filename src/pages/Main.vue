@@ -86,7 +86,9 @@ export default {
 @media (max-width: 960px) {
   .index-page {
     .vditor {
+      height: calc(100vh - 60px);
       padding: auto 10px;
+      margin: 0px auto;
     }
   }
 }
