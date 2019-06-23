@@ -1,5 +1,6 @@
 /** @format */
 
+import Frame from '@pages/partials/Frame'
 import NotFound from '@pages/partials/NotFound'
 
 export default [
@@ -13,9 +14,18 @@ export default [
   {
     path: '/about-arya',
     meta: {
-      title: window.$appTitle
+      title: `关于 | ${window.$appTitle}`
     },
-    component: resolve => require(['@pages/About'], resolve)
+    component: Frame,
+    children: [
+      {
+        path: '/',
+        meta: {
+          title: `关于 | ${window.$appTitle}`
+        },
+        component: resolve => require(['@pages/About'], resolve)
+      }
+    ]
   },
   {
     path: '/index',

@@ -13,21 +13,21 @@ export default [
       {
         path: 'jpeg',
         meta: {
-          title: window.$appTitle
+          title: `导出 JPEG | ${window.$appTitle}`
         },
         component: resolve => require(['@pages/ExportImage'], resolve)
       },
       {
         path: 'png',
         meta: {
-          title: window.$appTitle
+          title: `导出 PNG | ${window.$appTitle}`
         },
         component: resolve => require(['@pages/ExportImage'], resolve)
       },
       {
         path: 'pdf',
         meta: {
-          title: window.$appTitle
+          title: `导出 PDF | ${window.$appTitle}`
         },
         component: resolve => require(['@pages/ExportPdf'], resolve)
       }
