@@ -17,7 +17,7 @@
     <img src="https://circleci.com/gh/nicejade/markdown-online-editor/tree/master.svg?style=svg" alt="Build Status">
   </a>
   <a href="https://nodejs.org/en/">
-    <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="node version">
+    <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="Node Version">
   </a>
   <a href="https://github.com/nicejade/markdown-online-editor">
     <img src="https://img.shields.io/github/license/nicejade/markdown-online-editor.svg" alt="LICENSE">
@@ -26,10 +26,10 @@
     <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" alt="Prettier">
   </a>
   <a href="https://www.jeffjade.com/2019/05/31/155-arya-markdown-online-editor/">
-    <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Chat On My Blog">
+    <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Arya - 在线 Markdown 编辑器">
   </a>
   <a href="https://weibo.com/aryamarkdown">
-    <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Prettier">
+    <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Arya - 在线 Markdown 编辑器">
   </a>
   <a href="https://aboutme.lovejade.cn/?utm_source=github.com">
     <img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade">
@@ -74,6 +74,8 @@ yarn start
 # 🚀 部署 Github Pages(需修改 commands/deploy.sh)
 yarn deploy
 ```
+
+>关于本应用构建：因采用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 以解决 SPA SEO 问题，故而，您需要在根目录下创建 `arya.config.js`，根据 *arya.config.sample.js* 中示例格式，来设定 `executablePath` 参数，从而指定插件中捆绑的 **Chromium** 所在目录，使得 `prerender-spa-plugin` 可以正常工作。更多详情，可以参见 [Puppeteer 安装注意事项](https://www.jeffjade.com/2019/06/14/156-puppeteer-robot/#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85)。
 
 ## 相关链接
 
