@@ -6,7 +6,7 @@ const SizePlugin = require('size-plugin')
 const PrerenderSPAPlugin = new require('prerender-spa-plugin')
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
-const { executablePath } = require('./arya.config.js/index.js')
+const { executablePath } = require('./arya.config.js')
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
 /* 是否开启 SPA 预渲染，如果要开启，则须另外安装 prerender-spa-plugin 插件 */

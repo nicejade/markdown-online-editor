@@ -1,5 +1,74 @@
 /** @format */
 
+const echartsConf = {
+  backgroundColor: '#2c343c',
+  title: {
+    text: '「晚晴幽草轩」访问来源',
+    left: 'center',
+    top: 20,
+    textStyle: {
+      color: '#ccc'
+    }
+  },
+  tooltip: {
+    trigger: 'item',
+    formatter: '{a} <br/>{b} : {c} ({d}%)'
+  },
+  visualMap: {
+    show: false,
+    min: 80,
+    max: 600,
+    inRange: {
+      colorLightness: [0, 1]
+    }
+  },
+  series: [
+    {
+      name: '访问来源',
+      type: 'pie',
+      radius: '55%',
+      center: ['50%', '50%'],
+      data: [
+        { value: 10440, name: '搜索引擎', itemStyle: { color: '#ef4136' } },
+        { value: 4770, name: '直接访问' },
+        { value: 2430, name: '推荐' },
+        { value: 342, name: '其他' },
+        { value: 18, name: '社交平台' }
+      ].sort(function(a, b) {
+        return a.value - b.value
+      }),
+      roseType: 'radius',
+      label: {
+        normal: {
+          textStyle: {
+            color: 'rgba(3, 169, 244, 1)'
+          }
+        }
+      },
+      labelLine: {
+        normal: {
+          lineStyle: {
+            color: 'rgba(255, 255, 255, 0.5)'
+          },
+          smooth: 0.2,
+          length: 10,
+          length2: 20
+        }
+      },
+      itemStyle: {
+        normal: {
+          color: '#023531',
+          shadowBlur: 200,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      },
+      animationType: 'scale',
+      animationEasing: 'elasticOut'
+    }
+  ]
+}
+const echartsDemoJsonStr = JSON.stringify(echartsConf, null, 2)
+
 export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 
 [Arya](https://markdown.lovejade.cn/)，是一款基于 \`Vue\`、\`Vditor\`，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
@@ -85,7 +154,13 @@ gantt
     验收: 3d
 \`\`\`
 
-### 7. 绘制表格
+### 7. 支持图表
+
+\`\`\`echarts
+${echartsDemoJsonStr}
+\`\`\`
+
+### 8. 绘制表格
 
 | 作品名称        | 在线地址   |  上线日期  |
 | :--------  | :-----  | :----:  |
@@ -93,7 +168,7 @@ gantt
 | 晚晴幽草轩 | [https://jeffjade.com](https://jeffjade.com/??utm_source=markdown.lovejade.cn) |2014-09-20|
 | 静轩之别苑 | [http://quickapp.lovejade.cn](http://quickapp.lovejade.cn/??utm_source=markdown.lovejade.cn) |2019-01-12|
 
-### 8. 更详细语法说明
+### 9. 更详细语法说明
 
 想要查看更详细的语法说明，可以参考这份 [Markdown 资源列表](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md)，涵盖入门至进阶教程，以及资源、平台等信息，能让您对她有更深的认知。
 

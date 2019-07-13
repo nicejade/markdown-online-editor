@@ -81,6 +81,13 @@ export default {
     margin: 20px auto;
     text-align: left;
   }
+  .vditor-reset {
+    font-size: 14px;
+  }
+  .vditor-textarea {
+    font-size: 14px;
+    height: 100% !important;
+  }
 }
 
 @media (max-width: 960px) {
