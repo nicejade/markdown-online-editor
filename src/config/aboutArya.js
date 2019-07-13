@@ -47,9 +47,11 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 - [x] 🚑 支持编辑内容保存**本地存储**，防止意外丢失；
 - [x] 📝 支持**实时预览**，主窗口大小拖拽，字符计数；
 - [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
-- [x] ✨ 支持**导出**携带样式的PDF、PNG、JPEG 等；
+- [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
+- [x] ✨ 升级 Vditor，新增对 \`echarts\` 图表的支持；
 - [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
+- [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
 
 ### 2. 书写一个质能守恒公式[^LaTeX]
 
