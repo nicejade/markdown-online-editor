@@ -12,6 +12,7 @@
     "prettier": "prettier --write \"src/**/**/*.{js,css,scss,vue}\"",
     "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
+    "testbuild": "vue-cli-service build --mode development",
     "deploy": "bash ./commands/deploy.sh",
     "analyz": "NODE_ENV=production  npm_config_report=true npm run build",
     "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",

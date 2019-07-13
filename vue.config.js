@@ -6,11 +6,12 @@ const SizePlugin = require('size-plugin')
 const PrerenderSPAPlugin = new require('prerender-spa-plugin')
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
-const { executablePath } = require('./arya.config.js')
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
-/* 是否开启 SPA 预渲染，如果要开启，则须另外安装 prerender-spa-plugin 插件 */
-const isOpenPrerenderSPA = true
+if (isProductionEnvFlag) {
+  // NOTE: 此处借助 var 变量提升，为简单兼容可用 circleci 跑 CI；
+  var { executablePath } = require('./arya.config.js')
+}
 
 function resolveRealPath(dir) {
   return path.join(__dirname, dir)
@@ -132,7 +133,7 @@ module.exports = {
 
   configureWebpack: {
     plugins: [
-      isProductionEnvFlag && isOpenPrerenderSPA
+      isProductionEnvFlag
         ? new PrerenderSPAPlugin({
             // Required - The path to the webpack-outputted app to prerender.
             staticDir: path.join(__dirname, 'dist'),
