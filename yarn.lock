@@ -3273,6 +3273,12 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
+echarts@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.npmjs.org/echarts/-/echarts-4.2.1.tgz#9a8ea3b03354f86f824d97625c334cf16965ef03"
+  dependencies:
+    zrender "4.0.7"
+
 editorconfig@^0.15.2:
   version "0.15.3"
   resolved "https://registry.npmjs.org/editorconfig/-/editorconfig-0.15.3.tgz#bef84c4e75fb8dcb0ce5cee8efd51c15999befc5"
@@ -9236,10 +9242,6 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
-turndown-plugin-gfm@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/turndown-plugin-gfm/-/turndown-plugin-gfm-1.0.2.tgz#6f8678a361f35220b2bdf5619e6049add75bf1c7"
-
 turndown@^5.0.3:
   version "5.0.3"
   resolved "https://registry.npmjs.org/turndown/-/turndown-5.0.3.tgz#a1350b66155d7891f10e451432170b0f7cd7449a"
@@ -9463,16 +9465,16 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@1.4.7:
-  version "1.4.7"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-1.4.7.tgz#de1ddc450962919dadd409a7b89e8ed5bd0aeb7e"
+vditor@1.5.12:
+  version "1.5.12"
+  resolved "https://registry.npmjs.org/vditor/-/vditor-1.5.12.tgz#15f846f6e6e84e78ab92d583e13f95e88e495818"
   dependencies:
+    echarts "^4.2.1"
     highlight.js "^9.15.6"
     katex "^0.10.2"
     markdown-it "^8.4.2"
     mermaid "^8.0.0"
     turndown "^5.0.3"
-    turndown-plugin-gfm "^1.0.2"
 
 vendors@^1.0.0:
   version "1.0.2"
@@ -10123,3 +10125,7 @@ yorkie@^2.0.0:
     is-ci "^1.0.10"
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
+
+zrender@4.0.7:
+  version "4.0.7"
+  resolved "https://registry.npmjs.org/zrender/-/zrender-4.0.7.tgz#15ae960822f5efed410995d37e5107fe3de10e6d"
