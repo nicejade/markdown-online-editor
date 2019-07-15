@@ -1,25 +1,25 @@
 /** @format */
 
 const echartsConf = {
-  backgroundColor: '#2c343c',
+  backgroundColor: '#212121',
   title: {
     text: '「晚晴幽草轩」访问来源',
-    left: 'center',
-    top: 20,
+    subtext: '2019 年 6 月份',
+    x: 'center',
     textStyle: {
-      color: '#ccc'
+      color: '#f2f2f2'
     }
   },
   tooltip: {
     trigger: 'item',
     formatter: '{a} <br/>{b} : {c} ({d}%)'
   },
-  visualMap: {
-    show: false,
-    min: 80,
-    max: 600,
-    inRange: {
-      colorLightness: [0, 1]
+  legend: {
+    orient: 'vertical',
+    left: 'left',
+    data: ['搜索引擎', '直接访问', '推荐', '其他', '社交平台'],
+    textStyle: {
+      color: '#f2f2f2'
     }
   },
   series: [
@@ -27,46 +27,25 @@ const echartsConf = {
       name: '访问来源',
       type: 'pie',
       radius: '55%',
-      center: ['50%', '50%'],
+      center: ['50%', '60%'],
       data: [
         { value: 10440, name: '搜索引擎', itemStyle: { color: '#ef4136' } },
         { value: 4770, name: '直接访问' },
         { value: 2430, name: '推荐' },
         { value: 342, name: '其他' },
         { value: 18, name: '社交平台' }
-      ].sort(function(a, b) {
-        return a.value - b.value
-      }),
-      roseType: 'radius',
-      label: {
-        normal: {
-          textStyle: {
-            color: 'rgba(3, 169, 244, 1)'
-          }
-        }
-      },
-      labelLine: {
-        normal: {
-          lineStyle: {
-            color: 'rgba(255, 255, 255, 0.5)'
-          },
-          smooth: 0.2,
-          length: 10,
-          length2: 20
-        }
-      },
+      ],
       itemStyle: {
-        normal: {
-          color: '#023531',
-          shadowBlur: 200,
+        emphasis: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
           shadowColor: 'rgba(0, 0, 0, 0.5)'
         }
-      },
-      animationType: 'scale',
-      animationEasing: 'elasticOut'
+      }
     }
   ]
 }
+
 const echartsDemoJsonStr = JSON.stringify(echartsConf, null, 2)
 
 export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
@@ -162,7 +141,7 @@ gantt
 ${echartsDemoJsonStr}
 \`\`\`
 
->**备注：**上述图表📈，其数据，须使用严格的 **JSON** 格式；您可使用 JSON.stringify(data)，将对象传换从而得标准数据，即可正常使用。
+>**备注**：上述 echarts 图表📈，其数据，须使用严格的 **JSON** 格式；您可使用 JSON.stringify(data)，将对象传换从而得标准数据，即可正常使用。
 
 ### 8. 绘制表格
 
@@ -177,4 +156,6 @@ ${echartsDemoJsonStr}
 想要查看更详细的语法说明，可以参考这份 [Markdown 资源列表](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md)，涵盖入门至进阶教程，以及资源、平台等信息，能让您对她有更深的认知。
 
 总而言之，不同于其它*所见即所得*的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 \`GitHub\` 和 技术问答网站 \`StackOverFlow\` 的御用书写格式，而且越发流行，正在在向各行业渗透。
+
+最新更新于 2019.07.13
 `
