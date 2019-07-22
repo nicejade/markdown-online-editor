@@ -13,9 +13,6 @@
 <br>
 
 <div align="center">
-  <a href="https://circleci.com/gh/nicejade/markdown-online-editor">
-    <img src="https://circleci.com/gh/nicejade/markdown-online-editor/tree/master.svg?style=svg" alt="Build Status">
-  </a>
   <a href="https://nodejs.org/en/">
     <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="Node Version">
   </a>
