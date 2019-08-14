@@ -20,6 +20,7 @@ import Reveal from 'reveal.js/js/reveal'
 import 'reveal.js/css/reset.css'
 import 'reveal.js/css/reveal.css'
 import 'reveal.js/css/theme/beige.css'
+import { debuglog } from 'util'
 
 export default {
   name: 'export-ppt',
@@ -30,12 +31,13 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    this.savedMdContent = localStorage.getItem('vditorvditor')
+  },
 
   components: {},
 
   mounted() {
-    this.savedMdContent = localStorage.getItem('vditorvditor')
     this.initReveal()
   },
 
@@ -49,6 +51,7 @@ export default {
         center: true,
         hash: true,
         transition: 'slide',
+        display: 'block',
         dependencies: [
           {
             src: `${revealSourcePath}/plugin/markdown/marked.js`,
@@ -68,18 +71,8 @@ export default {
           { src: `${revealSourcePath}/plugin/notes/notes.js`, async: true }
         ]
       })
-    },
-    exportAndDownloadPPT(element, filename) {},
-    /* ---------------------Callback Event--------------------- */
-    onBackToMainPage() {
-      this.$router.push('/')
-    },
-    onExportBtnClick() {
-      this.isLoading = true
-      const element = document.getElementsByClassName('vditor-preview')[0]
-      const filename = this.$utils.getExportFileName()
-      this.exportAndDownloadPPT(element, filename)
     }
+    /* ---------------------Callback Event--------------------- */
   }
 }
 </script>
