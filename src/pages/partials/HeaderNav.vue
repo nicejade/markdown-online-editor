@@ -47,6 +47,10 @@
               <icon class="dropdown-icon" name="download" />
               <span class="dropdown-text">{{ exportTextMap['/export/pdf'] }}</span>
             </el-dropdown-item>
+            <el-dropdown-item command="/export/ppt">
+              <icon class="dropdown-icon" name="download" />
+              <span class="dropdown-text">{{ exportTextMap['/export/ppt'] }}</span>
+            </el-dropdown-item>
             <el-dropdown-item command="export-html" disabled divided>
               <icon class="dropdown-icon" name="download" />
               <span class="dropdown-text">导出 HTML</span>

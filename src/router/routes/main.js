@@ -30,6 +30,13 @@ export default [
           title: `导出 PDF | ${window.$appTitle}`
         },
         component: resolve => require(['@pages/ExportPdf'], resolve)
+      },
+      {
+        path: 'ppt',
+        meta: {
+          title: `导出 PPT | ${window.$appTitle}`
+        },
+        component: resolve => require(['@pages/ExportPPT'], resolve)
       }
     ]
   }
