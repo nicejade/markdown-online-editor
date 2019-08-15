@@ -3977,6 +3977,10 @@ detective@^4.0.0:
     acorn "^5.2.1"
     defined "^1.0.0"
 
+diff-match-patch@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/diff-match-patch/-/diff-match-patch-1.0.4.tgz#6ac4b55237463761c4daf0dc603eb869124744b1"
+
 diff@^3.2.0:
   version "3.5.0"
   resolved "https://registry.npmjs.org/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
@@ -11554,10 +11558,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@1.7.2:
-  version "1.7.2"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-1.7.2.tgz#c55ca6b34853fe9f22cb610c4e944a17d91e0cb4"
+vditor@1.7.8:
+  version "1.7.8"
+  resolved "https://registry.npmjs.org/vditor/-/vditor-1.7.8.tgz#ca17255434460b00f29a9739f6d7b4a0ace70daf"
   dependencies:
+    diff-match-patch "^1.0.4"
     echarts "^4.2.1"
     highlight.js "^9.15.9"
     katex "^0.10.2"
