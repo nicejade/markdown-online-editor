@@ -3,7 +3,7 @@
 <template>
   <div class="page-frame">
     <HeaderNav />
-    <main class="main-content">
+    <main id="main" class="main-content">
       <router-view></router-view>
     </main>
   </div>

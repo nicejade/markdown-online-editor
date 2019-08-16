@@ -86,7 +86,7 @@ export default {
 
   methods: {
     launchFullScreen() {
-      const element = document.documentElement
+      const element = document.getElementById('main')
       if (element.requestFullscreen) {
         element.requestFullscreen()
       } else if (element.msRequestFullscreen) {
