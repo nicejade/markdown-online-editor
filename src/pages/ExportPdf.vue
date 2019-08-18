@@ -23,7 +23,9 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    this.$utils.updateHtmlStyle()
+  },
 
   components: {},
 

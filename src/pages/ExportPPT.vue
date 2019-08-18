@@ -15,12 +15,10 @@
 </template>
 
 <script>
-import Vditor from 'vditor'
 import Reveal from 'reveal.js/js/reveal'
 import 'reveal.js/css/reset.css'
 import 'reveal.js/css/reveal.css'
 import 'reveal.js/css/theme/beige.css'
-import { debuglog } from 'util'
 
 export default {
   name: 'export-ppt',
@@ -32,6 +30,7 @@ export default {
   },
 
   created() {
+    this.$utils.updateHtmlStyle()
     this.savedMdContent = localStorage.getItem('vditorvditor')
   },
 

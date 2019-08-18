@@ -84,6 +84,12 @@ export default {
     return filename
   },
 
+  updateHtmlStyle() {
+    const htmlNode = document.querySelector('html')
+    htmlNode.style.overflow = 'auto'
+    htmlNode.style.height = 'auto'
+  },
+
   /* -----------------------------localStorage------------------------------------ */
   /*
    * set localStorage
