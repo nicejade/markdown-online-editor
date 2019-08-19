@@ -12,6 +12,7 @@ import Vditor from 'vditor'
 import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
 import { toolbarConf } from '@config/constant'
+import { debuglog } from 'util';
 
 export default {
   name: 'index-page',
@@ -58,7 +59,7 @@ export default {
     },
     setDefaultText() {
       const savedValue = this.vditor.getValue()
-      if (!savedValue) {
+      if (!savedValue.trim()) {
         this.vditor.insertValue(defaultText)
       }
     }
