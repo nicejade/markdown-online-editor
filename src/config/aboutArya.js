@@ -9,9 +9,6 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 **背景初衷**：早期就有关注到由[黑客派](https://hacpai.com/?utm_source=markdown.lovejade.cn&pid=about-arya)所出品的 [Vditor](https://hacpai.com/tag/vditor?utm_source=markdown.lovejade.cn&pid=about-arya)：一款为未来而构建的下一代 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=markdown.lovejade.cn&pid=about-arya) 编辑器。然，现而今市面上所存在的 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=markdown.lovejade.cn) 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://hacpai.com/tag/vditor?utm_source=markdown.lovejade.cn) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?utm_source=github.com) 的念头；取其名曰 [\`Arya\`（二丫）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=markdown.lovejade.cn)。
 
 <div align="center">
-  <a href="https://circleci.com/gh/nicejade/markdown-online-editor">
-    <img src="https://circleci.com/gh/nicejade/markdown-online-editor/tree/master.svg?style=svg" alt="Build Status">
-  </a>
   <a href="https://nodejs.org/en/">
     <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="node version">
   </a>
@@ -49,6 +46,7 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 - [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [x] ✨ 升级 Vditor，新增对 \`echarts\` 图表的支持；
+- [x] ✨ 注入 [RevealJs](https://revealjs.com/#/)，增设对 \`PPT\` 预览支持；
 - [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
 - [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；

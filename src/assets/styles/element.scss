@@ -1,3 +1,13 @@
 .el-message {
   z-index: $el-message-zindex !important;
 }
+.el-dropdown-menu__item {
+  a {
+    color: #606266;
+  }
+}
+.el-dropdown-menu__item.is-disabled {
+  a {
+    color: #bbbbbb;
+  }
+}

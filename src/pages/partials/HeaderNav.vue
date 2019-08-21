@@ -3,10 +3,13 @@
 <template>
   <section class="header-wrapper">
     <h1 class="header-area">
-      <router-link to="/?markdown.lovejade.cn&pid=main-title" class="header-link">
+      <a
+        href="https://markdown.lovejade.cn/?markdown.lovejade.cn&pid=main-title"
+        class="header-link"
+      >
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
-      </router-link>
+      </a>
       <div class="button-group">
         <a href="https://aboutme.lovejade.cn/?markdown.lovejade.cn&pid=header" class="header-link">
           <span class="hint--bottom" aria-label="关于作者">
@@ -33,31 +36,39 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item disabled>
               <icon class="dropdown-icon" name="set-style" />
-              <span class="dropdown-text">自定义样式</span>
+              <a href="/export/jpeg" target="_self" class="dropdown-text">自定义样式</a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/png" divided>
               <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">{{ exportTextMap['/export/png'] }}</span>
+              <a href="/export/png" target="_self" class="dropdown-text">{{
+                exportTextMap['/export/png']
+              }}</a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/jpeg">
               <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">{{ exportTextMap['/export/jpeg'] }}</span>
+              <a href="/export/jpeg" target="_self" class="dropdown-text">{{
+                exportTextMap['/export/jpeg']
+              }}</a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/pdf">
               <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">{{ exportTextMap['/export/pdf'] }}</span>
+              <a href="/export/pdf" target="_self" class="dropdown-text">{{
+                exportTextMap['/export/pdf']
+              }}</a>
             </el-dropdown-item>
-            <el-dropdown-item command="/export/ppt">
-              <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">{{ exportTextMap['/export/ppt'] }}</span>
+            <el-dropdown-item command="/export/ppt" divided>
+              <icon class="dropdown-icon" name="preview" />
+              <a href="/export/ppt" target="_blank" class="dropdown-text">{{
+                exportTextMap['/export/ppt']
+              }}</a>
             </el-dropdown-item>
-            <el-dropdown-item command="export-html" disabled divided>
+            <el-dropdown-item command="/export/html" disabled divided>
               <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">导出 HTML</span>
+              <a href="/export/html" target="_self" class="dropdown-text">导出 HTML</a>
             </el-dropdown-item>
-            <el-dropdown-item disabled divided>
+            <el-dropdown-item command="/export/wechat" disabled divided>
               <icon class="dropdown-icon" name="download" />
-              <span class="dropdown-text">导出公众号</span>
+              <a href="/export/wechat" target="_self" class="dropdown-text">导出公众号</a>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
