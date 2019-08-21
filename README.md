@@ -48,6 +48,7 @@
 - [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [x] ✨ 升级 Vditor，新增对 `echarts` 图表的支持；
+- [x] ✨ 注入 [RevealJs](https://revealjs.com/#/)，增设对 `PPT` 预览支持；
 - [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
 - [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
@@ -55,6 +56,10 @@
 ## 如何使用
 
 清空目前 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 编辑区默认文档，即可使用。
+
+### PPT 预览
+
+如果您用作 `PPT` 预览（入口在`设置`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 `---` 来定义水平方向上幻灯片，用 `--` 来定义垂直幻灯片；更多设定可以参见 [RevealJs 文档](https://github.com/hakimel/reveal.js#table-of-contents)。
 
 ## 如何开发
 
