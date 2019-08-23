@@ -7754,9 +7754,9 @@ micromatch@^4.0.2:
     braces "^3.0.1"
     picomatch "^2.0.5"
 
-"midi@git+https://github.com/paulrosen/MIDI.js.git#abcjs":
+"midi@https://github.com/paulrosen/MIDI.js.git#abcjs":
   version "0.4.2"
-  resolved "git+https://github.com/paulrosen/MIDI.js.git#e593ffef81a0350f99448e3ab8111957145ff6b2"
+  resolved "https://github.com/paulrosen/MIDI.js.git#e593ffef81a0350f99448e3ab8111957145ff6b2"
 
 miller-rabin@^4.0.0:
   version "4.0.1"
@@ -11568,9 +11568,9 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@1.7.9:
-  version "1.7.9"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-1.7.9.tgz#edd98509a35e8ea66eddbb0c7124dbacd89d0c61"
+vditor@1.7.15:
+  version "1.7.15"
+  resolved "https://registry.npmjs.org/vditor/-/vditor-1.7.15.tgz#7b6681b115eff7bd9a04358482851006d0bd6a03"
   dependencies:
     abcjs "^5.8.0"
     diff-match-patch "^1.0.4"
