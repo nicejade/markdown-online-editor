@@ -7,6 +7,9 @@ arya.config.js
 # package-lock
 package-lock.json
 
+# ignore json
+size-plugin.json
+
 # local env files
 .env.local
 .env.*.local
