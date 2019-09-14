@@ -12,7 +12,6 @@ import Vditor from 'vditor'
 import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
 import { toolbarConf } from '@config/constant'
-import { debuglog } from 'util'
 
 export default {
   name: 'index-page',
@@ -25,7 +24,9 @@ export default {
     }
   },
 
-  created() {},
+  created() {
+    this.setDefaultText()
+  },
 
   components: {
     HeaderNav
@@ -55,12 +56,11 @@ export default {
       }
       this.vditor = new Vditor('vditor', options)
       this.vditor.focus()
-      this.setDefaultText()
     },
     setDefaultText() {
-      const savedValue = this.vditor.getValue()
-      if (!savedValue.trim()) {
-        this.vditor.insertValue(defaultText)
+      const savedMdContent = localStorage.getItem('vditorvditor')
+      if (!savedMdContent.trim()) {
+        localStorage.setItem('vditorvditor', defaultText)
       }
     }
   }
