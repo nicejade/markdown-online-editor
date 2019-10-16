@@ -2,7 +2,7 @@
 
 <template>
   <div class="about-arya" v-loading="isLoading">
-    <div id="arya-vditor" />
+    <div id="j-preview-vditor" />
   </div>
 </template>
 
@@ -25,12 +25,7 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$nextTick(async () => {
-      const vditorTextarea = document.getElementsByClassName('vditor-textarea')
-      vditorTextarea[0].style.display = 'none'
-      await this.vditor.getHTML(true)
-      this.isLoading = false
-    })
+    this.$utils.hideVditorTextarea()
   },
 
   methods: {
@@ -43,8 +38,11 @@ export default {
           show: true
         }
       }
-      this.vditor = new Vditor('arya-vditor', options)
+      this.vditor = new Vditor('j-preview-vditor', options)
       this.vditor.setValue(AboutAryaMd)
+      this.$nextTick(() => {
+        this.isLoading = false
+      })
     }
   }
 }
@@ -57,7 +55,7 @@ export default {
   min-height: 100vh;
   background-color: $white;
   @include flex-box-center(column);
-  #arya-vditor {
+  #j-preview-vditor {
     max-width: 960px;
     height: 100%;
     min-height: 100vh;
@@ -81,7 +79,7 @@ export default {
 
 @media (max-width: 768px) {
   .about-arya {
-    #arya-vditor {
+    #j-preview-vditor {
       width: 100% !important;
       margin: 0 !important;
     }

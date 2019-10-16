@@ -31,12 +31,7 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$nextTick(async () => {
-      const vditorTextarea = document.getElementsByClassName('vditor-textarea')
-      vditorTextarea[0].style.display = 'none'
-      await this.vditor.getHTML(true)
-      this.isLoading = false
-    })
+    this.$utils.hideVditorTextarea()
   },
 
   methods: {
@@ -52,6 +47,9 @@ export default {
       this.vditor = new Vditor('export-vditor', options)
       const savedMdContent = localStorage.getItem('vditorvditor')
       this.vditor.setValue(savedMdContent)
+      this.$nextTick(() => {
+        this.isLoading = false
+      })
     },
     exportAndDownloadPdf(element, filename) {
       const scale = window.devicePixelRatio

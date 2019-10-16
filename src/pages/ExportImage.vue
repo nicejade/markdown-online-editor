@@ -6,7 +6,7 @@
       <el-button round @click="onBackToMainPage">返回主页</el-button>
       <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
     </div>
-    <div id="export-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
+    <div id="j-preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
   </div>
 </template>
 
@@ -31,13 +31,10 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$nextTick(async () => {
-      const vditorTextarea = document.getElementsByClassName('vditor-textarea')
-      vditorTextarea[0].style.display = 'none'
-      await this.vditor.getHTML(true)
-      this.isLoading = false
-    })
+    this.$utils.hideVditorTextarea()
   },
+
+  updated() {},
 
   methods: {
     initVditor() {
@@ -49,9 +46,12 @@ export default {
           show: true
         }
       }
-      this.vditor = new Vditor('export-vditor', options)
+      this.vditor = new Vditor('j-preview-vditor', options)
       const savedMdContent = localStorage.getItem('vditorvditor')
       this.vditor.setValue(savedMdContent)
+      this.$nextTick(() => {
+        this.isLoading = false
+      })
     },
     async exportAndDownloadImg(element, filename) {
       const canvas = await generateScreenshot(element)
@@ -78,4 +78,8 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#j-preview-vditor {
+  width: 100%;
+}
+</style>
