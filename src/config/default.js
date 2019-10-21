@@ -52,13 +52,17 @@ export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 
 [Arya](https://markdown.lovejade.cn/)，是一款基于 \`Vue\`、\`Vditor\`，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
 
->**微注**：清空目前这份默认文档，即处于可使用态。[Arya](https://markdown.lovejade.cn/) 另一大优点在于：编辑内容只会在您本地进行保存，不会上传您的数据至服务器，**绝不窥测用户个人隐私，可放心使用**；Github 源码：[markdown-online-editor](https://github.com/nicejade/markdown-online-editor)，部分功能仍在开发🚧，敬请期待。
+---
 
-------
+**微注**：清空目前这份默认文档，即处于可使用态。[Arya](https://markdown.lovejade.cn/) 另一大优点在于：编辑内容只会在您本地进行保存，不会上传您的数据至服务器，**绝不窥测用户个人隐私，可放心使用**；Github 源码：[markdown-online-editor](https://github.com/nicejade/markdown-online-editor)，部分功能仍在开发🚧，敬请期待。
+
+---
 
 ## 什么是 Markdown
 
 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=markdown.lovejade.cn) 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号，以最小的输入代价，生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，**粗体**、*斜体* 或者[超文本链接](https://vue-cli3.lovejade.cn/explore/)，更棒的是，它还可以：
+
+---
 
 ### 1. 制作待办事宜 \`Todo\` 列表
 
@@ -75,9 +79,15 @@ export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 - [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
 - [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
 
+---
+
 ### 2. 书写一个质能守恒公式[^LaTeX]
 
-$$E=mc^2$$
+$$
+E=mc^2
+$$
+
+---
 
 ### 3. 高亮一段代码[^code]
 
@@ -157,5 +167,5 @@ ${echartsDemoJsonStr}
 
 总而言之，不同于其它*所见即所得*的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 \`GitHub\` 和 技术问答网站 \`StackOverFlow\` 的御用书写格式，而且越发流行，正在在向各行业渗透。
 
-最新更新于 2019.07.13
+最新更新于 2019.08.21
 `

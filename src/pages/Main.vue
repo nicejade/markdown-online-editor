@@ -34,8 +34,7 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$nextTick(async () => {
-      await this.vditor.getHTML(true)
+    this.$nextTick(() => {
       this.isLoading = false
     })
   },
@@ -49,6 +48,7 @@ export default {
         height: '0',
         tab: '\t',
         counter: '999999',
+        typewriterMode: true,
         preview: {
           delay: 100,
           show: !this.isMobile

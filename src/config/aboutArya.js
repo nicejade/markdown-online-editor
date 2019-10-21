@@ -53,7 +53,9 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 
 ### 2. 书写一个质能守恒公式[^LaTeX]
 
-$$E=mc^2$$
+$$
+E=mc^2
+$$
 
 ### 3. 高亮一段代码[^code]
 
