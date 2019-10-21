@@ -106,6 +106,7 @@ export default {
       const vditorTextarea = document.getElementsByClassName('vditor-textarea')
       if (vditorTextarea && vditorTextarea[0]) {
         vditorTextarea[0].style.display = 'none'
+        mutationObserver.disconnect()
       }
     })
     mutationObserver.observe(exportVditorNode, option)

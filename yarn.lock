@@ -6343,9 +6343,9 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-katex@^0.10.2:
-  version "0.10.2"
-  resolved "https://registry.npmjs.org/katex/-/katex-0.10.2.tgz#39973edbb65eda5b6f9e7f41648781e557dd4932"
+katex@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.npmjs.org/katex/-/katex-0.11.1.tgz#df30ca40c565c9df01a466a00d53e079e84ffaa2"
   dependencies:
     commander "^2.19.0"
 
@@ -10374,15 +10374,15 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "http://r.cnpmjs.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@1.8.5:
-  version "1.8.5"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-1.8.5.tgz#311d07dc73477b258e5a02d4c1a8d8a3b67b2a9c"
+vditor@1.9.0:
+  version "1.9.0"
+  resolved "https://registry.npmjs.org/vditor/-/vditor-1.9.0.tgz#e71b7cf5c23588cee0a7b5288748ddb56db361b3"
   dependencies:
     abcjs "^5.8.0"
     diff-match-patch "^1.0.4"
     echarts "^4.2.1"
     highlight.js "^9.15.9"
-    katex "^0.10.2"
+    katex "^0.11.0"
     mermaid "^8.2.3"
     turndown "^5.0.3"
 
