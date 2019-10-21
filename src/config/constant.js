@@ -37,6 +37,9 @@ export const toolbarConf = [
   // 'record',
   // 'fullscreen',
   // 'info',
+  'both',
   'preview',
+  'format',
+  'devtools',
   'help'
 ]
