@@ -6,7 +6,7 @@
       <el-button round @click="onBackToMainPage">返回主页</el-button>
       <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
     </div>
-    <div id="export-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
+    <div id="j-preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
   </div>
 </template>
 
@@ -44,7 +44,7 @@ export default {
           show: true
         }
       }
-      this.vditor = new Vditor('export-vditor', options)
+      this.vditor = new Vditor('j-preview-vditor', options)
       const savedMdContent = localStorage.getItem('vditorvditor')
       this.vditor.setValue(savedMdContent)
       this.$nextTick(() => {

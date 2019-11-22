@@ -44,7 +44,8 @@ body {
     border: 0;
   }
   .vditor-preview {
-    padding: 0 20px;
+    padding: 3 * $size-factor;
+    margin: 3 * $size-factor;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   }
   .vditor-reset h1 {
@@ -62,4 +63,8 @@ body {
       padding: 0 10px;
     }
   }
+}
+
+#j-preview-vditor {
+  text-align: left;
 }
