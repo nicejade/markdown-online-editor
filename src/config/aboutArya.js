@@ -47,9 +47,9 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [x] ✨ 升级 Vditor，新增对 \`echarts\` 图表的支持；
 - [x] ✨ 注入 [RevealJs](https://revealjs.com/#/)，增设对 \`PPT\` 预览支持；
-- [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
-- [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
-- [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
+- [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
+- [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
+- [ ] 🚧 增加对**所见即所得**编辑模式的支持(开发中)；
 
 ### 2. 书写一个质能守恒公式[^LaTeX]
 
@@ -156,11 +156,15 @@ gantt
 
 | 作品名称        | 在线地址   |  上线日期  |
 | :--------  | :-----  | :----:  |
-| 倾城之链 | [https://nicelinks.site](https://nicelinks.site/??utm_source=markdown.lovejade.cn) |2017-09-20|
-| 晚晴幽草轩 | [https://jeffjade.com](https://jeffjade.com/??utm_source=markdown.lovejade.cn) |2014-09-20|
-| 静轩之别苑 | [http://quickapp.lovejade.cn](http://quickapp.lovejade.cn/??utm_source=markdown.lovejade.cn) |2019-01-12|
+| 倾城之链 | [https://nicelinks.site](https://nicelinks.site/?utm_source=markdown.lovejade.cn) |2017-09-20|
+| 晚晴幽草轩 | [https://jeffjade.com](https://jeffjade.com/?utm_source=markdown.lovejade.cn) |2014-09-20|
+| 静轩之别苑 | [http://quickapp.lovejade.cn](http://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn) |2019-01-12|
 
-### 8. 更详细语法说明
+### 8. 支持部分站点、视频、音频解析
+
+[飞雪连天射白鹿，笑书神侠倚碧鸳](https://img.hacpai.com/file/2018/11/-97d5cec5.mp4)
+
+### 9. 更详细语法说明
 
 想要查看更详细的语法说明，可以参考这份 [Markdown 资源列表](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md)，涵盖入门至进阶教程，以及资源、平台等信息，能让您对她有更深的认知。
 

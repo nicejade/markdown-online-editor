@@ -75,9 +75,9 @@ export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 - [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [x] ✨ 升级 Vditor，新增对 \`echarts\` 图表的支持；
-- [ ] 🚧 支持转换 Markdown 到**微信特制的 HTML**；
-- [ ] 🚧 内置多种漂亮样式，并且支持用户**自定义**；
-- [ ] 🚧 支持检查并格式化 Markdown 语法，使其专业；
+- [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
+- [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
+- [ ] 🚧 增加对**所见即所得**编辑模式的支持(开发中)；
 
 ---
 
