@@ -189,10 +189,10 @@ export default {
       }
       .header-text {
         margin-left: 10px;
-        font-size: 20px;
+        font-size: $font-medium;
         color: transparent;
         background-clip: text;
-        background-image: linear-gradient(to bottom, #928dab, #1f1c2c);
+        background-image: linear-gradient(to right, #000000, #434343);
         vertical-align: middle;
       }
     }
