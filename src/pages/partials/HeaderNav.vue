@@ -4,14 +4,17 @@
   <section class="header-wrapper">
     <h1 class="header-area">
       <a
-        href="https://markdown.lovejade.cn/?markdown.lovejade.cn&pid=main-title"
+        href="https://markdown.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=main-title"
         class="header-link"
       >
         <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </a>
       <div class="button-group">
-        <a href="https://aboutme.lovejade.cn/?markdown.lovejade.cn&pid=header" class="header-link">
+        <a
+          href="https://aboutme.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+        >
           <span class="hint--bottom" aria-label="关于作者">
             <icon class="header-icon" name="author" />
           </span>
@@ -21,7 +24,20 @@
             <icon class="header-icon" name="document" />
           </span>
         </router-link>
-        <a href="https://github.lovejade.cn/?markdown.lovejade.cn&pid=header" class="header-link">
+        <a
+          href="https://www.lovejade.cn/zh/works/?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="hint--bottom" aria-label="更多推荐">
+            <icon class="header-icon" name="recommend" />
+          </span>
+        </a>
+        <a
+          href="https://github.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+        >
           <span class="hint--bottom" aria-label="作者 Github">
             <icon class="header-icon" name="github" />
           </span>
