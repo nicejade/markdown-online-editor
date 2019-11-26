@@ -113,7 +113,7 @@ export default {
 
   methods: {
     launchFullScreen() {
-      const element = document.getElementById('main')
+      const element = document.getElementById('vditor')
       if (element.requestFullscreen) {
         element.requestFullscreen()
       } else if (element.msRequestFullscreen) {
