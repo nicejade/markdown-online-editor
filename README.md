@@ -6,16 +6,13 @@
 
 <div align="center">
   <strong>
-    📝 基于 <a href="https://nicelinks.site/post/5b1a221c0526c920d6dfaada">Vue</a>、<a href="https://hacpai.com/tag/vditor?utm_source=github.com">Vditor</a>，所构建的在线 <a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com">Markdown</a> 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?utm_source=github.com">markdown.lovejade.cn</a>
+    📝 基于 <a href="https://nicelinks.site/post/5b1a221c0526c920d6dfaada">Vue</a>、<a href="https://hacpai.com/tag/vditor?utm_source=github.com">Vditor</a>，所构建的在线 <a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com">Markdown</a> 编辑器，支持绘制流程图、甘特图、时序图、任务列表、echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?utm_source=github.com">markdown.lovejade.cn</a>
   </strong>
 </div>
 
 <br>
 
 <div align="center">
-  <a href="https://nodejs.org/en/">
-    <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="Node Version">
-  </a>
   <a href="https://github.com/nicejade/markdown-online-editor">
     <img src="https://img.shields.io/github/license/nicejade/markdown-online-editor.svg" alt="LICENSE">
   </a>
@@ -24,6 +21,12 @@
   </a>
   <a href="https://www.jeffjade.com/2019/05/31/155-arya-markdown-online-editor/">
     <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Arya - 在线 Markdown 编辑器">
+  </a>
+  <a href="https://v2ex.com/t/623128">
+   <img src="https://img.shields.io/badge/Chat-on%20v2ex-brightgreen.svg" alt="Chat On V2ex">
+  </a>
+  <a href="https://hacpai.com/article/1558270349379">
+   <img src="https://img.shields.io/badge/Chat-on%20hacpai-brightgreen.svg" alt="Chat On Hacpai">
   </a>
   <a href="https://weibo.com/aryamarkdown">
     <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Arya - 在线 Markdown 编辑器">
@@ -79,6 +82,10 @@ yarn deploy
 ```
 
 >关于本应用构建：因采用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 以解决 SPA SEO 问题，故而，您需要在根目录下创建 `arya.config.js`，根据 *arya.config.sample.js* 中示例格式，来设定 `executablePath` 参数，从而指定插件中捆绑的 **Chromium** 所在目录，使得 `prerender-spa-plugin` 可以正常工作。更多详情，可以参见 [Puppeteer 安装注意事项](https://www.jeffjade.com/2019/06/14/156-puppeteer-robot/#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85)。
+
+## 特别鸣谢
+
+[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [vditor](https://github.com/b3log/vditor)：一款浏览器端的 Md 编辑器，同时也离不开 [vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
 ## 相关链接
 
