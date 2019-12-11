@@ -93,7 +93,7 @@ export default {
       this.vditor.focus()
     },
     setDefaultText() {
-      const savedMdContent = localStorage.getItem('vditorvditor')
+      const savedMdContent = localStorage.getItem('vditorvditor') || ''
       if (!savedMdContent.trim()) {
         localStorage.setItem('vditorvditor', defaultText)
       }
