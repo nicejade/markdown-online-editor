@@ -41,6 +41,7 @@ export default {
 
   methods: {
     initVditor() {
+      const that = this
       const options = {
         cache: true,
         toolbar: toolbarConf,
@@ -52,6 +53,40 @@ export default {
         preview: {
           delay: 100,
           show: !this.isMobile
+        },
+        upload: {
+          max: 5 * 1024 * 1024,
+          // linkToImgUrl: 'https://sm.ms/api/upload',
+          handler(file) {
+            let formData = new FormData()
+            for (let i in file) {
+              formData.append('smfile', file[i])
+            }
+            let request = new XMLHttpRequest()
+            request.open('POST', 'https://sm.ms/api/upload')
+            request.onload = oEvent => {
+              let currentTarget = oEvent.currentTarget
+              if (currentTarget.status !== 200) {
+                alert(currentTarget.status + ' ' + currentTarget.statusText, { icon: 2 })
+                return ''
+              }
+              let json = JSON.parse(currentTarget.response)
+              // json.code === 'image_repeated'
+              if (json.code === 'success' || json.success === true) {
+                let imgSuffixArr = ['.jpg', '.png', '.gif', '.jpeg', '.bmp']
+                let imgMdStr = '[' + json.data.filename + '](' + json.data.url + ')'
+                for (let j in imgSuffixArr) {
+                  const imgSuffix = json.data.url.substr(0 - imgSuffixArr[j].length)
+                  if (imgSuffix.toLocaleLowerCase() === imgSuffixArr[j]) {
+                    imgMdStr = '!' + imgMdStr
+                    break
+                  }
+                }
+                that.vditor.insertValue(imgMdStr)
+              }
+            }
+            request.send(formData)
+          }
         }
       }
       this.vditor = new Vditor('vditor', options)
