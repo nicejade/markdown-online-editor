@@ -81,7 +81,7 @@ yarn start
 yarn deploy
 ```
 
->关于本应用构建：因采用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 以解决 SPA SEO 问题，故而，您需要在根目录下创建 `arya.config.js`，根据 *arya.config.sample.js* 中示例格式，来设定 `executablePath` 参数，从而指定插件中捆绑的 **Chromium** 所在目录，使得 `prerender-spa-plugin` 可以正常工作。更多详情，可以参见 [Puppeteer 安装注意事项](https://www.jeffjade.com/2019/06/14/156-puppeteer-robot/#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85)。
+>关于本应用构建：因采用 [prerender-spa-plugin](https://github.com/chrisvfritz/prerender-spa-plugin) 以解决 SPA SEO 问题；考虑到蛮多情况下，会出现 [Chromium revision is not downloaded](https://github.com/nicejade/markdown-online-editor/issues/16) 问题；因此，本项目默认采取手动下载 `Chromium` 并加以使用的方案；您需要在根目录下创建 `arya.config.js`，根据 *arya.config.sample.js* 中示例格式，来设定 `executablePath` 参数，从而指定插件中捆绑的 **Chromium** 所在目录，使得 `prerender-spa-plugin` 可以正常工作。更多详情和解决办法，请参见 [#16](https://github.com/nicejade/markdown-online-editor/issues/16)。
 
 ## 特别鸣谢
 
