@@ -64,33 +64,36 @@ export default {
             }
             let request = new XMLHttpRequest()
             request.open('POST', 'https://sm.ms/api/upload')
-            request.onload = oEvent => {
-              let currentTarget = oEvent.currentTarget
-              if (currentTarget.status !== 200) {
-                alert(currentTarget.status + ' ' + currentTarget.statusText, { icon: 2 })
-                return ''
-              }
-              let json = JSON.parse(currentTarget.response)
-              // json.code === 'image_repeated'
-              if (json.code === 'success' || json.success === true) {
-                let imgSuffixArr = ['.jpg', '.png', '.gif', '.jpeg', '.bmp']
-                let imgMdStr = '[' + json.data.filename + '](' + json.data.url + ')'
-                for (let j in imgSuffixArr) {
-                  const imgSuffix = json.data.url.substr(0 - imgSuffixArr[j].length)
-                  if (imgSuffix.toLocaleLowerCase() === imgSuffixArr[j]) {
-                    imgMdStr = '!' + imgMdStr
-                    break
-                  }
-                }
-                that.vditor.insertValue(imgMdStr)
-              }
-            }
+            request.onload = that.onloadCallback
             request.send(formData)
           }
         }
       }
       this.vditor = new Vditor('vditor', options)
       this.vditor.focus()
+    },
+    onloadCallback(oEvent) {
+      const currentTarget = oEvent.currentTarget
+      if (currentTarget.status !== 200) {
+        return this.$message({
+          type: 'error',
+          message: currentTarget.status + ' ' + currentTarget.statusText
+        })
+      }
+      let resp = JSON.parse(currentTarget.response)
+      let imgMdStr = ''
+      if (resp.code === 'invalid_source') {
+        return this.$message({
+          type: 'error',
+          message: resp.message
+        })
+      }
+      if (resp.code === 'image_repeated') {
+        imgMdStr = `![](${resp.images})`
+      } else if (resp.code === 'success' || resp.success) {
+        imgMdStr = `![${resp.data.filename}](${resp.data.url})`
+      }
+      this.vditor.insertValue(imgMdStr)
     },
     setDefaultText() {
       const savedMdContent = localStorage.getItem('vditorvditor') || ''
