@@ -11,9 +11,11 @@ window.$appTitle = appTitle
 
 /* ------------------------Vue Global Variable------------------------------ */
 import { $utils, $document, $lodash } from '@helper'
+import { Message } from 'element-ui'
 Vue.prototype.$_ = $lodash
 Vue.prototype.$utils = $utils
 Vue.prototype.$document = $document
+Vue.prototype.$message = options => Message(options)
 
 /* ------------------------Vue Global Components------------------------------ */
 import { Button, Dropdown, DropdownMenu, DropdownItem, Loading } from 'element-ui'
