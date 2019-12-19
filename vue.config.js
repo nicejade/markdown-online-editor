@@ -4,8 +4,13 @@ const path = require('path')
 const fs = require('fs')
 const SizePlugin = require('size-plugin')
 const PrerenderSPAPlugin = new require('prerender-spa-plugin')
+const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
+
+if (isProductionEnvFlag) {
+  var { executablePath } = require('./arya.config.js')
+}
 
 function resolveRealPath(dir) {
   return path.join(__dirname, dir)
@@ -131,6 +136,10 @@ module.exports = {
         ? new PrerenderSPAPlugin({
             // Required - The path to the webpack-outputted app to prerender.
             staticDir: path.join(__dirname, 'dist'),
+            // Fixed: Chromium revision is not downloaded. https://github.com/chrisvfritz/prerender-spa-plugin/issues/263
+            renderer: new Renderer({
+              executablePath
+            }),
             // Required - Routes to render.
             routes: [
               '/',
