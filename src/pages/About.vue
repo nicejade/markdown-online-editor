@@ -33,6 +33,7 @@ export default {
       const options = {
         cache: false,
         width: '61.8%',
+        mode: 'markdown-show',
         preview: {
           delay: 1000,
           show: true

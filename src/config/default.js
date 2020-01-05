@@ -161,7 +161,27 @@ ${echartsDemoJsonStr}
 | 晚晴幽草轩 | [https://jeffjade.com](https://jeffjade.com/??utm_source=markdown.lovejade.cn) |2014-09-20|
 | 静轩之别苑 | [http://quickapp.lovejade.cn](http://quickapp.lovejade.cn/??utm_source=markdown.lovejade.cn) |2019-01-12|
 
-### 9. 更详细语法说明
+### 9. 支持五线谱
+
+\`\`\`abc
+X: 24
+T: Clouds Thicken
+C: Paul Rosen
+S: Copyright 2005, Paul Rosen
+M: 6/8
+L: 1/8
+Q: 3/8=116
+R: Creepy Jig
+K: Em
+|:"Em"EEE E2G|"C7"_B2A G2F|"Em"EEE E2G|\
+"C7"_B2A "B7"=B3|"Em"EEE E2G|
+"C7"_B2A G2F|"Em"GFE "D (Bm7)"F2D|\
+1"Em"E3-E3:|2"Em"E3-E2B|:"Em"e2e gfe|
+"G"g2ab3|"Em"gfeg2e|"D"fedB2A|"Em"e2e gfe|\
+"G"g2ab3|"Em"gfe"D"f2d|"Em"e3-e3:|
+\`\`\`
+
+### 10. 更详细语法说明
 
 想要查看更详细的语法说明，可以参考这份 [Markdown 资源列表](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md)，涵盖入门至进阶教程，以及资源、平台等信息，能让您对她有更深的认知。
 
