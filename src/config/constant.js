@@ -39,6 +39,11 @@ export const toolbarConf = [
   // 'info',
   'both',
   'preview',
+  {
+    hotkey: '⌘-⇧-m',
+    name: 'wysiwyg',
+    tipPosition: 'nw'
+  },
   'format',
   'devtools',
   'help'

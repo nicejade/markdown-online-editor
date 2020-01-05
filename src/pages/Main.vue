@@ -44,6 +44,7 @@ export default {
       const that = this
       const options = {
         cache: true,
+        mode: 'markdown-show',
         toolbar: toolbarConf,
         width: this.isMobile ? '100%' : '80%',
         height: '0',
