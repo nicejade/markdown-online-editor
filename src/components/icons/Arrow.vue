@@ -36,9 +36,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../assets/styles/style.less';
 .arrow-component {
-  border: 1px solid $brand;
+  border: 1px solid @brand;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 4px;

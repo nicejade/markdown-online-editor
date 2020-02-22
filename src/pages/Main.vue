@@ -105,16 +105,17 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../assets/styles/style.less';
 .index-page {
   width: 100%;
   height: 100%;
-  background-color: $white;
-  @include flex-box-center(column);
+  background-color: @white;
+  .flex-box-center(column);
   .vditor {
     position: absolute;
-    top: $header-height;
-    max-width: $max-body-width;
+    top: @header-height;
+    max-width: @max-body-width;
     width: 80%;
     height: calc(100vh - 100px);
     margin: 20px auto;

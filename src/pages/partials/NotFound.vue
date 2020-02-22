@@ -32,7 +32,7 @@ export default {
 }
 </script>
 
-<style type="text/css" lang="scss">
+<style type="text/css" lang="less">
 @keyframes error-404-animation {
   0% {
     transform: rotateZ(0deg);

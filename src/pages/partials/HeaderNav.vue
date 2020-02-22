@@ -151,7 +151,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../../assets/styles/style.less';
 [class*='hint--']:after {
   border-radius: 3px;
 }
@@ -159,8 +160,8 @@ export default {
   margin-top: 10px;
 }
 .el-dropdown .el-dropdown-link {
-  height: $header-height;
-  @include flex-box-center(column);
+  height: @header-height;
+  .flex-box-center(column);
 }
 
 .hint--bottom {
@@ -170,7 +171,7 @@ export default {
 .el-dropdown-menu {
   margin: 0;
   .dropdown-icon {
-    fill: $deep-black;
+    fill: @deep-black;
     vertical-align: middle;
     margin-right: 10px;
   }
@@ -182,30 +183,30 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  height: $header-height;
-  line-height: $header-height;
-  z-index: $hint-css-zindex;
+  height: @header-height;
+  line-height: @header-height;
+  z-index: @hint-css-zindex;
   background-color: #fff;
   box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.1);
   transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),
     background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   .header-area {
     width: 80%;
-    max-width: $max-body-width;
+    max-width: @max-body-width;
     height: 100%;
     margin: auto;
     text-align: left;
     .header-link {
       display: inline-flex;
-      height: $header-height;
-      line-height: $header-height;
+      height: @header-height;
+      line-height: @header-height;
       .mark-markdown {
-        width: $header-height;
+        width: @header-height;
         vertical-align: middle;
       }
       .header-text {
         margin-left: 10px;
-        font-size: $font-medium;
+        font-size: @font-medium;
         color: transparent;
         background-clip: text;
         background-image: linear-gradient(to right, #000000, #434343);
@@ -216,7 +217,7 @@ export default {
       float: right;
       .header-icon {
         margin: 0 10px;
-        fill: $deep-black;
+        fill: @deep-black;
       }
       .full-screen {
         margin-right: -10px;
@@ -231,7 +232,7 @@ export default {
       display: flex;
       width: 100%;
       padding: 0 10px;
-      @include flex-box-center(row, space-between);
+      .flex-box-center(row, space-between);
       .header-link {
         display: inline;
       }

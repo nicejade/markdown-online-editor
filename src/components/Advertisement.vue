@@ -55,9 +55,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../assets/styles/style.less';
 .advertisement-moudle {
-  margin-bottom: 6 * $size-factor;
+  margin-bottom: 6 * @size-factor;
   .text-center {
     text-align: center;
   }

@@ -11,12 +11,6 @@ function resolveRealPath(dir) {
   return path.join(__dirname, dir)
 }
 
-function loadGlobalStyles() {
-  const variables = fs.readFileSync('src/assets/styles/variables.scss', 'utf-8')
-  const mixins = fs.readFileSync('src/assets/styles/mixins.scss', 'utf-8')
-  return variables + mixins
-}
-
 // https://github.com/vuejs/vue-docs-zh-cn/blob/master/vue-cli/config.md
 module.exports = {
   // Project deployment base
@@ -47,15 +41,6 @@ module.exports = {
 
   // generate sourceMap for production build?
   productionSourceMap: process.env.NODE_ENV !== 'production',
-
-  // https://github.com/vuejs/vue-cli/blob/dev/docs/css.md (#Need to put the top)
-  css: {
-    loaderOptions: {
-      sass: {
-        data: loadGlobalStyles()
-      }
-    }
-  },
 
   // tweak internal webpack configuration.
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md

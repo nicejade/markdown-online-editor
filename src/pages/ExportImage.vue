@@ -78,7 +78,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 #j-preview-vditor {
   width: 100%;
 }

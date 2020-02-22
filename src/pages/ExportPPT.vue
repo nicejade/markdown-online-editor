@@ -76,7 +76,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 .export-ppt {
   width: 100%;
   .reveal {

@@ -26,7 +26,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../../assets/styles/style.less';
 .page-frame {
   height: 100%;
   width: 100%;
@@ -35,7 +36,7 @@ export default {
   .main-content {
     flex: 1;
     display: flex;
-    margin-top: $header-height;
+    margin-top: @header-height;
   }
 }
 </style>

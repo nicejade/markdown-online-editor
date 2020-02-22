@@ -10,7 +10,7 @@
 }
 
 a {
-  color: $brand;
+  color: @brand;
   text-decoration: none;
 }
 
@@ -24,8 +24,8 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: $white;
-  @include flex-box-center(column);
+  background-color: @white;
+  .flex-box-center(column);
   .button-group {
     width: 100%;
     margin: 20px auto;
@@ -44,8 +44,8 @@ body {
     border: 0;
   }
   .vditor-preview {
-    padding: 3 * $size-factor;
-    margin: 3 * $size-factor;
+    padding: 3 * @size-factor;
+    margin: 3 * @size-factor;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   }
   .vditor-reset h1 {

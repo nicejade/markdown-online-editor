@@ -7,7 +7,7 @@
  2. The use of `table` rather than `block` is only necessary if using
     `:before` to contain the top-margins of child elements.
  Source: http://nicolasgallagher.com/micro-clearfix-hack */
-@mixin clearfix() {
+.clearfix() {
   &:before,
   &:after {
     content: ' ';
@@ -19,49 +19,49 @@
 }
 
 // （Responsive image）Keep images from scaling beyond the width of their parents.
-@mixin img-responsive($display: block) {
-  display: $display;
+.img-responsive(@display: block) {
+  display: @display;
   max-width: 100%;
   height: auto;
 }
 
 // Resize anything
-@mixin resizable($direction) {
-  resize: $direction;
+.resizable(@direction) {
+  resize: @direction;
   overflow: auto;
 }
 
 // Text overflow
 // Requires inline-block or block for proper styling
-@mixin text-overflow() {
+.text-overflow() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 // Center-align a block level element
-@mixin center-block() {
+.center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-@mixin absolute-center() {
+.absolute-center() {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin fixed-center() {
+.fixed-center() {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-@mixin flex-box-center($direction: row, $justify: center, $align-items: center) {
-  flex-direction: $direction;
+.flex-box-center(@direction: row, @justify: center, @align-items: center) {
+  flex-direction: @direction;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -70,10 +70,10 @@
   -webkit-box-align: center;
   -moz-box-align: center;
   -ms-box-align: center;
-  -webkit-align-items: $align-items;
-  -ms-align-items: $align-items;
-  align-items: $align-items;
+  -webkit-align-items: @align-items;
+  -ms-align-items: @align-items;
+  align-items: @align-items;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  justify-content: $justify;
+  justify-content: @justify;
 }

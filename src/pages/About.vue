@@ -48,13 +48,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../assets/styles/style.less';
 .about-arya {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: $white;
-  @include flex-box-center(column);
+  background-color: @white;
+  .flex-box-center(column);
   #j-preview-vditor {
     max-width: 960px;
     height: 100%;

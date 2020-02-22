@@ -33,9 +33,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
+@import './../assets/styles/style.less';
 .svg-icon {
-  width: $font-medium;
-  height: $font-medium;
+  width: @font-medium;
+  height: @font-medium;
 }
 </style>

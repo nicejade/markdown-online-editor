@@ -14,10 +14,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="less">
 @import './assets/styles/element/index.css';
-@import './assets/styles/style.scss';
-@import '~vditor/src/assets/scss/classic';
+@import './assets/styles/style.less';
+@import '~vditor/dist/index.classic.css';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
