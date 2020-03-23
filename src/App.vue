@@ -17,7 +17,7 @@ export default {
 <style lang="less">
 @import './assets/styles/element/index.css';
 @import './assets/styles/style.less';
-@import '~vditor/dist/index.classic.css';
+@import '~vditor/dist/index.css';
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
