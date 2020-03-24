@@ -50,11 +50,23 @@ const echartsDemoJsonStr = JSON.stringify(echartsConf, null, 2)
 
 export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 
-[Arya](https://markdown.lovejade.cn/)，是一款基于 \`Vue\`、\`Vditor\`，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
+[Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn)，是一款基于 \`Vue\`、\`Vditor\`，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
 
 ---
 
-**微注**：清空目前这份默认文档，即处于可使用态。[Arya](https://markdown.lovejade.cn/) 另一大优点在于：编辑内容只会在您本地进行保存，不会上传您的数据至服务器，**绝不窥测用户个人隐私，可放心使用**；Github 源码：[markdown-online-editor](https://github.com/nicejade/markdown-online-editor)，部分功能仍在开发🚧，敬请期待。
+## 如何使用
+
+**微注**：清空目前这份默认文档，即处于可使用态。[Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn) 另一大优点在于：编辑内容只会在您本地进行保存，不会上传您的数据至服务器，**绝不窥测用户个人隐私，可放心使用**；Github 源码：[markdown-online-editor](https://github.com/nicejade/markdown-online-editor)，部分功能仍在开发🚧，敬请期待。
+
+默认为[所见即所得](https://hacpai.com/article/1577370404903?utm_source=github.com)模式，可通过 \`⌘-⇧-M\`（\`Ctrl-⇧-M\`）进行切换；或通过以下方式：
+- 所见即所得：\`⌘-⌥-7\`（\`Ctrl-alt-7\`）；
+- 即时渲染：\`⌘-⌥-8\`（\`Ctrl-alt-8\`）；
+- 分屏渲染：\`⌘-⌥-9\`（\`Ctrl-alt-9\`）；
+
+### PPT 预览
+
+如果您用作 \`PPT\` 预览（入口在\`设置\`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 \`---\` 来定义水平方向上幻灯片，用 \`--\` 来定义垂直幻灯片；更多设定可以参见 [RevealJs 文档](https://github.com/hakimel/reveal.js#table-of-contents)。
+
 
 ---
 
@@ -77,7 +89,7 @@ export default `# 欢迎使用 \`Arya\` 在线 Markdown 编辑器
 - [x] ✨ 升级 Vditor，新增对 \`echarts\` 图表的支持；
 - [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
 - [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
-- [ ] 🚧 增加对**所见即所得**编辑模式的支持(开发中)；
+- [x] 🌟 增加对**所见即所得**编辑模式的支持(\`⌘-⇧-M\`)；
 
 ---
 
