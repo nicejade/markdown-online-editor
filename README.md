@@ -48,17 +48,22 @@
 - [x] 💃🏻 支持插入原生 Emoji、设置常用表情列表；
 - [x] 🚑 支持编辑内容保存**本地存储**，防止意外丢失；
 - [x] 📝 支持**实时预览**，主窗口大小拖拽，字符计数；
-- [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制
+- [x] 🛠 支持常用快捷键(**Tab**)，及代码块添加复制；
 - [x] ✨ 支持**导出**携带样式的 PDF、PNG、JPEG 等；
 - [x] ✨ 升级 Vditor，新增对 `echarts` 图表的支持；
 - [x] ✨ 注入 [RevealJs](https://revealjs.com/#/)，增设对 `PPT` 预览支持；
 - [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
 - [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
-- [ ] 🚧 增加对**所见即所得**编辑模式的支持(开发中)；
+- [x] 🌟 增加对**所见即所得**编辑模式的支持(`⌘-⇧-M`)；
 
 ## 如何使用
 
 清空目前 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 编辑区默认文档，即可使用。
+
+默认为[所见即所得](https://hacpai.com/article/1577370404903?utm_source=github.com)模式，可通过 `⌘-⇧-M`（`Ctrl-⇧-M`）进行切换；或通过以下方式：
+- 所见即所得：`⌘-⌥-7`（`Ctrl-alt-7`）；
+- 即时渲染：`⌘-⌥-8`（`Ctrl-alt-8`）；
+- 分屏渲染：`⌘-⌥-9`（`Ctrl-alt-9`）；
 
 ### PPT 预览
 
