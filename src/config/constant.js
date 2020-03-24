@@ -8,38 +8,3 @@ export const exportTextMap = {
   '/export/pdf': '导出 PDF',
   '/export/ppt': 'PPT 预览'
 }
-
-export const toolbarConf = [
-  'emoji',
-  'headings',
-  'bold',
-  'italic',
-  'strike',
-  'line',
-  'quote',
-  'list',
-  'ordered-list',
-  'check',
-  'code',
-  'inline-code',
-  'undo',
-  'redo',
-  'upload',
-  'link',
-  {
-    hotkey: '⌘-m',
-    name: 'table',
-    prefix: '| 左对齐',
-    suffix: ' | 居中 | 右对齐 |\n| :--- | :---: | ---: |\n| TODO | DOING | DONE |\n|  |  |  |',
-    tipPosition: 'n'
-  },
-  // 'table',
-  // 'record',
-  // 'fullscreen',
-  // 'info',
-  'both',
-  'preview',
-  'format',
-  'devtools',
-  'help'
-]
