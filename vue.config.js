@@ -1,7 +1,6 @@
 /** @format */
 
 const path = require('path')
-const fs = require('fs')
 const SizePlugin = require('size-plugin')
 const PrerenderSPAPlugin = new require('prerender-spa-plugin')
 
@@ -125,6 +124,9 @@ module.exports = {
               '/export/jpeg',
               '/export/ppt'
             ],
+            render: new PrerenderSPAPlugin.PuppeteerRenderer({
+              renderAfterTime: 3000
+            }),
             minify: {
               collapseWhitespace: true,
               keepClosingSlash: true,
