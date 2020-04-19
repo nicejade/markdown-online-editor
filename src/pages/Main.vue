@@ -42,12 +42,12 @@ export default {
     initVditor() {
       const that = this
       const options = {
-        cache: true,
         width: this.isMobile ? '100%' : '80%',
         height: '0',
         tab: '\t',
         counter: '999999',
         typewriterMode: true,
+        mode: 'sv',
         preview: {
           delay: 100,
           show: !this.isMobile
