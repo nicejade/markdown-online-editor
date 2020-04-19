@@ -6,53 +6,35 @@
       <el-button round @click="onBackToMainPage">返回主页</el-button>
       <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
     </div>
-    <div id="j-preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
+    <PreviewVditor :pdata="pdata" />
   </div>
 </template>
 
 <script>
-import Vditor from 'vditor'
 import { generateScreenshot } from '@helper/export'
+import PreviewVditor from '@components/PreviewVditor'
 
 export default {
   name: 'export-image',
 
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      pdata: localStorage.getItem('vditorvditor')
     }
   },
 
-  created() {
-    this.$utils.updateHtmlStyle()
+  created() {},
+
+  components: {
+    PreviewVditor
   },
 
-  components: {},
-
-  mounted() {
-    this.initVditor()
-    this.$utils.hideVditorTextarea()
-  },
+  mounted() {},
 
   updated() {},
 
   methods: {
-    initVditor() {
-      const options = {
-        cache: false,
-        width: '61.8%',
-        preview: {
-          delay: 1000,
-          show: true
-        }
-      }
-      this.vditor = new Vditor('j-preview-vditor', options)
-      const savedMdContent = localStorage.getItem('vditorvditor')
-      this.vditor.setValue(savedMdContent)
-      this.$nextTick(() => {
-        this.isLoading = false
-      })
-    },
     async exportAndDownloadImg(element, filename) {
       const canvas = await generateScreenshot(element)
       const isSupportDownload = 'download' in document.createElement('a')
@@ -77,9 +59,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-#j-preview-vditor {
-  width: 100%;
-}
-</style>

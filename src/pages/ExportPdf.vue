@@ -6,51 +6,33 @@
       <el-button round @click="onBackToMainPage">返回主页</el-button>
       <el-button round @click="onExportBtnClick" type="primary">生成导出</el-button>
     </div>
-    <div id="j-preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候..." />
+    <PreviewVditor :pdata="pdata" />
   </div>
 </template>
 
 <script>
-import Vditor from 'vditor'
 import html2pdf from 'html2pdf.js'
+import PreviewVditor from '@components/PreviewVditor'
 
 export default {
   name: 'export-pdf',
 
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      pdata: localStorage.getItem('vditorvditor')
     }
   },
 
-  created() {
-    this.$utils.updateHtmlStyle()
+  created() {},
+
+  components: {
+    PreviewVditor
   },
 
-  components: {},
-
-  mounted() {
-    this.initVditor()
-    this.$utils.hideVditorTextarea()
-  },
+  mounted() {},
 
   methods: {
-    initVditor() {
-      const options = {
-        cache: false,
-        width: '61.8%',
-        preview: {
-          delay: 1000,
-          show: true
-        }
-      }
-      this.vditor = new Vditor('j-preview-vditor', options)
-      const savedMdContent = localStorage.getItem('vditorvditor')
-      this.vditor.setValue(savedMdContent)
-      this.$nextTick(() => {
-        this.isLoading = false
-      })
-    },
     exportAndDownloadPdf(element, filename) {
       const scale = window.devicePixelRatio
       const opt = {
@@ -80,5 +62,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less"></style>
