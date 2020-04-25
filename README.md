@@ -108,10 +108,11 @@ yarn deploy
 - [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
 
-| 微信公众号 | 前端微信群 | 推荐 Web 应用 |
-| --- | --- | --- |
-| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 |
-| ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) | <img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img> |
+| 微信公众号 | 前端微信群 | 推荐 Web 应用 | 推荐小程序 |
+| :---: | :---: | :---: | :---: |
+| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 | 🌊 倾城之链 |
+| ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) | <img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img> | <img src="https://camo.githubusercontent.com/a4d1e07fce0639d0a43ebdb4074c5c1e67978934/68747470733a2f2f696d6167652e6e6963656c696e6b732e736974652f6e6963656c696e6b732d6d696e6970726f6772616d2d636f64652e6a706567" width="300px" alt="倾城之链"></img> |
+
 
 ## License
 
