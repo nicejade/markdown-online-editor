@@ -1,4 +1,4 @@
-<p align="center"><a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com" target="_blank"><img width="100"src="https://raw.githubusercontent.com/nicejade/markdown-online-editor/master/src/assets/images/logo.png"></a></p>
+<p align="center"><a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com" target="_blank"><img width="100"src="https://cdn.jsdelivr.net/gh/nicejade/markdown-online-editor/src/assets/images/logo.png"></a></p>
 
 <h1 align="center">
   <a href="https://markdown.lovejade.cn/?utm_source=github.com">Arya - 在线 Markdown 编辑器</a>
@@ -55,6 +55,7 @@
 - [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
 - [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
 - [x] 🌟 增加对**所见即所得**编辑模式的支持(`⌘-⇧-M`)；
+- [x] 🌟 新增复制到微信公众号等周边功能；
 
 ## 如何使用
 
