@@ -52,6 +52,7 @@ export default {
           delay: 100,
           show: !this.isMobile
         },
+        outline: true,
         upload: {
           max: 5 * 1024 * 1024,
           // linkToImgUrl: 'https://sm.ms/api/upload',
