@@ -46,7 +46,11 @@ export default {
         }
       }
       this.vditor = new Vditor('j-preview-vditor', options)
-      this.vditor.setValue(this.pdata)
+      try {
+        this.vditor.setValue(this.pdata)
+      } catch (err) {
+        console.log(`Something Error: `, err)
+      }
       this.$nextTick(() => {
         this.isLoading = false
       })
