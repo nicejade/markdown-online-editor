@@ -12,7 +12,7 @@
       </a>
       <div class="button-group">
         <a
-          href="https://aboutme.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=header"
+          href="https://www.jeffjade.com/about-me/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
           <span class="hint--bottom" aria-label="关于作者">
