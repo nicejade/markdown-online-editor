@@ -74,19 +74,29 @@ export default {
     min-height: 100vh;
     margin: 20px auto;
     text-align: left;
-  }
-  .vditor-toolbar {
-    display: none;
+    .vditor-toolbar {
+      display: none;
+    }
+    .vditor-content {
+      .vditor-sv {
+        display: none !important;
+      }
+    }
+    .vditor-preview {
+      padding: 0 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+      .vditor-preview__action {
+        display: none;
+      }
+      .vditor-reset {
+        h1 {
+          text-align: center;
+        }
+      }
+    }
   }
   .vditor {
     border: 0;
-  }
-  .vditor-preview {
-    padding: 0 20px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
-  }
-  .vditor-reset h1 {
-    text-align: center;
   }
 }
 
