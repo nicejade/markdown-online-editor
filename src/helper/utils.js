@@ -91,7 +91,7 @@ export default {
   },
 
   hideVditorTextarea() {
-    const exportVditorNode = document.getElementById('j-preview-vditor')
+    const exportVditorNode = document.getElementById('khaleesi')
     const option = {
       childList: true, // 子节点的变动（新增、删除或者更改）
       attributes: true, // 属性的变动

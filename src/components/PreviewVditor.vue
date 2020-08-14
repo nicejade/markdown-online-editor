@@ -1,6 +1,6 @@
 <template>
   <div class="preview-vditor" v-loading="isLoading" element-loading-text="正在努力，请稍候...">
-    <div id="j-preview-vditor" class="vditor-preview" />
+    <div id="khaleesi" class="vditor-preview" />
   </div>
 </template>
 
@@ -26,6 +26,7 @@ export default {
 
   created() {
     this.$utils.updateHtmlStyle()
+    this.setDefaultText()
   },
 
   components: {},
@@ -45,15 +46,14 @@ export default {
           show: true
         }
       }
-      this.vditor = new Vditor('j-preview-vditor', options)
-      try {
-        this.vditor.setValue(this.pdata)
-      } catch (err) {
-        console.log(`Something Error: `, err)
-      }
+      this.vditor = new Vditor('khaleesi', options)
       this.$nextTick(() => {
         this.isLoading = false
       })
+    },
+
+    setDefaultText() {
+      localStorage.setItem('vditorkhaleesi', this.pdata)
     }
   }
 }
@@ -68,7 +68,7 @@ export default {
   min-height: 100vh;
   background-color: @white;
   .flex-box-center(column);
-  #j-preview-vditor {
+  #khaleesi {
     max-width: 960px;
     height: 100%;
     min-height: 100vh;
@@ -102,7 +102,7 @@ export default {
 
 @media (max-width: 768px) {
   .preview-vditor {
-    #j-preview-vditor {
+    #khaleesi {
       width: 100% !important;
       margin: 0 !important;
     }
