@@ -8598,9 +8598,9 @@ reusify@^1.0.0:
   version "1.0.4"
   resolved "https://r.cnpmjs.org/reusify/download/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
 
-reveal.js@^3.8.0:
-  version "3.8.0"
-  resolved "https://r.cnpmjs.org/reveal.js/download/reveal.js-3.8.0.tgz#9a2818e366d46237f0e64c00f50a05f2340cd50f"
+reveal.js@^3.9.2:
+  version "3.9.2"
+  resolved "https://registry.yarnpkg.com/reveal.js/-/reveal.js-3.9.2.tgz#7f63d3dfec338b6c313dcabdf006e8cf80e0b358"
 
 rgb-regex@^1.0.1:
   version "1.0.1"
