@@ -9895,9 +9895,9 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://r.cnpmjs.org/vary/download/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
-vditor@3.4.6:
-  version "3.4.6"
-  resolved "https://registry.npmjs.org/vditor/-/vditor-3.4.6.tgz#b9a36f1004ef63cad3fe2ae811d5259e1e6c3874"
+vditor@3.8.13:
+  version "3.8.13"
+  resolved "https://registry.yarnpkg.com/vditor/-/vditor-3.8.13.tgz#9f4a549fd559e14fe65cc188ceadba61051db57c"
   dependencies:
     diff-match-patch "^1.0.5"
 
