@@ -2,7 +2,6 @@
 
 const path = require('path')
 const SizePlugin = require('size-plugin')
-const PrerenderSPAPlugin = new require('prerender-spa-plugin')
 
 const isProductionEnvFlag = process.env.NODE_ENV === 'production'
 
@@ -43,7 +42,7 @@ module.exports = {
 
   // tweak internal webpack configuration.
   // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.alias
       .set('vue$', 'vue/dist/vue.esm.js')
       .set('@helper', resolveRealPath('src/helper'))
@@ -63,7 +62,7 @@ module.exports = {
       .loader('svg-sprite-loader')
       .options({
         name: '[name]-[hash:7]',
-        prefixize: true
+        prefixize: true,
       })
 
     const splitOptions = config.optimization.get('splitChunks')
@@ -88,16 +87,16 @@ module.exports = {
             minChunks: 2,
             priority: -20,
             chunks: 'initial',
-            reuseExistingChunk: true
+            reuseExistingChunk: true,
           },
           element: {
             name: 'element',
             test: /[\\/]node_modules[\\/]element-ui[\\/]/,
             chunks: 'initial',
             // 默认组的优先级为负数，以允许任何自定义缓存组具有更高的优先级（默认值为0）
-            priority: -30
-          }
-        }
+            priority: -30,
+          },
+        },
       })
     )
 
@@ -110,32 +109,7 @@ module.exports = {
   },
 
   configureWebpack: {
-    plugins: [
-      isProductionEnvFlag
-        ? new PrerenderSPAPlugin({
-            // Required - The path to the webpack-outputted app to prerender.
-            staticDir: path.join(__dirname, 'dist'),
-            // Required - Routes to render.
-            routes: [
-              '/',
-              '/about-arya',
-              '/export/pdf',
-              '/export/png',
-              '/export/jpeg',
-              '/export/ppt'
-            ],
-            render: new PrerenderSPAPlugin.PuppeteerRenderer({
-              renderAfterTime: 3000
-            }),
-            minify: {
-              collapseWhitespace: true,
-              keepClosingSlash: true,
-              sortAttributes: true
-            }
-          })
-        : () => {},
-      isProductionEnvFlag ? new SizePlugin() : () => {}
-    ]
+    plugins: [isProductionEnvFlag ? new SizePlugin() : () => {}],
   },
 
   // use thread-loader for babel & TS in production build
@@ -156,15 +130,15 @@ module.exports = {
       favicon16: 'img/icons/favicon-16x16.png',
       appleTouchIcon: 'img/icons/apple-touch-icon.png',
       maskIcon: 'img/icons/safari-pinned-tab.svg',
-      msTileImage: 'img/icons/mstile-150x150.png'
+      msTileImage: 'img/icons/mstile-150x150.png',
     },
     // configure the workbox plugin (GenerateSW or InjectManifest)
     workboxPluginMode: 'InjectManifest',
     workboxOptions: {
       // swSrc is required in InjectManifest mode.
-      swSrc: 'public/service-worker.js'
+      swSrc: 'public/service-worker.js',
       // ...other Workbox options...
-    }
+    },
   },
 
   // configure webpack-dev-server behavior
@@ -176,9 +150,9 @@ module.exports = {
     hotOnly: false,
     // See https://github.com/vuejs/vue-cli/blob/dev/docs/cli-service.md#configuring-proxy
     proxy: null, // string | Object
-    before: () => {}
+    before: () => {},
   },
 
   // options for 3rd party plugins
-  pluginOptions: {}
+  pluginOptions: {},
 }

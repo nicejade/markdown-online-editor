@@ -55,7 +55,6 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^9.2.5",
     "onchange": "^6.1.0",
-    "prerender-spa-plugin": "^3.4.0",
     "prettier-eslint-cli": "^5.0.0",
     "size-plugin": "^2.0.0",
     "svg-sprite-loader": "^4.1.6",

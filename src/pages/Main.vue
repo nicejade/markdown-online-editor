@@ -19,7 +19,7 @@ export default {
     return {
       isLoading: true,
       isMobile: window.innerWidth <= 960,
-      vditor: null
+      vditor: null,
     }
   },
 
@@ -33,7 +33,7 @@ export default {
   },
 
   components: {
-    HeaderNav
+    HeaderNav,
   },
 
   mounted() {
@@ -55,7 +55,7 @@ export default {
         mode: 'sv',
         preview: {
           delay: 100,
-          show: !this.isMobile
+          show: !this.isMobile,
         },
         outline: true,
         upload: {
@@ -70,8 +70,8 @@ export default {
             request.open('POST', 'https://sm.ms/api/upload')
             request.onload = that.onloadCallback
             request.send(formData)
-          }
-        }
+          },
+        },
       }
       this.vditor = new Vditor('vditor', options)
       this.vditor.focus()
@@ -81,7 +81,7 @@ export default {
       if (currentTarget.status !== 200) {
         return this.$message({
           type: 'error',
-          message: currentTarget.status + ' ' + currentTarget.statusText
+          message: currentTarget.status + ' ' + currentTarget.statusText,
         })
       }
       let resp = JSON.parse(currentTarget.response)
@@ -89,7 +89,7 @@ export default {
       if (resp.code === 'invalid_source') {
         return this.$message({
           type: 'error',
-          message: resp.message
+          message: resp.message,
         })
       }
       if (resp.code === 'image_repeated') {
@@ -104,8 +104,8 @@ export default {
       if (!savedMdContent.trim()) {
         localStorage.setItem('vditorvditor', defaultText)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -124,9 +124,15 @@ export default {
     height: calc(100vh - 100px);
     margin: 20px auto;
     text-align: left;
+    .vditor-toolbar {
+      border-left: 1px solid #d1d5da;
+      border-right: 1px solid #d1d5da;
+    }
     .vditor-content {
       height: auto;
       min-height: auto;
+      border: 1px solid #d1d5da;
+      border-top: none;
     }
   }
   .vditor-reset {
