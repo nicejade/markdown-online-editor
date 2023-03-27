@@ -35,6 +35,22 @@
           </span>
         </a>
         <a
+          href="https://chatgot.nicelinks.site/?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+        >
+          <span class="hint--bottom" aria-label="使用 ChatGPT">
+            <icon class="header-icon" style="width: 20px; height: 20px" name="chatgpt" />
+          </span>
+        </a>
+        <a
+          href="https://nicelinks.site/friends?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+        >
+          <span class="hint--bottom" aria-label="友情链接">
+            <icon class="header-icon" name="friends-circle" />
+          </span>
+        </a>
+        <a
           href="https://github.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
@@ -88,7 +104,12 @@
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span class="hint--bottom full-screen" @click="onFullScreenClick" aria-label="全屏">
+        <span
+          v-if="!isMobile"
+          class="hint--bottom full-screen"
+          @click="onFullScreenClick"
+          aria-label="全屏"
+        >
           <icon class="header-icon" name="full-screen" />
         </span>
       </div>
@@ -107,7 +128,7 @@ export default {
     return {
       isMobile: window.innerWidth <= 768,
       titleText: window.$appTitle,
-      exportTextMap
+      exportTextMap,
     }
   },
 
@@ -146,8 +167,8 @@ export default {
     },
     handleCommand(command) {
       this.$router.push(command)
-    }
-  }
+    },
+  },
 }
 </script>
 
