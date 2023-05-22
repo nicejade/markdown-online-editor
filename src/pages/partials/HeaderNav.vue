@@ -35,11 +35,15 @@
           </span>
         </a>
         <a
-          href="https://chatgot.nicelinks.site/?utm_sourece=markdown.lovejade.cn&pid=header"
+          href="https://chatgpt.nicelinks.site/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
           <span class="hint--bottom" aria-label="使用 ChatGPT">
-            <icon class="header-icon" style="width: 20px; height: 20px" name="chatgpt" />
+            <icon
+              class="header-icon"
+              style="width: 1.6rem; height: 1.6rem; padding-top: 2px"
+              name="chatgpt"
+            />
           </span>
         </a>
         <a
@@ -174,12 +178,15 @@ export default {
 
 <style lang="less">
 @import './../../assets/styles/style.less';
+
 [class*='hint--']:after {
   border-radius: 3px;
 }
+
 .el-popper[x-placement^='bottom'] {
   margin-top: 10px;
 }
+
 .el-dropdown .el-dropdown-link {
   height: @header-height;
   .flex-box-center(column);
@@ -189,17 +196,21 @@ export default {
   cursor: pointer;
   pointer-events: all;
 }
+
 .el-dropdown-menu {
   margin: 0;
+
   .dropdown-icon {
     fill: @deep-black;
     vertical-align: middle;
     margin-right: 10px;
   }
+
   .dropdown-text {
     vertical-align: middle;
   }
 }
+
 .header-wrapper {
   position: fixed;
   top: 0;
@@ -211,20 +222,24 @@ export default {
   box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.1);
   transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),
     background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
   .header-area {
     width: 80%;
     max-width: @max-body-width;
     height: 100%;
     margin: auto;
     text-align: left;
+
     .header-link {
       display: inline-flex;
       height: @header-height;
       line-height: @header-height;
+
       .mark-markdown {
         width: @header-height;
         vertical-align: middle;
       }
+
       .header-text {
         margin-left: 10px;
         font-size: @font-medium;
@@ -234,12 +249,15 @@ export default {
         vertical-align: middle;
       }
     }
+
     .button-group {
       float: right;
+
       .header-icon {
         margin: 0 10px;
         fill: @deep-black;
       }
+
       .full-screen {
         margin-right: -10px;
       }
@@ -254,6 +272,7 @@ export default {
       width: 100%;
       padding: 0 10px;
       .flex-box-center(row, space-between);
+
       .header-link {
         display: inline;
       }
