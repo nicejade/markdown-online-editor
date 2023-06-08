@@ -72,6 +72,13 @@
 
 ## 如何开发
 
+### Docker部署
+
+```bash
+docker run -d -p [你要部署的端口]:80 shawnnotfound/vue-markdown:0.1
+```
+
+### 使用源代码部署
 ```bash
 # 🎉 克隆项目
 git clone https://github.com/nicejade/markdown-online-editor.git
