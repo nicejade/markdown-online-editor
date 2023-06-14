@@ -70,6 +70,19 @@
 
 如果您用作 `PPT` 预览（入口在`设置`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 `---` 来定义水平方向上幻灯片，用 `--` 来定义垂直幻灯片；更多设定可以参见 [RevealJs 文档](https://github.com/hakimel/reveal.js#table-of-contents)。
 
+## Docker 自托管
+
+已将最新版本使用 [Docker](https://nicelinks.site/post/5b7036890f8719053c094d68) 打包镜像并上传至 [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
+
+```shell
+docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor
+
+# 示例：
+docker run -d -p 8866:80 nicejade/markdown-online-editor
+```
+
+基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问，如果要配备域名，可通过。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。
+
 ## 如何开发
 
 ```bash
