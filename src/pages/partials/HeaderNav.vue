@@ -12,6 +12,7 @@
       </a>
       <div class="button-group">
         <a
+          v-if="!isMobile"
           href="https://www.jeffjade.com/about-me/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
@@ -25,6 +26,7 @@
           </span>
         </router-link>
         <a
+          v-if="!isMobile"
           href="https://www.lovejade.cn/zh/works/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
           target="_blank"
@@ -35,10 +37,22 @@
           </span>
         </a>
         <a
+          href="https://chatgpt.nicelinks.site/gemini?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+        >
+          <span class="hint--bottom" aria-label="免费使用 GeminiAI">
+            <icon
+              class="header-icon"
+              style="width: 4rem; height: 3rem; padding-top: 1.2rem"
+              name="gemini"
+            />
+          </span>
+        </a>
+        <a
           href="https://chatgpt.nicelinks.site/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
-          <span class="hint--bottom" aria-label="使用 ChatGPT">
+          <span class="hint--bottom" aria-label="免费使用 ChatGPT">
             <icon
               class="header-icon"
               style="width: 1.6rem; height: 1.6rem; padding-top: 2px"
@@ -55,6 +69,7 @@
           </span>
         </a>
         <a
+          v-if="!isMobile"
           href="https://github.lovejade.cn/?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
