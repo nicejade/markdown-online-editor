@@ -37,6 +37,17 @@
           </span>
         </a>
         <a
+          v-if="!isMobile"
+          href="https://wechat.jeffjade.com/?utm_sourece=markdown.lovejade.cn&pid=header"
+          class="header-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="hint--bottom" aria-label="公众号 Markdown 排版">
+            <icon class="header-icon" name="wechat" />
+          </span>
+        </a>
+        <a
           href="https://chatgpt.nicelinks.site/gemini?utm_sourece=markdown.lovejade.cn&pid=header"
           class="header-link"
         >
