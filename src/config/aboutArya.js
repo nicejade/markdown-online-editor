@@ -9,11 +9,6 @@ export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovej
 **背景初衷**：早期就有关注到由[黑客派](https://hacpai.com/?utm_source=markdown.lovejade.cn&pid=about-arya)所出品的 [Vditor](https://hacpai.com/tag/vditor?utm_source=markdown.lovejade.cn&pid=about-arya)：一款为未来而构建的下一代 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=markdown.lovejade.cn&pid=about-arya) 编辑器。然，现而今市面上所存在的 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=markdown.lovejade.cn) 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://hacpai.com/tag/vditor?utm_source=markdown.lovejade.cn) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?utm_source=github.com) 的念头；取其名曰 [\`Arya\`（二丫）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=markdown.lovejade.cn)。
 
 <div align="center">
-  <img src="https://image.nicelinks.site/nicelinks-miniprogram-code.jpeg?imageView2/1/w/250/h/250/interlace/1/ignore-error/1" alt="倾城之链 - 小程序码" />
-</div>
-<br/>
-
-<div align="center">
   <a href="https://nodejs.org/en/">
     <img src="https://img.shields.io/badge/node-%3E%3D%208.0.0-green.svg" alt="node version">
   </a>
@@ -179,22 +174,14 @@ gantt
 
 ## 相关链接
 
-- [**倾城之链**](https://nicelinks.site?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [About Me](https://about.me/nicejade?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [个人博客](https://jeffjade.com/nicelinks?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [逍遥自在轩](https://niceshare.site/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [悠然宜想亭](https://forum.lovejade.cn//?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [吾意静晴轩](https://docz.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [天意人间舫](https://blog.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [新浪微博](https://weibo.com/jeffjade?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [知乎主页](https://www.zhihu.com/people/yang-qiong-pu/)
-- [简书主页](https://www.jianshu.com/u/9aae3d8f4c3d)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
-
-| 微信公众号 | 前端微信群 | 推荐 Web 应用 |
-| :-------------: | :-------------: | :-------------: |
-| 😉 静晴轩 | ✨ 大前端联盟   | 🎉 倾城之链 |
-| <img src="https://image.nicelinks.site/qrcode_jqx.jpg" alt="静晴轩" width="200px" /> | <img src="https://image.nicelinks.site/wqycx-weixin.png?ver=1" alt="倾城之链" width="200px" /> | <img src="https://image.nicelinks.site/nice-links.png" width="200px" alt="倾城之链"></img> |
 `

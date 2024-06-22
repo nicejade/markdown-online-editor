@@ -62,6 +62,7 @@
 清空目前 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 编辑区默认文档，即可使用。
 
 默认为[所见即所得](https://hacpai.com/article/1577370404903?utm_source=github.com)模式，可通过 `⌘-⇧-M`（`Ctrl-⇧-M`）进行切换；或通过以下方式：
+
 - 所见即所得：`⌘-⌥-7`（`Ctrl-alt-7`）；
 - 即时渲染：`⌘-⌥-8`（`Ctrl-alt-8`）；
 - 分屏渲染：`⌘-⌥-9`（`Ctrl-alt-9`）；
@@ -72,7 +73,7 @@
 
 ## Docker 自托管
 
-已将最新版本使用 [Docker](https://nicelinks.site/post/5b7036890f8719053c094d68) 打包镜像并上传至 [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
+已将最新版本使用  [Docker](https://nicelinks.site/post/5b7036890f8719053c094d68)  打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
 
 ```shell
 docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor
@@ -90,8 +91,8 @@ docker run -d -p 8866:80 nicejade/markdown-online-editor
 git clone https://github.com/nicejade/markdown-online-editor.git
 cd markdown-online-editor
 
-# ➕ 安装依赖(跳过安装 )
-env PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true yarn
+# ➕ 安装依赖
+yarn
 
 # 🚧 开始开发
 yarn start
@@ -106,28 +107,19 @@ yarn deploy
 
 ## 相关链接
 
-- [**倾城之链**](https://nicelinks.site?utm_source=github.com)
-- [About Me](https://about.me/nicejade?utm_source=github.com)
-- [个人博客](https://jeffjade.com/nicelinks?utm_source=github.com)
-- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=github.com)
-- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=github.com)
-- [吾意静晴轩](https://docz.lovejade.cn/?utm_source=github.com)
-- [天意人间舫](https://blog.lovejade.cn/?utm_source=github.com)
-- [新浪微博](https://weibo.com/jeffjade?utm_source=github.com)
-- [知乎主页](https://www.zhihu.com/people/yang-qiong-pu/)
-- [简书主页](https://www.jianshu.com/u/9aae3d8f4c3d)
+- [逍遥自在轩](https://niceshare.site/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [悠然宜想亭](https://forum.lovejade.cn//?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [天意人间舫](https://blog.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [新浪微博](https://weibo.com/jeffjade?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
-
-| 微信公众号 | 前端微信群 | 推荐 Web 应用 | 推荐小程序 |
-| :---: | :---: | :---: | :---: |
-| 😉 静晴轩 | ✨ 大前端联盟 | 🎉 倾城之链 | 🌊 倾城之链 |
-| ![静晴轩](https://image.nicelinks.site/qrcode_jqx.jpg) | ![倾城之链](https://image.nicelinks.site/wqycx-weixin.png?ver=1) | <img src="https://image.nicelinks.site/nice-links.png" width="300px" alt="倾城之链"></img> | <img src="https://camo.githubusercontent.com/a4d1e07fce0639d0a43ebdb4074c5c1e67978934/68747470733a2f2f696d6167652e6e6963656c696e6b732e736974652f6e6963656c696e6b732d6d696e6970726f6772616d2d636f64652e6a706567" width="300px" alt="倾城之链"></img> |
-
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://aboutme.lovejade.cn/?utm_source=github.com).
+Copyright (c) 2018-present, [nicejade](https://niceshare.site//?ref=github.com).
