@@ -1,12 +1,12 @@
-<p align="center"><a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com" target="_blank"><img width="100"src="https://cdn.jsdelivr.net/gh/nicejade/markdown-online-editor/src/assets/images/logo.png"></a></p>
+<p align="center"><a href="https://www.niceshare.site/?ref=github.com" target="_blank"><img width="100"src="https://cdn.jsdelivr.net/gh/nicejade/markdown-online-editor/src/assets/images/logo.png"></a></p>
 
 <h1 align="center">
-  <a href="https://markdown.lovejade.cn/?utm_source=github.com">Arya - 在线 Markdown 编辑器</a>
+  <a href="https://markdown.lovejade.cn/?ref=github.com">Arya - 在线 Markdown 编辑器</a>
 </h1>
 
 <div align="center">
   <strong>
-    📝 基于 <a href="https://nicelinks.site/post/5b1a221c0526c920d6dfaada">Vue</a>、<a href="https://hacpai.com/tag/vditor?utm_source=github.com">Vditor</a>，所构建的在线 <a href="https://nicelinks.site/tags/Markdown/?utm_source=github.com">Markdown</a> 编辑器，支持绘制流程图、甘特图、时序图、任务列表、echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?utm_source=github.com">markdown.lovejade.cn</a>
+    📝 基于 Vue2、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
   </strong>
 </div>
 
@@ -14,31 +14,34 @@
 
 <div align="center">
   <a href="https://github.com/nicejade/markdown-online-editor">
+    <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/nicejade/markdown-online-editor">
+  </a>
+  <a href="https://github.com/nicejade/markdown-online-editor">
     <img src="https://img.shields.io/github/license/nicejade/markdown-online-editor.svg" alt="LICENSE">
   </a>
-  <a href="https://nicelinks.site/post/5c16083e819ae45de1453caa">
+  <a href="https://prettier.io/">
     <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat" alt="Prettier">
+  </a>
+  <a href="https://gitmoji.dev">
+    <img
+      src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square"
+      alt="Gitmoji"
+    />
   </a>
   <a href="https://www.jeffjade.com/2019/05/31/155-arya-markdown-online-editor/">
     <img src="https://img.shields.io/badge/chat-on%20blog-brightgreen.svg" alt="Arya - 在线 Markdown 编辑器">
   </a>
   <a href="https://v2ex.com/t/623128">
-   <img src="https://img.shields.io/badge/Chat-on%20v2ex-brightgreen.svg" alt="Chat On V2ex">
+   <img src="https://img.shields.io/badge/chat-on%20v2ex-brightgreen.svg" alt="Chat On V2ex">
   </a>
-  <a href="https://hacpai.com/article/1558270349379">
-   <img src="https://img.shields.io/badge/Chat-on%20hacpai-brightgreen.svg" alt="Chat On Hacpai">
-  </a>
-  <a href="https://weibo.com/aryamarkdown">
-    <img src="https://img.shields.io/badge/WeiBo-aryamarkdown-red.svg?style=flat" alt="Arya - 在线 Markdown 编辑器">
-  </a>
-  <a href="https://aboutme.lovejade.cn/?utm_source=github.com">
+  <a href="https://aboutme.lovejade.cn/?ref=github.com">
     <img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade">
   </a>
 </div>
 
 ## 背景初衷
 
-早期就有关注到由[黑客派](https://hacpai.com/?utm_source=github.com)所出品的 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com)：一款为未来而构建的下一代 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器。然，现而今市面上所存在的 [Markdown](https://nicelinks.site/tags/Markdown/?utm_source=github.com) 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://hacpai.com/tag/vditor?utm_source=github.com) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?utm_source=github.com) 的念头；取其名曰 [`Arya`（二丫）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=github.com)。
+早期就有关注到由`黑客派`所出品的 [Vditor](https://github.com/Vanessa219/vditor)：一款为未来而构建的下一代 Markdown 编辑器。然，现而今市面上所存在的 Markdown 编辑器，或多或少都存在一些问题（或功能不全，或高级功能收费...），因此基于自身所需，加之 [Vditor](https://github.com/Vanessa219/vditor) 的强大，就诞生了做一款[在线 Markdown 编辑器](https://markdown.lovejade.cn/?ref=github.com) 的念头；取其名曰 [`Arya`（二丫）](https://quickapp.lovejade.cn/talking-game-of-thrones/?utm_source=github.com)。
 
 ## 功能支持
 
@@ -59,9 +62,9 @@
 
 ## 如何使用
 
-清空目前 [Arya](https://markdown.lovejade.cn/?utm_source=github.com) 编辑区默认文档，即可使用。
+清空目前 [Arya](https://markdown.lovejade.cn/?ref=github.com) 编辑区默认文档，即可使用。
 
-默认为[所见即所得](https://hacpai.com/article/1577370404903?utm_source=github.com)模式，可通过 `⌘-⇧-M`（`Ctrl-⇧-M`）进行切换；或通过以下方式：
+默认为[所见即所得](https://b3log.org/vditor/)模式，可通过 `⌘-⇧-M`（`Ctrl-⇧-M`）进行切换；或通过以下方式：
 
 - 所见即所得：`⌘-⌥-7`（`Ctrl-alt-7`）；
 - 即时渲染：`⌘-⌥-8`（`Ctrl-alt-8`）；
@@ -76,13 +79,13 @@
 已将最新版本使用  [Docker](https://nicelinks.site/post/5b7036890f8719053c094d68)  打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
 
 ```shell
-docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor
+docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagname]
 
 # 示例：
-docker run -d -p 8866:80 nicejade/markdown-online-editor
+docker run -d -p 8866:80 nicejade/markdown-online-editor:2.1.0
 ```
 
-基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问，如果要配备域名，可通过。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。
+基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问，如果要配备域名，可通过。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 Cloudflare Pages 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
 
 ## 如何开发
 
@@ -103,7 +106,7 @@ yarn deploy
 
 ## 特别鸣谢
 
-[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [vditor](https://github.com/b3log/vditor)：一款浏览器端的 Md 编辑器，同时也离不开 [vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
+[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [vditor](https://github.com/b3log/vditor)：一款浏览器端的 Md 编辑器，同时也离不开 [Vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
 ## 相关链接
 
@@ -112,8 +115,6 @@ yarn deploy
 - [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [悠然宜想亭](https://forum.lovejade.cn//?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [天意人间舫](https://blog.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [新浪微博](https://weibo.com/jeffjade?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [Twitter](https://twitter.com/nicejadeyang)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
