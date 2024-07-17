@@ -76,7 +76,7 @@
 
 ## Docker 自托管
 
-已将最新版本使用  [Docker](https://nicelinks.site/post/5b7036890f8719053c094d68)  打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
+已将最新版本使用 [Docker](https://docs.docker.com/engine/install/) 打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
 
 ```shell
 docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagname]
