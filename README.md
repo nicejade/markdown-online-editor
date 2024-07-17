@@ -76,7 +76,7 @@
 
 ## Docker 自托管
 
-已将最新版本使用 [Docker](https://docs.docker.com/engine/install/) 打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
+已将最新版本使用 [Docker](https://docs.docker.com/engine/install/)  打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
 
 ```shell
 docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagname]
@@ -85,7 +85,7 @@ docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagna
 docker run -d -p 8866:80 nicejade/markdown-online-editor:2.1.0
 ```
 
-基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问，如果要配备域名，可通过。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 Cloudflare Pages 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
+基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 Cloudflare Pages 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
 
 ## 如何开发
 
