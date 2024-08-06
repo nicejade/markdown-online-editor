@@ -34,7 +34,7 @@
   <a href="https://v2ex.com/t/623128">
    <img src="https://img.shields.io/badge/chat-on%20v2ex-brightgreen.svg" alt="Chat On V2ex">
   </a>
-  <a href="https://aboutme.lovejade.cn/?ref=github.com">
+  <a href="https://niceshare.site/?ref=github.com">
     <img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade">
   </a>
 </div>
@@ -74,7 +74,30 @@
 
 如果您用作 `PPT` 预览（入口在`设置`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 `---` 来定义水平方向上幻灯片，用 `--` 来定义垂直幻灯片；更多设定可以参见 [RevealJs 文档](https://github.com/hakimel/reveal.js#table-of-contents)。
 
-## Docker 自托管
+## 如何部署？
+
+### 采用 [pm2](https://pm2.keymetrics.io/) 部署
+
+PM2 是一个强大的生产环境进程管理器，它不仅支持通过命令行启动应用，还可以使用配置文件（通常名为 `ecosystem.config.js`）来管理复杂的部署场景。您可以通过执行如下命令实现快速部署：
+
+```bash
+# 🎉 克隆项目
+git clone https://github.com/nicejade/markdown-online-editor.git
+cd markdown-online-editor
+
+# ➕ 安装依赖
+yarn
+yarn global add pm2
+
+# 🔧 构建产物
+yarn build
+
+# 🚀 部署服务
+cd dist
+pm2 start "npx http-server -p 8866" --name "markdown-editor"
+```
+
+### Docker 自托管
 
 已将最新版本使用 [Docker](https://docs.docker.com/engine/install/)  打包镜像并上传至  [Docker Hub](https://hub.docker.com/r/nicejade/markdown-online-editor)，可通过如下方式进行使用：
 
@@ -86,6 +109,28 @@ docker run -d -p 8866:80 nicejade/markdown-online-editor:2.1.0
 ```
 
 基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 Cloudflare Pages 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
+
+或者**使用 [docker compose](https://docs.docker.com/compose/)**：
+
+创建一个 `docker-compose.yml` 文件，并在其中定义服务（其中 version: '3' 指定了 Docker Compose 文件的版本；您可以根据实际情况进行调整）：
+
+```yaml
+version: '3'
+services:
+  markdown-editor:
+    image: nicejade/markdown-online-editor:2.1.0
+    ports:
+      - "8866:80"
+    restart: always
+```
+
+在包含 `docker-compose.yml` 文件的目录中，运行以下命令启动服务：
+
+```bash
+docker-compose up -d
+```
+
+这将在后台启动服务，并且效果与下面的 `docker run` 命令相同。使用 Docker Compose 可以更方便地管理多个容器，并且配置更易读和维护。
 
 ## 如何开发
 
@@ -117,7 +162,6 @@ yarn deploy
 - [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [Twitter](https://twitter.com/nicejadeyang)
-- [Facebook](https://www.facebook.com/nice.jade.yang)
 
 ## License
 
