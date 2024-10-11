@@ -56,7 +56,7 @@
 - [x] ✨ 升级 Vditor，新增对 `echarts` 图表的支持；
 - [x] ✨ 注入 [RevealJs](https://revealjs.com/#/)，增设对 `PPT` 预览支持；
 - [x] 👏 支持检查并格式化 Markdown 语法，使其专业；
-- [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/b3log/vditor/issues/117?utm_source=hacpai.com#issuecomment-526986052)；
+- [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/Vanessa219/vditor)；
 - [x] 🌟 增加对**所见即所得**编辑模式的支持(`⌘-⇧-M`)；
 - [x] 🌟 新增复制到微信公众号等周边功能；
 
@@ -105,7 +105,7 @@ pm2 start "npx http-server -p 8866" --name "markdown-editor"
 docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagname]
 
 # 示例：
-docker run -d -p 8866:80 nicejade/markdown-online-editor:2.1.0
+docker run -d -p 8866:80 nicejade/markdown-online-editor:latest
 ```
 
 基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 Cloudflare Pages 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
@@ -134,6 +134,10 @@ docker-compose up -d
 
 ## 如何开发
 
+### 先决条件
+
+说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级 [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用 [Pnpm](https://pnpm.io/) 或 [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/) 作为首选包管理工具。
+
 ```bash
 # 🎉 克隆项目
 git clone https://github.com/nicejade/markdown-online-editor.git
@@ -155,11 +159,12 @@ yarn deploy
 
 ## 相关链接
 
-- [逍遥自在轩](https://niceshare.site/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [悠然宜想亭](https://forum.lovejade.cn//?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [逍遥自在轩](https://niceshare.site/?ref=github.com)
+- [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
+- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
+- [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
+- [悠然宜想亭](https://forum.lovejade.cn//?ref=github.com)
+- [静晴轩别苑](https://nice.lovejade.cn/?ref=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [Twitter](https://twitter.com/nicejadeyang)
 
@@ -167,4 +172,4 @@ yarn deploy
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://niceshare.site//?ref=github.com).
+Copyright (c) 2018-present, [nicejade](https://www.niceshare.site//?ref=github.com).
