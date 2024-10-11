@@ -1,4 +1,4 @@
-FROM busybox:1.36.1-uclibc
+FROM busybox:stable-uclibc
 
 WORKDIR /app
 
