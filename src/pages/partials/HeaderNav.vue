@@ -12,27 +12,6 @@
       </a>
       <div class="button-group">
         <a
-          href="https://niceshare.site/?ref=markdown.lovejade.cn"
-          class="header-link"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="hint--bottom" aria-label="逍遥自在轩">
-            <icon class="header-icon" name="homepage" />
-          </span>
-        </a>
-        <a
-          v-if="!isMobile"
-          href="https://quickapp.lovejade.cn/?ref=markdown.lovejade.cn"
-          class="header-link"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="hint--bottom" aria-label="静轩之别苑">
-            <icon class="header-icon" name="quickapp" />
-          </span>
-        </a>
-        <a
           v-if="!isMobile"
           href="https://wechat.jeffjade.com/?ref=markdown.lovejade.cn"
           class="header-link"
@@ -44,21 +23,35 @@
           </span>
         </a>
         <a
-          v-if="!isMobile"
-          href="https://github.lovejade.cn/?ref=markdown.lovejade.cn"
+          href="https://niceshare.site/?ref=markdown.lovejade.cn"
           class="header-link"
+          target="_blank"
+          rel="noopener"
         >
-          <span class="hint--bottom" aria-label="作者 Github">
-            <icon class="header-icon" name="github" />
+          <span class="hint--bottom" aria-label="逍遥自在轩">
+            <icon class="header-icon" name="homepage" />
           </span>
         </a>
         <a
           v-if="!isMobile"
-          href="https://www.jeffjade.com/about-me/?ref=markdown.lovejade.cn"
+          href="https://x.com/MarshalXuan"
           class="header-link"
+          target="_blank"
+          rel="noopener"
         >
-          <span class="hint--bottom" aria-label="关于作者">
-            <icon class="header-icon" name="author" />
+          <span class="hint--bottom" aria-label="X - 轩帅">
+            <icon class="header-icon" name="x" />
+          </span>
+        </a>
+        <a
+          v-if="!isMobile"
+          href="https://github.com/nicejade"
+          class="header-link"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="hint--bottom" aria-label="作者 Github">
+            <icon class="header-icon" name="github" />
           </span>
         </a>
         <router-link to="/about-arya" class="header-link">

@@ -182,6 +182,6 @@ gantt
 - [天意人间舫](https://blog.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [新浪微博](https://weibo.com/jeffjade?utm_source=markdown.lovejade.cn&pid=about-arya)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
-- [Twitter](https://twitter.com/nicejadeyang)
+- [X | 轩帅](https://x.com/MarshalXuan)
 - [Facebook](https://www.facebook.com/nice.jade.yang)
 `
