@@ -120,7 +120,7 @@ services:
   markdown-editor:
     image: nicejade/markdown-online-editor:2.1.0
     ports:
-      - "8866:80"
+      - '8866:80'
     restart: always
 ```
 
@@ -130,13 +130,13 @@ services:
 docker-compose up -d
 ```
 
-这将在后台启动服务，并且效果与下面的 `docker run` 命令相同。使用 Docker Compose 可以更方便地管理多个容器，并且配置更易读和维护。
+这将在后台启动服务，并且效果与下面的  `docker run`  命令相同。使用 Docker Compose 可以更方便地管理多个容器，并且配置更易读和维护。
 
 ## 如何开发
 
 ### 先决条件
 
-说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级 [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用 [Pnpm](https://pnpm.io/) 或 [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/) 作为首选包管理工具。
+说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级  [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用  [Pnpm](https://pnpm.io/)  或  [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/)  作为首选包管理工具。
 
 ```bash
 # 🎉 克隆项目
@@ -164,7 +164,6 @@ yarn deploy
 - [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
 - [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
 - [悠然宜想亭](https://forum.lovejade.cn//?ref=github.com)
-- [静晴轩别苑](https://nice.lovejade.cn/?ref=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [X（Twitter）](https://x.com/MarshalXuan)
 

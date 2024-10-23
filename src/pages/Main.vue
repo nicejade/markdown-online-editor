@@ -24,12 +24,8 @@ export default {
   },
 
   created() {
-    console.log(
-      '%c 倾城之链：倾心缔造，痴心为你。 https://nicelinks.site/',
-      'font-size:2.113em;color: #2edfa3'
-    )
     this.setDefaultText()
-    console.log = () => {}
+    console.log = () => { }
   },
 
   components: {
@@ -111,11 +107,13 @@ export default {
 
 <style lang="less">
 @import './../assets/styles/style.less';
+
 .index-page {
   width: 100%;
   height: 100%;
   background-color: @white;
   .flex-box-center(column);
+
   .vditor {
     position: absolute;
     top: @header-height;
@@ -124,10 +122,12 @@ export default {
     height: calc(100vh - 100px);
     margin: 20px auto;
     text-align: left;
+
     .vditor-toolbar {
       border-left: 1px solid #d1d5da;
       border-right: 1px solid #d1d5da;
     }
+
     .vditor-content {
       height: auto;
       min-height: auto;
@@ -135,9 +135,11 @@ export default {
       border-top: none;
     }
   }
+
   .vditor-reset {
     font-size: 14px;
   }
+
   .vditor-textarea {
     font-size: 14px;
     height: 100% !important;
