@@ -10061,10 +10061,10 @@ reusify@^1.0.4:
   resolved "https://registry.npmmirror.com/reusify/-/reusify-1.0.4.tgz#90da382b1e126efc02146e90845a88db12925d76"
   integrity sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==
 
-reveal.js@^3.8.0:
-  version "3.9.2"
-  resolved "https://registry.npmmirror.com/reveal.js/-/reveal.js-3.9.2.tgz#7f63d3dfec338b6c313dcabdf006e8cf80e0b358"
-  integrity sha512-Dvv2oA9FrtOHE2DWj5js8pMRfwq++Wmvsn1EyAdYLC80lBjTphns+tPsB652Bnvep9AVviuVS/b4XoVY9rXHLA==
+reveal.js@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.npmmirror.com/reveal.js/-/reveal.js-4.3.0.tgz#6fe91cc84de2e286f039545cb596dbc4d0d52294"
+  integrity sha512-KzZxJjj1gmxVNyplY6g9MiGwtDvZJiYkMvG1Qmaita7vWT/8eoTEK+RuIPLvxDeyxOtTz56u2wrOETVO79qL4A==
 
 rgb-regex@^1.0.1:
   version "1.0.1"
