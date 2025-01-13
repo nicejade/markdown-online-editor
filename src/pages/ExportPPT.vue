@@ -25,7 +25,7 @@ export default {
 
   data() {
     return {
-      savedMdContent: ''
+      savedMdContent: '',
     }
   },
 
@@ -43,7 +43,7 @@ export default {
   methods: {
     initReveal() {
       window.Reveal = Reveal
-      const revealSourcePath = `https://cdn.bootcss.com/reveal.js/3.8.0/`
+      const revealSourcePath = `https://cdn.jsdelivr.net/npm/reveal.js@3.8.0`
       Reveal.initialize({
         controls: true,
         progress: true,
@@ -54,35 +54,37 @@ export default {
         dependencies: [
           {
             src: `${revealSourcePath}/plugin/markdown/marked.js`,
-            condition: function() {
+            condition: function () {
               return !!document.querySelector('[data-markdown]')
-            }
+            },
           },
           {
             src: `${revealSourcePath}/plugin/markdown/markdown.js`,
-            condition: function() {
+            condition: function () {
               return !!document.querySelector('[data-markdown]')
-            }
+            },
           },
           { src: `${revealSourcePath}/plugin/highlight/highlight.js`, async: true },
           { src: `${revealSourcePath}/plugin/search/search.js`, async: true },
           { src: `${revealSourcePath}/plugin/zoom-js/zoom.js`, async: true },
-          { src: `${revealSourcePath}/plugin/notes/notes.js`, async: true }
-        ]
+          { src: `${revealSourcePath}/plugin/notes/notes.js`, async: true },
+        ],
       })
-    }
+    },
     /* ---------------------Callback Event--------------------- */
-  }
+  },
 }
 </script>
 
 <style lang="less">
 .export-ppt {
   width: 100%;
+
   .reveal {
     font-size: 2em;
     background-color: #ffffff;
     height: calc(100vh - 60px);
+
     h1 {
       font-size: 2em !important;
     }

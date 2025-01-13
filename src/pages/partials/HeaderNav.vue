@@ -91,7 +91,7 @@
             </el-dropdown-item>
             <el-dropdown-item command="/export/ppt" divided>
               <icon class="dropdown-icon" name="preview" />
-              <a href="/export/ppt" target="_blank" class="dropdown-text">{{
+              <a href="/export/ppt" target="_self" class="dropdown-text">{{
                 exportTextMap['/export/ppt']
               }}</a>
             </el-dropdown-item>
