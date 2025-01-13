@@ -1,6 +1,6 @@
 {
   "name": "markdown-online-editor",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "author": "nicejade",
   "private": true,
   "description": "📝基于 Vue、Vditor，所构建的在线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",

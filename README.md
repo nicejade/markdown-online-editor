@@ -6,7 +6,7 @@
 
 <div align="center">
   <strong>
-    📝 基于 Vue2、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
+    📝 基于 <a href="https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada">Vue2</a>、<a href="https://github.com/Vanessa219/vditor">Vditor</a>，所构建的在线 Markdown 编辑器，支持绘制流程图、甘特图、时序图、任务列表、Echarts 图表、五线谱，以及 PPT 预览、视频音频解析、HTML 自动转换为 Markdown 等功能。<a href="https://markdown.lovejade.cn/?ref=github.com">markdown.lovejade.cn</a>。
   </strong>
 </div>
 
@@ -72,7 +72,7 @@
 
 ### PPT 预览
 
-如果您用作 `PPT` 预览（入口在`设置`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 `---` 来定义水平方向上幻灯片，用 `--` 来定义垂直幻灯片；更多设定可以参见 [RevealJs 文档](https://github.com/hakimel/reveal.js#table-of-contents)。
+如果您用作 `PPT` 预览（入口在`设置`中），需要注意，这里暂还不能支持各种图表的渲染；您可以使用 `---` 来定义水平方向上幻灯片，用 `--` 来定义垂直幻灯片；更多设定可以参见 [Reveal.js Markdown 文档](https://revealjs.com/markdown/)。
 
 ## 如何部署？
 
@@ -159,11 +159,12 @@ yarn deploy
 
 ## 相关链接
 
-- [逍遥自在轩](https://niceshare.site/?ref=github.com)
-- [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
+- [清风明月轩](https://www.thebettersites.com/?ref=github.com)
+- [逍遥自在轩](https://www.niceshare.site/?ref=github.com)
 - [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
+- [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
 - [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
-- [悠然宜想亭](https://forum.lovejade.cn//?ref=github.com)
+- [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [X（Twitter）](https://x.com/MarshalXuan)
 
@@ -171,4 +172,4 @@ yarn deploy
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://www.niceshare.site//?ref=github.com).
+Copyright (c) 2018-present, [nicejade](https://niceshare.site/?ref=github.com).
