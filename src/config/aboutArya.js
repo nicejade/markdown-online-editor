@@ -2,7 +2,7 @@
 
 export default `# [Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya) - 在线 Markdown 编辑器
 
-[Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)，是一款基于 [Vue](https://cn.vuejs.org/)、[Vditor](https://github.com/Vanessa219/vditor)，为未来而构建的在线 [Markdown](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md) 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
+[Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)，是一款基于 [Vue2](https://site.lovejade.cn/post/5b1a221c0526c920d6dfaada)、[Vditor](https://github.com/Vanessa219/vditor)，为未来而构建的在线 [Markdown](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md) 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持流程图、甘特图、时序图、任务列表，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等等。
 
 >**微注**：[Arya](https://markdown.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya) 另一大优点在于：编辑内容只会在您本地进行保存，不会上传您的数据至服务器，**绝不窥测用户个人隐私，可放心使用**；Github 源码：[markdown-online-editor](https://github.com/nicejade/markdown-online-editor)，部分功能仍在开发🚧，敬请期待。
 
@@ -176,14 +176,13 @@ gantt
 
 ## 相关链接
 
-- [逍遥自在轩](https://niceshare.site/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [静轩之别苑](https://quickapp.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [悠然宜想亭](https://forum.lovejade.cn//?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [静晴轩别苑](https://nice.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [天意人间舫](https://blog.lovejade.cn/?utm_source=markdown.lovejade.cn&pid=about-arya)
-- [新浪微博](https://weibo.com/jeffjade?utm_source=markdown.lovejade.cn&pid=about-arya)
+- [清风明月轩](https://www.thebettersites.com/?ref=github.com)
+- [逍遥自在轩](https://www.niceshare.site/?ref=github.com)
+- [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
+- [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
+- [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
+- [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
+- [天意人间舫](https://blog.lovejade.cn/?utm_source=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
-- [X | 轩帅](https://x.com/MarshalXuan)
-- [Facebook](https://www.facebook.com/nice.jade.yang)
+- [X（Twitter）](https://x.com/MarshalXuan)
 `
