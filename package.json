@@ -1,9 +1,9 @@
 {
   "name": "markdown-online-editor",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "author": "nicejade",
   "private": true,
-  "description": "📝基于 Vue、Vditor，所构建的在线 Markdown 编辑器，支持流程图、甘特图、时序图、任务列表、HTML 自动转换为 Markdow等功能。",
+  "description": "Arya，是一款基于 Vue、Vditor，为未来而构建的在线 Markdown 编辑器；轻量且强大：内置粘贴 HTML 自动转换为 Markdown，支持 PPT 预览，以及绘制流程图、甘特图、时序图、任务列表、五线谱，可导出携带样式的图片、PDF、微信公众号特制的 HTML 等。",
   "scripts": {
     "start": "yarn serve",
     "serve": "vue-cli-service serve --open",

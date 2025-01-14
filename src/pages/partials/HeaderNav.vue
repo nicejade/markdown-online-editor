@@ -1,19 +1,18 @@
-<!-- @format -->
-
 <template>
-  <section class="header-wrapper">
+  <header class="header-wrapper">
     <h1 class="header-area">
-      <a
-        href="https://markdown.lovejade.cn/?ref=markdown.lovejade.cn&pid=main-title"
-        class="header-link"
-      >
-        <img class="mark-markdown" src="@assets/images/markdown.png" alt="在线 Markdown 编辑器" />
+      <a href="/" class="header-link" target="_self">
+        <img
+          class="mark-markdown"
+          src="@assets/images/markdown.png"
+          alt="Arya 在线 Markdown 编辑器 Logo"
+        />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </a>
-      <div class="button-group">
+      <nav class="button-group">
         <a
           v-if="!isMobile"
-          href="https://wechat.jeffjade.com/?ref=markdown.lovejade.cn"
+          href="https://wechat.jeffjade.com/"
           class="header-link"
           target="_blank"
           rel="noopener"
@@ -22,12 +21,7 @@
             <icon class="header-icon" name="wechat" />
           </span>
         </a>
-        <a
-          href="https://niceshare.site/?ref=markdown.lovejade.cn"
-          class="header-link"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="https://www.niceshare.site/" class="header-link" target="_blank" rel="noopener">
           <span class="hint--bottom" aria-label="逍遥自在轩">
             <icon class="header-icon" name="homepage" />
           </span>
@@ -59,9 +53,6 @@
             <icon class="header-icon" name="document" />
           </span>
         </router-link>
-        <!-- <span class="hint--bottom" @click="onThemeClick" aria-label="变更主题">
-          <icon class="header-icon" name="adjust" />
-        </span> -->
         <el-dropdown trigger="click" @command="handleCommand">
           <span class="hint--bottom el-dropdown-link" aria-label="设置">
             <icon class="header-icon" name="setting" />
@@ -70,6 +61,12 @@
             <el-dropdown-item disabled>
               <icon class="dropdown-icon" name="set-style" />
               <a href="/export/jpeg" target="_self" class="dropdown-text">自定义样式</a>
+            </el-dropdown-item>
+            <el-dropdown-item command="/export/ppt" divided>
+              <icon class="dropdown-icon" name="preview" />
+              <a href="/export/ppt" target="_self" class="dropdown-text">
+                {{ exportTextMap['/export/ppt'] }}
+              </a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/png" divided>
               <icon class="dropdown-icon" name="download" />
@@ -85,23 +82,13 @@
             </el-dropdown-item>
             <el-dropdown-item command="/export/pdf">
               <icon class="dropdown-icon" name="download" />
-              <a href="/export/pdf" target="_self" class="dropdown-text">{{
-                exportTextMap['/export/pdf']
-              }}</a>
-            </el-dropdown-item>
-            <el-dropdown-item command="/export/ppt" divided>
-              <icon class="dropdown-icon" name="preview" />
-              <a href="/export/ppt" target="_self" class="dropdown-text">{{
-                exportTextMap['/export/ppt']
-              }}</a>
+              <a href="/export/pdf" target="_self" class="dropdown-text">
+                {{ exportTextMap['/export/pdf'] }}
+              </a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/html" disabled divided>
               <icon class="dropdown-icon" name="download" />
               <a href="/export/html" target="_self" class="dropdown-text">导出 HTML</a>
-            </el-dropdown-item>
-            <el-dropdown-item command="/export/wechat" disabled divided>
-              <icon class="dropdown-icon" name="download" />
-              <a href="/export/wechat" target="_self" class="dropdown-text">导出公众号</a>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -113,9 +100,9 @@
         >
           <icon class="header-icon" name="full-screen" />
         </span>
-      </div>
+      </nav>
     </h1>
-  </section>
+  </header>
 </template>
 
 <script>
