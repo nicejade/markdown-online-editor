@@ -11689,10 +11689,10 @@ vary@~1.1.2:
   resolved "https://registry.npmmirror.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
-vditor@3.8.15:
-  version "3.8.15"
-  resolved "https://registry.npmmirror.com/vditor/-/vditor-3.8.15.tgz#de340bdaa33264e7a5c303d9e97dd99fd043fec9"
-  integrity sha512-BYSBNUuhtvOfu1OU+NhS7R6TcrNP0UmQ8Vtbzq9BnLoG1uIHPZaTjtJIv00OPqHEcZa4KpR7mU+n9P+i+9SHuA==
+vditor@3.10.8:
+  version "3.10.8"
+  resolved "https://registry.npmmirror.com/vditor/-/vditor-3.10.8.tgz#b7fa16c20bdc79f712786d7a200bcea006c6d192"
+  integrity sha512-u9npjvMuGJVk0QGbpqiGAmvgiR4QvMVpNQYrvFYZ/yWDtTFLZrHmLxuUbtswotR6KY10u5kVuaoSEoBGGWQGjQ==
   dependencies:
     diff-match-patch "^1.0.5"
 
