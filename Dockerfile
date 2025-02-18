@@ -1,16 +1,8 @@
-FROM busybox:stable-uclibc
+FROM nginx:alpine
 
-WORKDIR /app
+COPY dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy the built SPA files
-COPY dist .
-
-# Create a .htaccess-like configuration
-RUN mkdir -p /etc/httpd/conf && \
-    echo 'H:.*:/app/index.html' > /etc/httpd/conf/httpd.conf
-
-# Expose port 80
 EXPOSE 80
 
-# Start httpd server with the configuration
-CMD ["httpd", "-f", "-p", "80", "-h", "/app", "-c", "/etc/httpd/conf/httpd.conf"]
+CMD ["nginx", "-g", "daemon off;"]
