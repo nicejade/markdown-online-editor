@@ -110,15 +110,45 @@ $$
 })
 \`\`\`
 
+---
+
 ### 4. 高效绘制[流程图](https://github.com/knsv/mermaid#flowchart)
 
 \`\`\`mermaid
-graph TD;
-  A-->B;
-  A-->C;
-  B-->D;
-  C-->D;
+graph TD
+    A[用户请求] --> B[语义解析]
+    B --> C[RAG检索]
+    
+    C -->|✅ 知识库匹配| D[上下文增强]
+    C -->|❌ 无匹配| E[任务分解]
+    
+    D --> E
+    
+    E --> F{工具选择}
+    
+    F -->|🛠️ 核心工具| G{基础操作}
+    F -->|🔌 MCP扩展服务| H{MCP操作}
+    
+    G -->|✏️ 文件操作| I[读写/替换]
+    G -->|🖥️ 系统命令执行| J[执行命令]
+    G -->|🔍 代码分析| K[代码分析]
+    
+    H -->|⚙️ 使用MCP工具| L[使用MCP工具]
+    H -->|📦 访问MCP资源| M[访问MCP资源]
+    
+    I --> N[结果验证]
+    J --> N
+    K --> N
+    L --> N
+    M --> N
+    
+    N --> O{完成判断}
+    
+    O -->|✅| P[提交最终结果]
+    O -->|❌| E
 \`\`\`
+
+---
 
 ### 5. 高效绘制[序列图](https://github.com/knsv/mermaid#sequence-diagram)
 
@@ -135,6 +165,8 @@ sequenceDiagram
   John->Bob: How about you?
   Bob-->John: Jolly good!
 \`\`\`
+
+---
 
 ### 6. 高效绘制[甘特图](https://github.com/knsv/mermaid#gantt-diagram)
 
@@ -165,13 +197,25 @@ ${echartsDemoJsonStr}
 
 >**备注**：上述 echarts 图表📈，其数据，须使用严格的 **JSON** 格式；您可使用 JSON.stringify(data)，将对象传换从而得标准数据，即可正常使用。
 
+---
+
 ### 8. 绘制表格
+
+| 作品名称        | 在线地址   |  上线日期  |
+| :--------  | :-----  | :----:  |
+| 逍遥自在轩 | [https://niceshare.site](https://niceshare.site/?ref=markdown.lovejade.cn) |2024-04-26|
+| 玉桃文飨轩 | [https://share.lovejade.cn](https://share.lovejade.cn/?ref=markdown.lovejade.cn) |2022-08-26|
+| 缘知随心庭 | [https://fine.niceshare.site](https://fine.niceshare.site/?ref=markdown.lovejade.cn) |2022-02-26|
+| 静轩之别苑 | [http://quickapp.lovejade.cn](http://quickapp.lovejade.cn/?ref=markdown.lovejade.cn) |2019-01-12|
+| 晚晴幽草轩 | [https://www.jeffjade.com](https://www.jeffjade.com/?ref=markdown.lovejade.cn) |2014-09-20|
+
+---
 
 ### 9. 更详细语法说明
 
 想要查看更详细的语法说明，可以参考这份 [Markdown 资源列表](https://github.com/nicejade/nice-front-end-tutorial/blob/master/tutorial/markdown-tutorial.md)，涵盖入门至进阶教程，以及资源、平台等信息，能让您对她有更深的认知。
 
-总而言之，不同于其它*所见即所得*的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 \`GitHub\` 和 技术问答网站 \`StackOverFlow\` 的御用书写格式，而且越发流行，正在在向各行业渗透。
+总而言之，不同于其它**所见即所得**的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。**Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。** 目前它已经成为世界上最大的技术分享网站 \`GitHub\` 和 技术问答网站 \`StackOverFlow\` 的御用书写格式，而且越发流行，正在在向各行业渗透。
 
-最新更新于 2019.08.21
+最新更新于 2025.04.16
 `
