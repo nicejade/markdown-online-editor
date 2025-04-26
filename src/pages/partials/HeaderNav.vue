@@ -53,6 +53,13 @@
             <icon class="header-icon" name="document" />
           </span>
         </router-link>
+        <span
+          class="hint--bottom"
+          @click="onImportClick"
+          aria-label="导入文件"
+        >
+          <icon class="header-icon" name="upload" />
+        </span>
         <el-dropdown trigger="click" @command="handleCommand">
           <span class="hint--bottom el-dropdown-link" aria-label="设置">
             <icon class="header-icon" name="setting" />
@@ -155,6 +162,24 @@ export default {
     },
     handleCommand(command) {
       this.$router.push(command)
+    },
+    onImportClick() {
+      const input = document.createElement('input')
+      input.type = 'file'
+      input.accept = '.md,.markdown,text/markdown'
+      input.onchange = (e) => {
+        const file = e.target.files[0]
+        if (file) {
+          const reader = new FileReader()
+          reader.onload = (e) => {
+            const content = e.target.result
+            localStorage.setItem('vditorvditor', content)
+            this.$root.$emit('reload-content')
+          }
+          reader.readAsText(file)
+        }
+      }
+      input.click()
     },
   },
 }
