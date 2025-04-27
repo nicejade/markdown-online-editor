@@ -37,6 +37,11 @@ export default {
     this.$nextTick(() => {
       this.isLoading = false
     })
+    this.$root.$on('reload-content', this.reloadContent)
+  },
+
+  beforeDestroy() {
+    this.$root.$off('reload-content', this.reloadContent)
   },
 
   methods: {
@@ -56,7 +61,6 @@ export default {
         outline: true,
         upload: {
           max: 5 * 1024 * 1024,
-          // linkToImgUrl: 'https://sm.ms/api/upload',
           handler(file) {
             let formData = new FormData()
             for (let i in file) {
@@ -68,9 +72,13 @@ export default {
             request.send(formData)
           },
         },
+        after: () => {
+          const content = localStorage.getItem('vditorvditor') || defaultText
+          this.vditor.setValue(content)
+          this.vditor.focus()
+        }
       }
       this.vditor = new Vditor('vditor', options)
-      this.vditor.focus()
     },
     onloadCallback(oEvent) {
       const currentTarget = oEvent.currentTarget
@@ -99,6 +107,13 @@ export default {
       const savedMdContent = localStorage.getItem('vditorvditor') || ''
       if (!savedMdContent.trim()) {
         localStorage.setItem('vditorvditor', defaultText)
+      }
+    },
+    reloadContent() {
+      if (this.vditor && this.vditor.getValue) {
+        const content = localStorage.getItem('vditorvditor') || ''
+        this.vditor.setValue(content)
+        this.vditor.focus()
       }
     },
   },
