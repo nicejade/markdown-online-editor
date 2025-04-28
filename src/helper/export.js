@@ -1,5 +1,4 @@
 /** @format */
-
 import html2canvas from 'html2canvas'
 import canvg from 'canvg'
 
@@ -71,31 +70,59 @@ function drawShadow(origCanvas) {
  * @desc 兼容使用 html2canvas 库不能完整捕获 SVG 问题；
  * @param {Dom} targetElem - 所要导出目标 DOM
  */
-const handleCaptureSvg = targetElem => {
+const handleCaptureSvg = (targetElem) => {
   const nodesToRecover = []
   const nodesToRemove = []
   const svgElem = targetElem.querySelectorAll('svg')
+
   for (let key = 0, len = svgElem.length; key < len; key++) {
     const node = svgElem[key]
     const parentNode = node.parentNode
-    const svg = parentNode.innerHTML
-    const canvas = document.createElement('canvas')
-    canvg(canvas, svg)
-    nodesToRecover.push({
-      parent: parentNode,
-      child: node
-    })
-    parentNode.removeChild(node)
 
-    nodesToRemove.push({
-      parent: parentNode,
-      child: canvas
-    })
-    parentNode.appendChild(canvas)
+    try {
+      // 获取SVG的XML字符串
+      const svgXml = new XMLSerializer().serializeToString(node)
+      // 创建一个新的canvas元素
+      const canvas = document.createElement('canvas')
+      // 设置canvas尺寸与SVG相同
+      const svgRect = node.getBoundingClientRect()
+      canvas.width = svgRect.width
+      canvas.height = svgRect.height
+
+      // 使用canvg渲染SVG到canvas
+      const ctx = canvas.getContext('2d')
+      canvg(canvas, svgXml, {
+        ignoreMouse: true,
+        ignoreAnimation: true,
+        ignoreDimensions: false,
+        ignoreClear: true,
+      })
+
+      // 保存原始节点信息以便恢复
+      nodesToRecover.push({
+        parent: parentNode,
+        child: node,
+      })
+
+      // 临时移除SVG节点
+      parentNode.removeChild(node)
+
+      // 添加canvas替代SVG
+      nodesToRemove.push({
+        parent: parentNode,
+        child: canvas,
+      })
+      parentNode.appendChild(canvas)
+    } catch (error) {
+      console.error('处理SVG时出错:', error)
+    }
   }
+
+  // 返回节点信息以便后续恢复
+  return { nodesToRecover, nodesToRemove }
 }
 
-export const generateScreenshot = async targetDom => {
+export const generateScreenshot = async (targetDom) => {
   handleCaptureSvg(targetDom)
   const domStyleObj = getComputedStyle(targetDom)
   TARGET_WIDTH = +domStyleObj.width.replace(`px`, '')
@@ -105,7 +132,10 @@ export const generateScreenshot = async targetDom => {
   const options = {
     scale,
     allowTaint: true,
-    backgroundColor: '#fefefe'
+    useCORS: true, // 启用CORS支持
+    backgroundColor: '#fefefe',
+    imageTimeout: 0, // 禁用图像超时
+    logging: false,
   }
   const origCanvas = await html2canvas(targetDom, options)
   const roundCanvas = drawRoundedRec(origCanvas, scale)

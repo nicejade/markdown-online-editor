@@ -53,11 +53,7 @@
             <icon class="header-icon" name="document" />
           </span>
         </router-link>
-        <span
-          class="hint--bottom"
-          @click="onImportClick"
-          aria-label="导入文件"
-        >
+        <span class="hint--bottom" @click="onImportClick" aria-label="导入文件">
           <icon class="header-icon" name="upload" />
         </span>
         <el-dropdown trigger="click" @command="handleCommand">
@@ -79,12 +75,6 @@
               <icon class="dropdown-icon" name="download" />
               <a href="/export/png" target="_self" class="dropdown-text">{{
                 exportTextMap['/export/png']
-              }}</a>
-            </el-dropdown-item>
-            <el-dropdown-item command="/export/jpeg">
-              <icon class="dropdown-icon" name="download" />
-              <a href="/export/jpeg" target="_self" class="dropdown-text">{{
-                exportTextMap['/export/jpeg']
               }}</a>
             </el-dropdown-item>
             <el-dropdown-item command="/export/pdf">
