@@ -59,6 +59,7 @@
 - [x] 🦑 支持五线谱、及[部分站点、视频、音频解析](https://github.com/Vanessa219/vditor)；
 - [x] 🌟 增加对**所见即所得**编辑模式的支持(`⌘-⇧-M`)；
 - [x] 🌟 新增复制到微信公众号等周边功能；
+- [x] 🌟 支持导入本地 Markdown（`*.md`） 文件；
 
 ## 如何使用
 
@@ -108,7 +109,7 @@ docker run -d -p [Your-Specified-Port]:80 nicejade/markdown-online-editor:[tagna
 docker run -d -p 8866:80 nicejade/markdown-online-editor:latest
 ```
 
-基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/244)。您也可以通过 **Cloudflare Pages** 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
+基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/49a7b493bddeed71)。您也可以通过 **Cloudflare Pages** 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
 
 或者**使用 [docker compose](https://docs.docker.com/compose/)**：
 
@@ -118,7 +119,7 @@ docker run -d -p 8866:80 nicejade/markdown-online-editor:latest
 version: '3'
 services:
   markdown-editor:
-    image: nicejade/markdown-online-editor:2.1.0
+    image: nicejade/markdown-online-editor:latest
     ports:
       - '8866:80'
     restart: always
@@ -155,7 +156,7 @@ yarn deploy
 
 ## 特别鸣谢
 
-[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [Vditor](https://github.com/b3log/vditor)：一款浏览器端的 Markdown 编辑器，同时也离不开 [Vue、reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
+[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [Vditor](https://github.com/b3log/vditor)：一款浏览器端的 Markdown 编辑器，同时也离不开 [Vue、Reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
 ## 相关链接
 
@@ -167,9 +168,10 @@ yarn deploy
 - [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [X（Twitter）](https://x.com/MarshalXuan)
+- [@MarshalXuan](https://www.youtube.com/@MarshalXuan)
 
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2018-present, [nicejade](https://niceshare.site/?ref=github.com).
+Copyright (c) 2018-present, [nicejade](https://www.thebettersites.com).
