@@ -4,7 +4,7 @@ import Vue from 'vue'
 const $lodash = require('./lodash').default
 
 if (typeof String.prototype.startsWith !== 'function') {
-  Window.String.prototype.startsWith = function(prefix) {
+  Window.String.prototype.startsWith = function (prefix) {
     return this.slice(0, prefix.length) === prefix
   }
 }
@@ -13,7 +13,7 @@ export default {
   resMsg(res) {
     let key = {
       zh: 'Chinese',
-      en: 'English'
+      en: 'English',
     }[Vue.config.lang]
     try {
       let obj = JSON.parse(res.Message)
@@ -30,7 +30,7 @@ export default {
   titleLang(zhStr, enStr) {
     return {
       zh: zhStr,
-      en: enStr
+      en: enStr,
     }
   },
 
@@ -74,7 +74,7 @@ export default {
     const h = this.makeUpZero(date.getHours())
     const m = this.makeUpZero(date.getMinutes())
     const s = this.makeUpZero(date.getSeconds())
-    return `${y}${mo}${d}${h}${m}${s}`
+    return `${y}-${mo}-${d}-${h}${m}${s}`
   },
 
   getExportFileName() {
@@ -100,7 +100,7 @@ export default {
       subtree: true, // 是否将观察器应用于该节点的所有后代节点
       attributeFilter: ['class', 'style'], // 观察特定属性
       attributeOldValue: true, // 观察 attributes 变动时，是否需要记录变动前的属性值
-      characterDataOldValue: true // 观察 characterData 变动，是否需要记录变动前的值
+      characterDataOldValue: true, // 观察 characterData 变动，是否需要记录变动前的值
     }
     const mutationObserver = new MutationObserver(() => {
       const vditorTextarea = document.getElementsByClassName('vditor-textarea')
@@ -139,5 +139,5 @@ export default {
   removeStorage(name) {
     if (!name) return
     window.localStorage.removeItem(name)
-  }
+  },
 }
