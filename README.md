@@ -138,7 +138,8 @@ docker-compose up -d
 
 可直接托管在 **Cloudflare Pages**，实现**零服务器**部署。
 
-1. 在 Cloudflare Pages 新建项目，选择你的 fork 仓库与分支。  
+0. 在GitHub中fork仓库。
+1. 在 Cloudflare 中的 Workers - Workers 和 Pages 中新建 Pages 项目，绑定github后选择导入现有 Git 存储库，选择你的 fork 仓库与分支。  
 2. 按下述参数配置构建：
    - **框架预设**：无  
    - **构建命令（Build command）**：
