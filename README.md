@@ -133,6 +133,30 @@ docker-compose up -d
 
 这将在后台启动服务，并且效果与下面的  `docker run`  命令相同。使用 Docker Compose 可以更方便地管理多个容器，并且配置更易读和维护。
 
+
+### Cloudflare Pages 托管
+
+可直接托管在 **Cloudflare Pages**，实现**零服务器**部署。
+
+0. 在GitHub中fork仓库。
+1. 在 Cloudflare 中的 Workers - Workers 和 Pages 中新建 Pages 项目，绑定github后选择导入现有 Git 存储库，选择你的 fork 仓库与分支。  
+2. 按下述参数配置构建：
+   - **框架预设**：无  
+   - **构建命令（Build command）**：
+     ```bash
+     yarn install && yarn build
+     ```
+   - **构建输出目录（Build output directory）**：
+     ```
+     dist
+     ```
+3. 在 **Environment variables**（生产 / 预览环境都建议添加）里新增：
+   - `NODE_VERSION` = `18`
+   - `YARN_NODE_LINKER` = `node-modules`
+   - `YARN_ENABLE_IMMUTABLE_INSTALLS` = `false`
+   - `NODE_OPTIONS` = `--openssl-legacy-provider`
+4. 保存即可自动构建并上线。后续每次 `git push` 会触发重新部署。  
+
 ## 如何开发
 
 ### 先决条件
