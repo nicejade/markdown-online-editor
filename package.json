@@ -14,6 +14,7 @@
     "test": "vue-cli-service test:unit",
     "testbuild": "vue-cli-service build --mode development",
     "deploy": "bash ./commands/deploy.sh",
+    "release": "pm2 start ecosystem.config.js --env production",
     "analyz": "NODE_ENV=production  npm_config_report=true npm run build",
     "clear-commit-msg": "bash ./commands/clear-commit-msg.sh",
     "eslint-fix": "eslint src/**/**/*.vue --fix",

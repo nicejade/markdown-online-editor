@@ -94,6 +94,9 @@ yarn global add pm2
 yarn build
 
 # 🚀 部署服务
+yarn release
+
+# 🎗️ 或者
 cd dist
 npx pm2 start "npx http-server -p 8866" --name "markdown-editor"
 ```
@@ -111,7 +114,7 @@ docker run -d -p 8866:80 nicejade/markdown-online-editor:latest
 
 基于如上示例，如果您在本地执行，只需打开网址——[http://localhost:8866](http://localhost:8866/) 即可访问。如果在服务器运行，可以通过 http://[Server-IP]:8866 来访问。构建 Docker 镜像过程，可参见：[如何为 markdown-online-editor 服务构建 docker 镜像？](https://memo.lovejade.cn/m/49a7b493bddeed71)。您也可以通过 **Cloudflare Pages** 或 Github Pages，托管编译产物（`dist` 目录下内容），从而实现**无需服务器情况下快速部署**。
 
-或者**使用 [docker compose](https://docs.docker.com/compose/)**：
+或者**使用 [Docker Compose](https://docs.docker.com/compose/)**：
 
 创建一个 `docker-compose.yml` 文件，并在其中定义服务（其中 version: '3' 指定了 Docker Compose 文件的版本；您可以根据实际情况进行调整）：
 
@@ -133,15 +136,14 @@ docker-compose up -d
 
 这将在后台启动服务，并且效果与下面的  `docker run`  命令相同。使用 Docker Compose 可以更方便地管理多个容器，并且配置更易读和维护。
 
-
 ### Cloudflare Pages 托管
 
 可直接托管在 **Cloudflare Pages**，实现**零服务器**部署。
 
-0. 在GitHub中fork仓库。
-1. 在 Cloudflare 中的 Workers - Workers 和 Pages 中新建 Pages 项目，绑定github后选择导入现有 Git 存储库，选择你的 fork 仓库与分支。  
+0. 在 GitHub 中 fork 仓库。
+1. 在 Cloudflare 中的 Workers - Workers 和 Pages 中新建 Pages 项目，绑定 github 后选择导入现有 Git 存储库，选择你的 fork 仓库与分支。
 2. 按下述参数配置构建：
-   - **框架预设**：无  
+   - **框架预设**：无
    - **构建命令（Build command）**：
      ```bash
      yarn install && yarn build
@@ -155,13 +157,13 @@ docker-compose up -d
    - `YARN_NODE_LINKER` = `node-modules`
    - `YARN_ENABLE_IMMUTABLE_INSTALLS` = `false`
    - `NODE_OPTIONS` = `--openssl-legacy-provider`
-4. 保存即可自动构建并上线。后续每次 `git push` 会触发重新部署。  
+4. 保存即可自动构建并上线。后续每次 `git push` 会触发重新部署。
 
 ## 如何开发
 
 ### 先决条件
 
-说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级  [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用  [Pnpm](https://pnpm.io/)  或  [Yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/)  作为首选包管理工具。
+说明用户在安装和使用前，需要准备的一些先决条件，譬如：您需要安装或升级  [Node.js](https://nodejs.org/en/)（>= `16.*`，< `18.*`），推荐使用  [pnpm](https://pnpm.io/)  或  [yarn](https://www.jeffjade.com/2017/12/30/135-npm-vs-yarn-detial-memo/)  作为首选包管理工具。
 
 ```bash
 # 🎉 克隆项目
@@ -180,13 +182,13 @@ yarn deploy
 
 ## 特别鸣谢
 
-[Arya](https://markdown.lovejade.cn/?utm_source=github.com) 的产生，得益于 [Vditor](https://github.com/b3log/vditor)：一款浏览器端的 Markdown 编辑器，同时也离不开 [Vue、Reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
+[Arya](https://markdown.lovejade.cn/?ref=github.com) 的产生，得益于 [Vditor](https://github.com/b3log/vditor)：一款浏览器端的 Markdown 编辑器，同时也离不开 [Vue、Reveal.js 等开源库](https://github.com/nicejade/markdown-online-editor/blob/master/package.json#L25-L64)的支持，感谢 🙌。
 
 ## 相关链接
 
-- [清风明月轩](https://www.thebettersites.com/?ref=github.com)
 - [逍遥自在轩](https://www.niceshare.site/?ref=github.com)
 - [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
+- [玉桃文飨轩](https://share.lovejade.cn/?ref=github.com)
 - [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
 - [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
 - [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
