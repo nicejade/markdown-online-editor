@@ -81,6 +81,13 @@
 
 PM2 是一个强大的生产环境进程管理器，它不仅支持通过命令行启动应用，还可以使用配置文件（通常名为 `ecosystem.config.js`）来管理复杂的部署场景。您可以通过执行如下命令实现快速部署：
 
+### Docker部署
+
+```bash
+docker run -d -p [你要部署的端口]:80 shawnnotfound/vue-markdown:0.1
+```
+
+### 使用源代码部署
 ```bash
 # 🎉 克隆项目
 git clone https://github.com/nicejade/markdown-online-editor.git
