@@ -189,12 +189,17 @@ yarn deploy
 - [逍遥自在轩](https://www.niceshare.site/?ref=github.com)
 - [晚晴幽草轩](https://www.jeffjade.com/nicelinks?ref=github.com)
 - [玉桃文飨轩](https://share.lovejade.cn/?ref=github.com)
+- [清风明月轩](https://www.lovejade.cn/?ref=github.com)
 - [缘知随心庭](https://fine.niceshare.site/?ref=github.com)
 - [静轩之别苑](https://quickapp.lovejade.cn/?ref=github.com)
 - [悠然宜想亭](https://forum.lovejade.cn/?ref=github.com)
 - [SegmentFault](https://segmentfault.com/u/jeffjade)
 - [X（Twitter）](https://x.com/MarshalXuan)
 - [@MarshalXuan](https://www.youtube.com/@MarshalXuan)
+
+## Star History
+
+[![nicejade/markdown-online-editor Star History Chart](https://api.star-history.com/svg?repos=markdown-online-editor/markdown-online-editor,nicejade/markdown-online-editor&type=date&legend=top-left)](https://www.star-history.com/#markdown-online-editor/markdown-online-editor&nicejade/markdown-online-editor&type=date&legend=top-left)
 
 ## License
 
