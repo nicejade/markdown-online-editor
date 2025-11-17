@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-  <div id="app">
+  <div id="app" style="text-autospace: normal">
     <router-view></router-view>
   </div>
 </template>
@@ -10,7 +10,7 @@
 export default {
   name: 'app',
 
-  components: {}
+  components: {},
 }
 </script>
 
