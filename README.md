@@ -199,7 +199,7 @@ yarn deploy
 
 ## Star History
 
-[![nicejade/markdown-online-editor Star History Chart](https://api.star-history.com/svg?repos=markdown-online-editor/markdown-online-editor,nicejade/markdown-online-editor&type=date&legend=top-left)](https://www.star-history.com/#markdown-online-editor/markdown-online-editor&nicejade/markdown-online-editor&type=date&legend=top-left)
+[![nicejade markdown-online-editor Star History Chart](https://api.star-history.com/svg?repos=nicejade/markdown-online-editor&type=date&legend=top-left)](https://www.star-history.com/#nicejade/markdown-online-editor&type=date&legend=top-left)
 
 ## License
 
