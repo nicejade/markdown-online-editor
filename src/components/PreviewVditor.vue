@@ -6,6 +6,7 @@
 
 <script>
 import Vditor from 'vditor'
+import 'vditor/src/assets/less/index.less'
 
 export default {
   name: 'PreviewVditor',

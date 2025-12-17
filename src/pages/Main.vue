@@ -9,6 +9,7 @@
 
 <script>
 import Vditor from 'vditor'
+import 'vditor/src/assets/less/index.less'
 import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
 
@@ -25,7 +26,7 @@ export default {
 
   created() {
     this.setDefaultText()
-    console.log = () => { }
+    console.log = () => {}
   },
 
   components: {
@@ -76,7 +77,7 @@ export default {
           const content = localStorage.getItem('vditorvditor') || defaultText
           this.vditor.setValue(content)
           this.vditor.focus()
-        }
+        },
       }
       this.vditor = new Vditor('vditor', options)
     },
