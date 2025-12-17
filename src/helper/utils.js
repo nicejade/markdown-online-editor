@@ -1,7 +1,7 @@
 /** @format */
 
 import Vue from 'vue'
-const $lodash = require('./lodash').default
+import { endsWith } from 'lodash'
 
 if (typeof String.prototype.startsWith !== 'function') {
   Window.String.prototype.startsWith = function (prefix) {
@@ -54,7 +54,7 @@ export default {
   },
 
   assembleExternalLink(url) {
-    const separator = $lodash.endsWith(url, '/') ? '' : '/'
+    const separator = endsWith(url, '/') ? '' : '/'
     return `${url}${separator}?utm_source=markdown.lovejade.cn`
   },
 
