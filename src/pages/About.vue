@@ -6,7 +6,7 @@
 
 <script>
 import PreviewVditor from '@components/PreviewVditor'
-import AboutAryaMd from '@config/aboutArya'
+import AboutAryaMd from '@config/about'
 
 export default {
   name: 'about-arya',
@@ -14,14 +14,14 @@ export default {
   data() {
     return {
       isLoading: true,
-      pdata: AboutAryaMd
+      pdata: AboutAryaMd,
     }
   },
 
   created() {},
 
   components: {
-    PreviewVditor
+    PreviewVditor,
   },
 
   mounted() {},
@@ -29,7 +29,7 @@ export default {
   methods: {
     handleCallBack() {
       this.isLoading = false
-    }
-  }
+    },
+  },
 }
 </script>

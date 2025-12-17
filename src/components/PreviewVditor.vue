@@ -7,6 +7,7 @@
 <script>
 import Vditor from 'vditor'
 import 'vditor/src/assets/less/index.less'
+import { updateHtmlStyle, hideVditorTextarea } from '@helper/utils'
 
 export default {
   name: 'PreviewVditor',
@@ -26,7 +27,7 @@ export default {
   },
 
   created() {
-    this.$utils.updateHtmlStyle()
+    updateHtmlStyle()
     this.setDefaultText()
   },
 
@@ -34,7 +35,7 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$utils.hideVditorTextarea()
+    hideVditorTextarea()
   },
 
   methods: {

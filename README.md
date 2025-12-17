@@ -34,7 +34,7 @@
   <a href="https://v2ex.com/t/623128">
    <img src="https://img.shields.io/badge/chat-on%20v2ex-brightgreen.svg" alt="Chat On V2ex">
   </a>
-  <a href="https://niceshare.site/?ref=github.com">
+  <a href="https://www.niceshare.site/?ref=github.com">
     <img src="https://img.shields.io/badge/Author-nicejade-%23a696c8.svg" alt="Author nicejade">
   </a>
 </div>

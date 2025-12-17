@@ -14,6 +14,7 @@
 <script>
 import { generateScreenshot } from '@helper/export'
 import PreviewVditor from '@components/PreviewVditor'
+import { getExportFileName } from '@helper/utils'
 
 export default {
   name: 'export-image',
@@ -64,7 +65,7 @@ export default {
       this.isLoading = true
       this.isExporting = true
       const element = document.querySelector('#khaleesi .vditor-preview')
-      const filename = this.$utils.getExportFileName()
+      const filename = getExportFileName()
       this.exportAndDownloadImg(element, filename)
     },
   },

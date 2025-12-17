@@ -19,6 +19,7 @@ import Reveal from 'reveal.js/js/reveal'
 import 'reveal.js/css/reset.css'
 import 'reveal.js/css/reveal.css'
 import 'reveal.js/css/theme/beige.css'
+import { updateHtmlStyle } from '@helper/utils'
 
 export default {
   name: 'export-ppt',
@@ -30,7 +31,7 @@ export default {
   },
 
   created() {
-    this.$utils.updateHtmlStyle()
+    updateHtmlStyle()
     this.savedMdContent = localStorage.getItem('vditorvditor')
   },
 

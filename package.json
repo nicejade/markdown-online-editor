@@ -28,7 +28,6 @@
     "hint.css": "^2.6.0",
     "html2canvas": "^1.0.0-rc.3",
     "html2pdf.js": "^0.9.1",
-    "lodash": "4.17.15",
     "lodash.assign": "^4.2.0",
     "lodash.clonedeep": "^4.5.0",
     "register-service-worker": "^1.0.0",

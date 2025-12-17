@@ -15,6 +15,7 @@
 <script>
 import html2pdf from 'html2pdf.js'
 import PreviewVditor from '@components/PreviewVditor'
+import { getExportFileName } from '@helper/utils'
 
 export default {
   name: 'export-pdf',
@@ -83,7 +84,7 @@ export default {
       this.isLoading = true
       this.exporting = true
       const visibleElement = document.querySelector('#khaleesi .vditor-preview')
-      const filename = this.$utils.getExportFileName()
+      const filename = getExportFileName()
       this.exportAndDownloadPdf(visibleElement || document.querySelector('#khaleesi'), filename)
     },
   },
