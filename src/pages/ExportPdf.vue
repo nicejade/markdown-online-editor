@@ -23,14 +23,14 @@ export default {
     return {
       isLoading: true,
       pdata: localStorage.getItem('vditorvditor'),
-      exporting: false,
+      exporting: false
     }
   },
 
   created() {},
 
   components: {
-    PreviewVditor,
+    PreviewVditor
   },
 
   mounted() {},
@@ -52,13 +52,13 @@ export default {
           // 排除 vditor-preview__action 元素
           ignoreElements: (element) => {
             return element.classList.contains('vditor-preview__action')
-          },
+          }
         },
         jsPDF: {
           unit: 'in',
           format: 'letter',
-          orientation: 'portrait',
-        },
+          orientation: 'portrait'
+        }
       }
       html2pdf()
         .set(opt)
@@ -85,7 +85,7 @@ export default {
       const visibleElement = document.querySelector('#khaleesi .vditor-preview')
       const filename = this.$utils.getExportFileName()
       this.exportAndDownloadPdf(visibleElement || document.querySelector('#khaleesi'), filename)
-    },
-  },
+    }
+  }
 }
 </script>

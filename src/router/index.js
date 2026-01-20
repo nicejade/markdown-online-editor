@@ -9,7 +9,7 @@ import commonRoutesMap from './commonRoutes'
 Vue.use(Router)
 
 const routerInstance = new Router({
-  mode: 'history',
+  mode: 'hash',
   /* ~~~~~~~~~~~~~~~~~~~~~~~~@CHANGE@~~~~~~~~~~~~~~~~~~~~~~~~ */
   /*
     @desc: base,应用的基路径;如整个单页应用服务在 /app/ 下，base 就应该设为 "/app/";
