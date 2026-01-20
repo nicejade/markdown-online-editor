@@ -2,14 +2,12 @@
 
 <template>
   <div class="index-page" v-loading="isLoading">
-    <HeaderNav />
     <div id="vditor" class="vditor" />
   </div>
 </template>
 
 <script>
 import Vditor from 'vditor'
-import HeaderNav from './partials/HeaderNav'
 import defaultText from '@config/default'
 
 export default {
@@ -19,7 +17,7 @@ export default {
     return {
       isLoading: true,
       isMobile: window.innerWidth <= 960,
-      vditor: null,
+      vditor: null
     }
   },
 
@@ -28,9 +26,6 @@ export default {
     console.log = () => { }
   },
 
-  components: {
-    HeaderNav,
-  },
 
   mounted() {
     this.initVditor()
@@ -48,7 +43,7 @@ export default {
     initVditor() {
       const that = this
       const options = {
-        width: this.isMobile ? '100%' : '80%',
+        width: this.isMobile ? '100%' : '100%',
         height: '0',
         tab: '\t',
         counter: '999999',
@@ -56,7 +51,7 @@ export default {
         mode: 'sv',
         preview: {
           delay: 100,
-          show: !this.isMobile,
+          show: !this.isMobile
         },
         outline: true,
         upload: {
@@ -70,8 +65,99 @@ export default {
             request.open('POST', 'https://sm.ms/api/upload')
             request.onload = that.onloadCallback
             request.send(formData)
-          },
+          }
         },
+        preview: {
+          actions: ["desktop", "tablet", "mobile", "mp-wechat", "zhihu"],
+          delay: 1000,
+          hljs: {
+            enable: true,
+            lineNumber: false,
+            defaultLang: "",
+            style: "github",
+          },
+          markdown: {
+            autoSpace: false,
+            gfmAutoLink: true,
+            codeBlockPreview: true,
+            fixTermTypo: false,
+            footnotes: true,
+            linkBase: "",
+            linkPrefix: "",
+            listStyle: false,
+            mark: false,
+            mathBlockPreview: true,
+            paragraphBeginningSpace: false,
+            sanitize: true,
+            sub: false,
+            sup: false,
+            toc: false,
+          },
+          math: {
+            engine: "KaTeX",
+            inlineDigit: false,
+            macros: {},
+          },
+          maxWidth: 800,
+          mode: "both",
+          theme: {
+            current: "light",
+            list: {
+              "ant-design": "Ant Design",
+              "dark": "Dark",
+              "light": "Light",
+              "wechat": "WeChat",
+            },
+            path: `https://unpkg.com/vditor@3.10.8/dist/css/content-theme`,
+          },
+          render: {
+            media: {
+              enable: true,
+            }
+          }
+        },
+        toolbar: [
+          "emoji",
+          "headings",
+          "bold",
+          "italic",
+          "strike",
+          "link",
+          "|",
+          "list",
+          "ordered-list",
+          "check",
+          "outdent",
+          "indent",
+          "|",
+          "quote",
+          "line",
+          "code",
+          "inline-code",
+          "insert-before",
+          "insert-after",
+          "|",
+          "upload",
+          "record",
+          "table",
+          "|",
+          "undo",
+          "redo",
+          "|",
+          "fullscreen",
+          "edit-mode",
+          {
+            name: "more",
+            toolbar: [
+              "both",
+              "code-theme",
+              "content-theme",
+              "export",
+              "outline",
+              "preview"
+            ],
+          },
+        ],
         after: () => {
           const content = localStorage.getItem('vditorvditor') || defaultText
           this.vditor.setValue(content)
@@ -79,13 +165,14 @@ export default {
         }
       }
       this.vditor = new Vditor('vditor', options)
+      console.log(this.vditor);
     },
     onloadCallback(oEvent) {
       const currentTarget = oEvent.currentTarget
       if (currentTarget.status !== 200) {
         return this.$message({
           type: 'error',
-          message: currentTarget.status + ' ' + currentTarget.statusText,
+          message: currentTarget.status + ' ' + currentTarget.statusText
         })
       }
       let resp = JSON.parse(currentTarget.response)
@@ -93,7 +180,7 @@ export default {
       if (resp.code === 'invalid_source') {
         return this.$message({
           type: 'error',
-          message: resp.message,
+          message: resp.message
         })
       }
       if (resp.code === 'image_repeated') {
@@ -115,8 +202,8 @@ export default {
         this.vditor.setValue(content)
         this.vditor.focus()
       }
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -131,9 +218,9 @@ export default {
 
   .vditor {
     position: absolute;
-    top: @header-height;
-    max-width: @max-body-width;
-    width: 80%;
+    // top: @header-height;
+    // max-width: @max-body-width;
+    width: 100%;
     height: calc(100vh - 100px);
     margin: 20px auto;
     text-align: left;
@@ -141,9 +228,15 @@ export default {
     .vditor-toolbar {
       border-left: 1px solid #d1d5da;
       border-right: 1px solid #d1d5da;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
     }
 
     .vditor-content {
+      margin-top: 36px;
       height: auto;
       min-height: auto;
       border: 1px solid #d1d5da;

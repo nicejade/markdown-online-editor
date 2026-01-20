@@ -22,14 +22,14 @@ export default {
     return {
       isLoading: true,
       isExporting: false,
-      pdata: localStorage.getItem('vditorvditor'),
+      pdata: localStorage.getItem('vditorvditor')
     }
   },
 
   created() {},
 
   components: {
-    PreviewVditor,
+    PreviewVditor
   },
 
   mounted() {},
@@ -66,7 +66,7 @@ export default {
       const element = document.querySelector('#khaleesi .vditor-preview')
       const filename = this.$utils.getExportFileName()
       this.exportAndDownloadImg(element, filename)
-    },
-  },
+    }
+  }
 }
 </script>
