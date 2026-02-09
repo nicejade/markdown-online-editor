@@ -105,6 +105,8 @@
 <script>
 import 'hint.css'
 import { exportTextMap } from '@config/constant'
+import { createDocument, setActiveDocId, saveDocContent } from '@helper/storage'
+import { trackEvent } from '@helper/analytics'
 
 export default {
   name: 'HeaderNav',
@@ -149,11 +151,14 @@ export default {
         document.msFullscreenElement ||
         document.webkitFullscreenElement
       isFullScreen ? this.cancelFullScreen() : this.launchFullScreen()
+      trackEvent('header_full_screen', 'header', isFullScreen ? 'exit' : 'enter')
     },
     handleCommand(command) {
       this.$router.push(command)
+      trackEvent('header_export', 'header', command)
     },
     onImportClick() {
+      trackEvent('header_import_click', 'header')
       const input = document.createElement('input')
       input.type = 'file'
       input.accept = '.md,.markdown,text/markdown'
@@ -163,8 +168,12 @@ export default {
           const reader = new FileReader()
           reader.onload = (e) => {
             const content = e.target.result
-            localStorage.setItem('vditorvditor', content)
+            const title = (file.name || '').replace(/\.(md|markdown)$/i, '') || '导入的文档'
+            const doc = createDocument(title)
+            saveDocContent(doc.id, content)
+            setActiveDocId(doc.id)
             this.$root.$emit('reload-content')
+            trackEvent('header_import_success', 'header', title)
           }
           reader.readAsText(file)
         }

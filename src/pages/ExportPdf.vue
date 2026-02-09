@@ -16,6 +16,8 @@
 import html2pdf from 'html2pdf.js'
 import PreviewVditor from '@components/PreviewVditor'
 import { getExportFileName } from '@helper/utils'
+import { getActiveDocId, getDocContent } from '@helper/storage'
+import { trackEvent } from '@helper/analytics'
 
 export default {
   name: 'export-pdf',
@@ -23,7 +25,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      pdata: localStorage.getItem('vditorvditor'),
+      pdata: getDocContent(getActiveDocId()) || '',
       exporting: false,
     }
   },
@@ -86,6 +88,7 @@ export default {
       const visibleElement = document.querySelector('#khaleesi .vditor-preview')
       const filename = getExportFileName()
       this.exportAndDownloadPdf(visibleElement || document.querySelector('#khaleesi'), filename)
+      trackEvent('export_pdf_submit', 'export', filename)
     },
   },
 }

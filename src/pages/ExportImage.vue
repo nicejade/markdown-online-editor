@@ -15,6 +15,8 @@
 import { generateScreenshot } from '@helper/export'
 import PreviewVditor from '@components/PreviewVditor'
 import { getExportFileName } from '@helper/utils'
+import { getActiveDocId, getDocContent } from '@helper/storage'
+import { trackEvent } from '@helper/analytics'
 
 export default {
   name: 'export-image',
@@ -23,7 +25,7 @@ export default {
     return {
       isLoading: true,
       isExporting: false,
-      pdata: localStorage.getItem('vditorvditor'),
+      pdata: getDocContent(getActiveDocId()) || '',
     }
   },
 
@@ -67,6 +69,7 @@ export default {
       const element = document.querySelector('#khaleesi .vditor-preview')
       const filename = getExportFileName()
       this.exportAndDownloadImg(element, filename)
+      trackEvent('export_image_submit', 'export', filename)
     },
   },
 }
