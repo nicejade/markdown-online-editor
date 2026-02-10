@@ -225,6 +225,8 @@ export default {
     flex: 1;
     display: flex;
     margin-top: @header-height;
+    margin-left: auto;
+    margin-right: auto;
     min-height: calc(100vh - @header-height);
     overflow: hidden;
     position: relative;
@@ -246,7 +248,7 @@ export default {
     min-width: 0;
     display: flex;
     flex-direction: column;
-    padding: 24px;
+    padding: 2rem;
     max-width: @max-body-width;
     margin: 0 auto;
     width: 100%;

@@ -26,6 +26,11 @@
             <icon class="header-icon" name="homepage" />
           </span>
         </a>
+        <a href="https://www.lovejade.cn/" class="header-link" target="_blank" rel="noopener">
+          <span class="hint--bottom" aria-label="清风明月轩">
+            <icon class="header-icon" name="home" />
+          </span>
+        </a>
         <a
           v-if="!isMobile"
           href="https://x.com/MarshalXuan"
@@ -232,9 +237,10 @@ export default {
     background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 
   .header-area {
-    width: 80%;
-    max-width: @max-body-width;
+    width: 100%;
     height: 100%;
+    padding: 0 2rem;
+    max-width: @max-body-width;
     margin: auto;
     text-align: left;
 
