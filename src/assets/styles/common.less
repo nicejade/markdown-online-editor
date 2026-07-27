@@ -1,53 +1,192 @@
-* {
+// =============================================================================
+// Global base — quiet writing space
+// =============================================================================
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Open Sans;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  font-family: @font-family;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: @text-primary;
+  background-color: @bg-page !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 *:focus {
-  outline: none !important;
+  outline: none;
+}
+
+// Soft, non-blue focus — only when keyboard navigating
+*:focus-visible {
+  outline: 1.5px solid rgba(42, 42, 44, 0.22);
+  outline-offset: 2px;
+  border-radius: @radius-xs;
 }
 
 a {
   color: @brand;
   text-decoration: none;
+  transition: color @duration-fast @ease-out, opacity @duration-fast @ease-out;
+
+  &:hover {
+    color: @brand-hover;
+  }
 }
 
-html,
-body {
-  font-size: 14px;
-  background-color: #ffffff !important;
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
-// export page css
+
+::selection {
+  background: rgba(42, 42, 44, 0.1);
+  color: @text-primary;
+}
+
+// Quiet scrollbars
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(42, 42, 44, 0.12);
+  border-radius: @radius-pill;
+  border: 2px solid transparent;
+  background-clip: content-box;
+
+  &:hover {
+    background: rgba(42, 42, 44, 0.22);
+    background-clip: content-box;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Export page chrome
+// -----------------------------------------------------------------------------
 .export-page {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: @white;
+  background-color: @bg-page;
   .flex-box-center(column);
+  padding: 28px 16px 48px;
+
   .button-group {
     width: 100%;
-    margin: 20px auto;
+    max-width: 960px;
+    margin: 0 auto 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+
+    .el-button {
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      border-radius: @radius-pill !important;
+      padding: 10px 22px !important;
+      height: auto !important;
+      transition: background @duration-fast @ease-out,
+        box-shadow @duration-fast @ease-out, border-color @duration-fast @ease-out,
+        color @duration-fast @ease-out !important;
+
+      &--default {
+        background: transparent !important;
+        border: 1px solid @border-grey !important;
+        color: @text-primary !important;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+          border-color: rgba(42, 42, 44, 0.18) !important;
+          background: rgba(42, 42, 44, 0.03) !important;
+          color: @text-primary !important;
+        }
+      }
+
+      &--primary {
+        background: @text-primary !important;
+        border-color: @text-primary !important;
+        color: @paper !important;
+        box-shadow: none;
+
+        &:hover,
+        &:focus {
+          background: lighten(@text-primary, 8%) !important;
+          border-color: lighten(@text-primary, 8%) !important;
+        }
+
+        &.is-disabled {
+          opacity: 0.4;
+        }
+      }
+    }
   }
+
   #export-vditor {
     max-width: 960px;
+    width: 100%;
     height: 100%;
-    min-height: 100vh;
+    min-height: 70vh;
     margin-bottom: 20px;
     text-align: left;
   }
+
   .vditor-toolbar {
     display: none;
   }
+
   .vditor {
-    border: 0;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
   }
+
   .vditor-preview {
     padding: 3 * @size-factor;
     margin: 3 * @size-factor;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    background: @paper;
+    border-radius: @radius-lg;
+    box-shadow: @shadow-sm;
+    border: 1px solid @border-hairline;
   }
+
   .vditor-reset h1 {
     text-align: center;
   }
@@ -55,12 +194,17 @@ body {
 
 @media (max-width: 768px) {
   .export-page {
+    padding: 16px 10px 32px;
+
     #export-vditor {
       width: 100% !important;
       margin: 0 !important;
     }
+
     .vditor-preview {
       padding: 0 10px;
+      margin: 0;
+      border-radius: @radius-md;
     }
   }
 }

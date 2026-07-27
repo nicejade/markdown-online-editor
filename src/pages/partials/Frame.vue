@@ -20,9 +20,9 @@ export default {
   },
   created() {},
   components: {
-    HeaderNav
+    HeaderNav,
   },
-  methods: {}
+  methods: {},
 }
 </script>
 
@@ -31,12 +31,16 @@ export default {
 .page-frame {
   height: 100%;
   width: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: @bg-page;
+
   .main-content {
     flex: 1;
     display: flex;
     margin-top: @header-height;
+    min-height: calc(100vh - @header-height);
   }
 }
 </style>

@@ -1,13 +1,300 @@
+// =============================================================================
+// Element UI — Jobs-like quiet chrome
+// Equal geometry, destructive clarity, no visual noise
+// =============================================================================
+
 .el-message {
   z-index: @el-message-zindex !important;
+  min-width: 300px !important;
+  border-radius: @radius-md !important;
+  border: 1px solid @border-hairline !important;
+  box-shadow: @shadow-md !important;
+  padding: 12px 16px !important;
+  background: fade(@paper, 96%) !important;
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+
+  .el-message__content {
+    font-family: @font-family;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: @text-primary !important;
+  }
 }
+
+// macOS-style confirm sheet
+.el-message-box__wrapper {
+  .v-modal {
+    opacity: 0.32 !important;
+  }
+}
+
+.v-modal {
+  background: #1a1a1c !important;
+  opacity: 0.28 !important;
+}
+
+.el-message-box {
+  width: 340px !important;
+  max-width: calc(100vw - 32px) !important;
+  padding: 0 !important;
+  border-radius: 14px !important;
+  border: 1px solid @border-hairline !important;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  font-family: @font-family;
+  background: fade(@paper, 98%) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  overflow: hidden;
+
+  .el-message-box__header {
+    padding: 22px 22px 0;
+    position: relative;
+
+    .el-message-box__title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.35;
+      color: @text-primary;
+      text-align: center;
+      padding-right: 0;
+    }
+
+    .el-message-box__headerbtn {
+      top: 14px;
+      right: 14px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      transition: background @duration-fast @ease-out;
+
+      &:hover {
+        background: fade(@text-primary, 5%);
+      }
+
+      .el-message-box__close {
+        color: @text-tertiary;
+        font-weight: 400;
+
+        &:hover {
+          color: @text-primary;
+        }
+      }
+    }
+  }
+
+  .el-message-box__content {
+    padding: 10px 24px 6px;
+    color: @text-secondary;
+    font-size: 13px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    text-align: center;
+
+    .el-message-box__container {
+      position: relative;
+      display: block;
+    }
+
+    // Quiet dialogs: hide loud status glyph (Jobs: less chrome, more words)
+    .el-message-box__status {
+      display: none !important;
+    }
+
+    .el-message-box__message {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+
+      p {
+        margin: 0;
+        color: @text-secondary;
+        line-height: 1.55;
+      }
+    }
+  }
+
+  .el-message-box__btns {
+    padding: 18px 18px 18px;
+    display: flex;
+    flex-direction: row-reverse; // primary (delete) on the right, Apple order
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+
+    .el-button {
+      margin: 0 !important;
+      min-width: 96px;
+      height: 34px !important;
+      line-height: 1 !important;
+      padding: 0 18px !important;
+      border-radius: 8px !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      letter-spacing: -0.01em;
+      transition: background @duration-fast @ease-out, border-color @duration-fast @ease-out,
+        color @duration-fast @ease-out, transform @duration-fast @ease-out,
+        box-shadow @duration-fast @ease-out !important;
+
+      span {
+        line-height: 1;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+
+    // Cancel — quiet secondary
+    .el-button--default {
+      background: fade(@text-primary, 5%) !important;
+      border: 1px solid transparent !important;
+      color: @text-primary !important;
+      box-shadow: none !important;
+
+      &:hover,
+      &:focus {
+        background: fade(@text-primary, 8%) !important;
+        border-color: transparent !important;
+        color: @text-primary !important;
+      }
+    }
+
+    // Confirm / Delete — decisive but refined (destructive tint)
+    .el-button--primary {
+      background: @text-primary !important;
+      border: 1px solid transparent !important;
+      color: #faf9f6 !important;
+      box-shadow: none !important;
+
+      &:hover,
+      &:focus {
+        background: lighten(@text-primary, 8%) !important;
+        border-color: transparent !important;
+        color: #faf9f6 !important;
+      }
+
+      &:active {
+        background: darken(@text-primary, 4%) !important;
+      }
+    }
+  }
+
+  // When confirm is used for destructive delete, prefer soft system red
+  &.el-message-box--warning,
+  &.is-destructive {
+    .el-message-box__btns .el-button--primary {
+      background: @red !important;
+      color: #fff !important;
+
+      &:hover,
+      &:focus {
+        background: lighten(@red, 4%) !important;
+        color: #fff !important;
+      }
+
+      &:active {
+        background: darken(@red, 4%) !important;
+      }
+    }
+  }
+}
+
+// Dropdown — floating sheet, not a tool menu
+.el-dropdown-menu {
+  margin: 0;
+  min-width: 180px;
+  border-radius: 12px !important;
+  border: 1px solid @border-hairline !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+  padding: 6px !important;
+  background: fade(@paper, 96%) !important;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  .el-dropdown-menu__item {
+    border-radius: 8px;
+    font-size: 13px;
+    letter-spacing: -0.01em;
+    color: @text-primary !important;
+    padding: 9px 12px !important;
+    line-height: 1.35;
+    transition: background @duration-fast @ease-out;
+
+    a {
+      color: @text-primary;
+      display: inline;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: fade(@text-primary, 5%) !important;
+      color: @text-primary !important;
+
+      a {
+        color: @text-primary;
+      }
+    }
+
+    &.is-disabled {
+      color: @text-tertiary !important;
+      opacity: 0.55;
+      cursor: default;
+
+      a {
+        color: @text-tertiary;
+      }
+
+      &:hover {
+        background: transparent !important;
+      }
+    }
+  }
+
+  .el-dropdown-menu__item--divided {
+    border-top-color: @separator !important;
+    margin-top: 4px;
+    padding-top: 9px !important;
+
+    &:before {
+      display: none !important;
+      height: 0 !important;
+      margin: 0 !important;
+    }
+  }
+
+  .popper__arrow {
+    display: none !important;
+  }
+}
+
 .el-dropdown-menu__item {
   a {
-    color: #606266;
+    color: @text-primary;
   }
 }
+
 .el-dropdown-menu__item.is-disabled {
   a {
-    color: #bbbbbb;
+    color: @text-tertiary;
   }
+}
+
+// Loading
+.el-loading-mask {
+  background-color: fade(@bg-page, 72%) !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.el-loading-spinner .path {
+  stroke: @text-secondary !important;
+}
+
+.el-loading-spinner .el-loading-text {
+  color: @text-secondary !important;
+  font-family: @font-family;
+  letter-spacing: -0.01em;
+  font-size: 13px;
 }

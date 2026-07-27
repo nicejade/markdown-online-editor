@@ -147,6 +147,10 @@ export default {
         confirmButtonText: '删除',
         cancelButtonText: '取消',
         type: 'warning',
+        customClass: 'is-destructive',
+        showClose: true,
+        center: false,
+        roundButton: false,
       })
         .then(() => {
           deleteDocument(doc.id)
@@ -172,9 +176,9 @@ export default {
   height: calc(100vh - @header-height);
   z-index: 100;
   background-color: @sidebar-bg;
-  border-right: 1px solid @border-grey;
+  border-right: 1px solid @sidebar-border;
   display: flex;
-  transition: width 0.2s ease;
+  transition: width @duration-normal @ease-out;
 
   &.collapsed {
     width: @sidebar-collapsed-width;
@@ -195,18 +199,17 @@ export default {
     .flex-box-center(column);
     cursor: pointer;
     color: @icon-grey;
-    transition: all 0.2s ease;
-    border-right: 1px solid transparent;
+    transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
     &:hover {
       background-color: @sidebar-item-hover;
-      color: @brand;
+      color: @text-primary;
     }
 
     .sidebar__toggle-icon {
-      width: 20px;
-      height: 20px;
-      opacity: 0.8;
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
     }
   }
 
@@ -219,7 +222,7 @@ export default {
   }
 
   .sidebar__header {
-    padding: 20px 16px 12px;
+    padding: 20px 14px 12px 18px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -227,24 +230,26 @@ export default {
 
     .sidebar__title {
       font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: @text-grey;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      color: @text-secondary;
+      line-height: 1.4;
     }
 
     .sidebar__header-collapse {
       cursor: pointer;
       color: @icon-grey;
-      padding: 4px;
+      width: 28px;
+      height: 28px;
       display: flex;
       align-items: center;
-      border-radius: 4px;
-      transition: all 0.2s ease;
+      justify-content: center;
+      border-radius: @radius-sm;
+      transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
         background-color: @sidebar-item-hover;
-        color: @brand;
+        color: @text-primary;
       }
     }
   }
@@ -252,17 +257,17 @@ export default {
   .sidebar__list {
     flex: 1;
     overflow-y: auto;
-    padding: 8px 12px;
+    padding: 2px 10px 12px;
   }
 
   .sidebar__item {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
-    margin-bottom: 2px;
-    border-radius: 6px;
+    padding: 10px 12px;
+    margin-bottom: 1px;
+    border-radius: @radius-sm;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
     position: relative;
     color: @sidebar-text;
 
@@ -276,6 +281,10 @@ export default {
       color: @sidebar-text-active;
       font-weight: 500;
 
+      .sidebar__item-title {
+        color: @sidebar-text-active;
+      }
+
       .sidebar__item-actions {
         opacity: 1;
       }
@@ -285,27 +294,37 @@ export default {
       flex: 1;
       .text-overflow();
       font-size: 14px;
+      letter-spacing: -0.005em;
       text-align: left;
+      color: inherit;
     }
 
     .sidebar__item-input {
       flex: 1;
       min-width: 0;
-      padding: 4px 8px;
+      padding: 5px 10px;
       font-size: 14px;
-      border: 1px solid @brand;
-      background: @white;
-      border-radius: 4px;
+      font-family: @font-family;
+      border: 1px solid @border-grey;
+      background: @paper;
+      border-radius: @radius-sm;
       outline: none;
-      box-shadow: 0 0 0 2px rgba(3, 169, 244, 0.1);
+      box-shadow: none;
+      color: @text-primary;
+
+      &:focus {
+        border-color: rgba(42, 42, 44, 0.2);
+        box-shadow: @shadow-focus;
+      }
     }
 
     .sidebar__item-actions {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
       opacity: 0;
-      transition: opacity 0.2s ease;
+      transition: opacity @duration-fast @ease-out;
+      margin-left: 4px;
 
       .sidebar__item:hover & {
         opacity: 1;
@@ -313,30 +332,31 @@ export default {
     }
 
     .sidebar__item-action {
-      padding: 4px;
+      width: 26px;
+      height: 26px;
       color: @icon-grey;
-      font-size: 14px;
-      border-radius: 4px;
+      font-size: 13px;
+      border-radius: @radius-xs;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
+      transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
-        background-color: @white;
-        color: @brand;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        background-color: rgba(255, 252, 248, 0.9);
+        color: @text-primary;
       }
 
       &--danger:hover {
+        background-color: @red-soft;
         color: @red;
       }
     }
   }
 
   .sidebar__footer {
-    padding: 16px;
-    border-top: 1px solid @sidebar-border;
+    padding: 12px 14px 18px;
+    border-top: 1px solid @separator;
   }
 
   .sidebar__new-btn {
@@ -344,32 +364,33 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 10px 12px;
-    font-size: 14px;
+    gap: 7px;
+    padding: 9px 14px;
+    font-size: 13px;
     font-weight: 500;
-    color: @brand;
-    background: @white;
-    border: 1px solid @sidebar-border;
+    font-family: @font-family;
+    letter-spacing: -0.01em;
+    color: @text-secondary;
+    background: transparent;
+    border: 1px solid transparent;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
+    box-shadow: none;
+    transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
     &:hover {
-      border-color: @brand;
-      background-color: @sidebar-item-hover;
-      transform: translateY(-1px);
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      background: fade(@text-primary, 5%);
+      color: @text-primary;
     }
 
     &:active {
-      transform: translateY(0);
+      background: fade(@text-primary, 8%);
     }
 
     .sidebar__new-icon {
-      width: 16px;
-      height: 16px;
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
     }
   }
 }

@@ -21,22 +21,25 @@ export default {
       default: '',
       validator(val) {
         return Icons[val]
-      }
-    }
+      },
+    },
   },
 
   computed: {
     iconClass() {
       return 'icon-' + this.name
-    }
-  }
+    },
+  },
 }
 </script>
 
 <style lang="less">
 @import './../assets/styles/style.less';
 .svg-icon {
-  width: @font-medium;
-  height: @font-medium;
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
 }
 </style>

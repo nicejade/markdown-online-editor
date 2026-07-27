@@ -64,19 +64,21 @@ export default {
 <style lang="less">
 @import './../assets/styles/style.less';
 
+// Chrome only: page surface + card shell. Markdown content (.vditor-reset) left as-is.
 .preview-vditor {
   width: 100%;
   height: 100%;
   min-height: 100vh;
-  background-color: @white;
+  background-color: @bg-page;
   .flex-box-center(column);
+  padding: 28px 16px 48px;
 
   #khaleesi {
     max-width: 960px;
     min-width: 50vw;
     height: 100%;
-    min-height: 100vh;
-    margin: 20px auto;
+    min-height: 70vh;
+    margin: 0 auto;
     text-align: left;
 
     .vditor-toolbar {
@@ -91,7 +93,10 @@ export default {
 
     .vditor-preview {
       padding: 0 20px;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+      background: @paper;
+      border-radius: @radius-lg;
+      border: 1px solid @border-hairline;
+      box-shadow: @shadow-sm;
 
       .vditor-preview__action {
         display: none;
@@ -106,12 +111,17 @@ export default {
   }
 
   .vditor {
-    border: 0;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    --toolbar-icon-hover-color: @text-primary;
   }
 }
 
 @media (max-width: 768px) {
   .preview-vditor {
+    padding: 12px 8px 32px;
+
     #khaleesi {
       width: 100% !important;
       margin: 0 !important;
@@ -119,6 +129,7 @@ export default {
 
     .vditor-preview {
       padding: 0 10px;
+      border-radius: @radius-md;
     }
 
     .vditor-reset {

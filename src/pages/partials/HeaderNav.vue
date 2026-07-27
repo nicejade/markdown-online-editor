@@ -1,7 +1,7 @@
 <template>
   <header class="header-wrapper">
-    <h1 class="header-area">
-      <a href="/" class="header-link" target="_self">
+    <div class="header-area">
+      <a href="/" class="header-brand" target="_self">
         <img
           class="mark-markdown"
           src="@assets/images/markdown.png"
@@ -9,7 +9,7 @@
         />
         <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
       </a>
-      <nav class="button-group">
+      <nav class="button-group" aria-label="主导航">
         <a
           v-if="!isMobile"
           href="https://wechat.jeffjade.com/"
@@ -58,11 +58,11 @@
             <icon class="header-icon" name="document" />
           </span>
         </router-link>
-        <span class="hint--bottom" @click="onImportClick" aria-label="导入文件">
+        <span class="hint--bottom header-action" @click="onImportClick" aria-label="导入文件">
           <icon class="header-icon" name="upload" />
         </span>
         <el-dropdown trigger="click" @command="handleCommand">
-          <span class="hint--bottom el-dropdown-link" aria-label="设置">
+          <span class="hint--bottom el-dropdown-link header-action" aria-label="设置">
             <icon class="header-icon" name="setting" />
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -102,14 +102,14 @@
         </el-dropdown>
         <span
           v-if="!isMobile"
-          class="hint--bottom full-screen"
+          class="hint--bottom full-screen header-action"
           @click="onFullScreenClick"
           aria-label="全屏"
         >
           <icon class="header-icon" name="full-screen" />
         </span>
       </nav>
-    </h1>
+    </div>
   </header>
 </template>
 
@@ -198,17 +198,23 @@ export default {
 <style lang="less">
 @import './../../assets/styles/style.less';
 
+// Shared hit target for every header control (optical equality)
+@header-hit: 32px;
+@header-icon-size: 16px;
+
 [class*='hint--']:after {
-  border-radius: 3px;
+  border-radius: 6px;
+  background: fade(@text-primary, 92%) !important;
+  font-family: @font-family !important;
+  font-size: 11px !important;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  box-shadow: @shadow-sm;
+  padding: 5px 8px !important;
 }
 
 .el-popper[x-placement^='bottom'] {
-  margin-top: 10px;
-}
-
-.el-dropdown .el-dropdown-link {
-  height: @header-height;
-  .flex-box-center(column);
+  margin-top: 6px;
 }
 
 .hint--bottom {
@@ -216,13 +222,15 @@ export default {
   pointer-events: all;
 }
 
+// Dropdown icons inside the floating menu
 .el-dropdown-menu {
-  margin: 0;
-
   .dropdown-icon {
-    fill: @deep-black;
+    fill: @text-secondary;
     vertical-align: middle;
     margin-right: 10px;
+    width: 15px;
+    height: 15px;
+    opacity: 0.9;
   }
 
   .dropdown-text {
@@ -235,51 +243,154 @@ export default {
   top: 0;
   width: 100%;
   height: @header-height;
-  line-height: @header-height;
   z-index: @hint-css-zindex;
-  background-color: #fff;
-  box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.1);
-  transition: border 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955),
-    background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  background: fade(@bg-page, 90%);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  border-bottom: 1px solid @border-hairline;
+  box-shadow: none;
 
   .header-area {
     width: 100%;
     height: 100%;
-    padding: 0 2rem;
+    padding: 0 1.25rem;
     max-width: @max-body-width;
     margin: auto;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 
-    .header-link {
+    .header-brand {
       display: inline-flex;
+      align-items: center;
       height: @header-height;
-      line-height: @header-height;
+      text-decoration: none;
+      min-width: 0;
+      transition: opacity @duration-fast @ease-out;
+
+      &:hover {
+        opacity: 0.7;
+      }
 
       .mark-markdown {
-        width: @header-height;
-        vertical-align: middle;
+        width: 24px;
+        height: 24px;
+        object-fit: contain;
+        border-radius: 5px;
+        opacity: 0.94;
       }
 
       .header-text {
         margin-left: 10px;
-        font-size: @font-medium;
-        color: transparent;
-        background-clip: text;
-        background-image: linear-gradient(to right, #000000, #434343);
-        vertical-align: middle;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -0.015em;
+        color: @text-primary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 
     .button-group {
-      float: right;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex-shrink: 0;
+      height: @header-height;
+
+      // Every control shares the same geometry
+      .header-link,
+      .header-action {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: @header-hit;
+        height: @header-hit;
+        border-radius: 8px;
+        line-height: 1;
+        transition: background @duration-fast @ease-out;
+
+        &:hover {
+          background: fade(@text-primary, 5%);
+        }
+
+        &:active {
+          background: fade(@text-primary, 8%);
+        }
+      }
 
       .header-icon {
-        margin: 0 10px;
-        fill: @deep-black;
+        margin: 0;
+        width: @header-icon-size;
+        height: @header-icon-size;
+        fill: @text-secondary;
+        opacity: 0.82;
+        transition: opacity @duration-fast @ease-out, fill @duration-fast @ease-out;
+        // Optical: dense glyphs (gear) read heavier — keep box equal
+        display: block;
+      }
+
+      .header-link:hover .header-icon,
+      .header-action:hover .header-icon {
+        fill: @text-primary;
+        opacity: 1;
+      }
+
+      // Settings: gear is visually dense — slight optical shrink
+      .icon-setting {
+        width: 15px !important;
+        height: 15px !important;
+        transform: translateY(0);
       }
 
       .full-screen {
-        margin-right: -10px;
+        margin-right: 0;
+      }
+
+      // Fix Element dropdown breaking header alignment
+      .el-dropdown {
+        display: inline-flex;
+        align-items: center;
+        height: @header-hit;
+        vertical-align: middle;
+
+        .el-dropdown-link {
+          display: inline-flex !important;
+          align-items: center;
+          justify-content: center;
+          width: @header-hit !important;
+          height: @header-hit !important;
+          min-height: @header-hit !important;
+          line-height: 1 !important;
+          border-radius: 8px;
+          padding: 0 !important;
+          border: none !important;
+          background: transparent;
+          outline: none !important;
+          box-shadow: none !important;
+          transition: background @duration-fast @ease-out;
+
+          &:hover {
+            background: fade(@text-primary, 5%);
+          }
+
+          &:active {
+            background: fade(@text-primary, 8%);
+          }
+
+          &:focus {
+            outline: none !important;
+            background: fade(@text-primary, 5%);
+          }
+        }
+
+        // When menu is open, keep a quiet pressed state
+        &.is-active .el-dropdown-link,
+        .el-dropdown-selfdefine:focus {
+          background: fade(@text-primary, 6%);
+        }
       }
     }
   }
@@ -288,13 +399,31 @@ export default {
 @media (max-width: 960px) {
   .header-wrapper {
     .header-area {
-      display: flex;
-      width: 100%;
       padding: 0 10px;
-      .flex-box-center(row, space-between);
 
-      .header-link {
-        display: inline;
+      .header-brand .mark-markdown {
+        width: 22px;
+        height: 22px;
+      }
+
+      .button-group {
+        gap: 0;
+
+        .header-link,
+        .header-action {
+          width: 30px;
+          height: 30px;
+        }
+
+        .el-dropdown {
+          height: 30px;
+
+          .el-dropdown-link {
+            width: 30px !important;
+            height: 30px !important;
+            min-height: 30px !important;
+          }
+        }
       }
     }
   }

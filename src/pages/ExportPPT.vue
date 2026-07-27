@@ -79,13 +79,16 @@ export default {
 </script>
 
 <style lang="less">
+@import './../assets/styles/style.less';
+
 .export-ppt {
   width: 100%;
+  background: @bg-page;
 
   .reveal {
     font-size: 2em;
-    background-color: #ffffff;
-    height: calc(100vh - 60px);
+    background-color: @white;
+    height: calc(100vh - @header-height);
 
     h1 {
       font-size: 2em !important;

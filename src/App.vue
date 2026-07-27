@@ -20,10 +20,12 @@ export default {
 @import '~vditor/dist/index.css';
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: @font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: @text-primary;
+  min-height: 100vh;
+  background-color: @bg-page;
 }
 </style>

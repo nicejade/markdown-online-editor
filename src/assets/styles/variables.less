@@ -1,40 +1,107 @@
+// =============================================================================
+// Arya Design Tokens — Editorial / writing space
+// Warm paper, quiet ink, restrained accent — not a tools dashboard
+// =============================================================================
+
 @size-factor: 0.5rem;
 
-@brand: #03a9f4;
+// —— Accent (muted ink-blue, used sparingly) ——
+@brand: #3d6b8c;
+@brand-hover: #335a77;
+@brand-active: #2a4c66;
+@brand-soft: rgba(61, 107, 140, 0.08);
+@brand-soft-strong: rgba(61, 107, 140, 0.12);
 
-@bg-grey: #fafcff;
-@input-grey: #f2f4f7;
-@text-grey: #6a8bad;
-@icon-grey: #707780;
+// —— Surfaces (warm paper) ——
+@bg-page: #f6f5f2;
+@bg-elevated: #fffcf8;
+@bg-grey: #f0efeb;
+@input-grey: #f0efeb;
+@white: #fffcf8;
+@paper: #fffcf8;
+@paper-side: #f3f2ee;
 
-@border-grey: #d7dce5;
-@border-black: #7a8ba9;
+// —— Text (ink) ——
+@text-primary: #2a2a2c;
+@text-secondary: #6b6a66;
+@text-tertiary: #8e8d88;
+@text-grey: #6b6a66;
+@deep-black: #2a2a2c;
+@black: #2a2a2c;
+@liht-black: #4a4a48;
 
-@deep-black: #1a2a3a;
-@black: #2a3a4a;
-@liht-black: #3a4a5a;
+// —— Icons & borders ——
+@icon-grey: #8e8d88;
+@icon-primary: #4a4a48;
+@border-hairline: rgba(42, 42, 44, 0.06);
+@border-grey: rgba(42, 42, 44, 0.09);
+@border-black: #d5d3cc;
+@separator: rgba(42, 42, 44, 0.055);
 
-@white: #ffffff;
-@red: #fa0101;
-@grey: #e8ebf1;
-@orange: #6b5900;
-@yellow: #ffe564;
+// —— Semantic (soft system red — destructive, not alarm) ——
+@red: #c23b2e;
+@red-soft: rgba(194, 59, 46, 0.1);
+@grey: #e8e6e0;
+@orange: #c48a3a;
+@yellow: #d4b85a;
+@green: #5a8f6b;
 
-@font-large: 2.1rem;
-@font-medium: 1.3rem;
-@font-small: 1rem;
+// —— Typography ——
+@font-display: 2.4rem;
+@font-large: 1.75rem;
+@font-medium: 1.0625rem;
+@font-small: 0.9375rem;
+@font-caption: 0.8125rem;
+@font-micro: 0.75rem;
 
-@header-height: 60px;
+@font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+  'Helvetica Neue', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft YaHei', sans-serif;
+@font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+  'Liberation Mono', 'Courier New', monospace;
+
+// —— Layout ——
+@header-height: 52px;
 @max-body-width: 1560px;
+@sidebar-width: 260px;
+@sidebar-collapsed-width: 48px;
 
+// —— Radius (softer, less “product”) ——
+@radius-xs: 6px;
+@radius-sm: 8px;
+@radius-md: 10px;
+@radius-lg: 14px;
+@radius-xl: 18px;
+@radius-pill: 980px;
+
+// —— Elevation (barely there) ——
+@shadow-xs: 0 1px 2px rgba(42, 42, 44, 0.03);
+@shadow-sm: 0 1px 3px rgba(42, 42, 44, 0.04), 0 4px 12px rgba(42, 42, 44, 0.03);
+@shadow-md: 0 4px 20px rgba(42, 42, 44, 0.05), 0 1px 3px rgba(42, 42, 44, 0.03);
+@shadow-lg: 0 12px 36px rgba(42, 42, 44, 0.08), 0 2px 8px rgba(42, 42, 44, 0.03);
+@shadow-focus: 0 0 0 3px rgba(42, 42, 44, 0.06);
+
+// —— Glass ——
+@glass-bg: rgba(246, 245, 242, 0.82);
+@glass-bg-strong: rgba(255, 252, 248, 0.92);
+@glass-blur: 18px;
+@glass-saturate: 140%;
+
+// —— Motion ——
+@ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
+@ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+@duration-fast: 160ms;
+@duration-normal: 240ms;
+@duration-slow: 360ms;
+
+// —— Z-index ——
 @el-message-zindex: 10000;
 @hint-css-zindex: 9999;
 
-@sidebar-width: 260px;
-@sidebar-collapsed-width: 48px;
-@sidebar-bg: #f8fafc;
-@sidebar-item-hover: #f1f5f9;
-@sidebar-item-active-bg: #e2e8f0;
-@sidebar-border: #e2e8f0;
-@sidebar-text: #475569;
-@sidebar-text-active: #0f172a;
+// —— Sidebar ——
+@sidebar-bg: @paper-side;
+@sidebar-item-hover: rgba(42, 42, 44, 0.035);
+@sidebar-item-active-bg: rgba(42, 42, 44, 0.06);
+@sidebar-border: @border-hairline;
+@sidebar-text: @text-secondary;
+@sidebar-text-active: @text-primary;
