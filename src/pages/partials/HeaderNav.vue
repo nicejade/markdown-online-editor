@@ -254,8 +254,6 @@ export default {
     width: 100%;
     height: 100%;
     padding: 0 1.25rem;
-    max-width: @max-body-width;
-    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
