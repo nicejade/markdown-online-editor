@@ -3,7 +3,10 @@
 <template>
   <div class="index-page" v-loading="isLoading">
     <HeaderNav @toggle-sidebar="onToggleSidebar" />
-    <div class="index-page__body">
+    <div
+      class="index-page__body"
+      :style="{ paddingLeft: isMobile ? 0 : sidebarCollapsed ? '48px' : '260px' }"
+    >
       <Sidebar
         v-if="!isMobile"
         :collapsed="sidebarCollapsed"
@@ -12,10 +15,7 @@
         @doc-deleted="onDocDeleted"
         @toggle-sidebar="onToggleSidebar"
       />
-      <div
-        class="index-page__editor"
-        :style="{ marginLeft: isMobile ? 0 : sidebarCollapsed ? '48px' : '260px' }"
-      >
+      <div class="index-page__editor">
         <div id="vditor" class="vditor" />
       </div>
     </div>
@@ -224,6 +224,7 @@ export default {
   .index-page__body {
     flex: 1;
     display: flex;
+    justify-content: center;
     margin-top: @header-height;
     margin-left: auto;
     margin-right: auto;
@@ -231,6 +232,8 @@ export default {
     overflow: hidden;
     position: relative;
     width: 100%;
+    box-sizing: border-box;
+    transition: padding-left @duration-normal @ease-out;
   }
 
   .index-page__sidebar-overlay {
@@ -245,15 +248,15 @@ export default {
   }
 
   .index-page__editor {
-    flex: 1;
+    flex: 1 1 auto;
     min-width: 0;
     display: flex;
     flex-direction: column;
     padding: 12px 16px 16px;
     max-width: @max-body-width;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    transition: margin @duration-normal @ease-out;
     // allow toolbar tooltips to paint outside the editor card if needed
     overflow: visible;
   }
