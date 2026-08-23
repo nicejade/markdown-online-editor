@@ -66,4 +66,24 @@ describe('Sidebar.vue', () => {
 
     wrapper.destroy()
   })
+
+  it('enters rename mode when a document title is double-clicked', async () => {
+    const wrapper = shallowMount(Sidebar, {
+      stubs: ['icon'],
+      propsData: { activeDocId: existingDoc.id },
+    })
+
+    const title = wrapper.find('.sidebar__item-title')
+    expect(title.exists()).toBe(true)
+
+    await title.trigger('dblclick')
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.vm.editingId).toBe(existingDoc.id)
+    expect(wrapper.vm.editingTitle).toBe(existingDoc.title)
+    expect(wrapper.find('.sidebar__item-input').exists()).toBe(true)
+    expect(wrapper.find('.sidebar__item-title').exists()).toBe(false)
+
+    wrapper.destroy()
+  })
 })

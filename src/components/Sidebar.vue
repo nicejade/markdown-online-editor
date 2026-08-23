@@ -30,7 +30,12 @@
           :class="{ active: doc.id === activeDocId }"
           @click="onSelectDoc(doc.id)"
         >
-          <span v-if="editingId !== doc.id" class="sidebar__item-title" :title="doc.title">
+          <span
+            v-if="editingId !== doc.id"
+            class="sidebar__item-title"
+            :title="doc.title"
+            @dblclick.stop="startRename(doc)"
+          >
             {{ doc.title || '未命名文档' }}
           </span>
           <input
@@ -133,7 +138,10 @@ export default {
       this.$nextTick(() => {
         const ref = this.$refs.renameInput
         const input = Array.isArray(ref) ? ref[0] : ref
-        if (input) input.focus()
+        if (input) {
+          input.focus()
+          input.select()
+        }
       })
     },
     submitRename() {
@@ -310,6 +318,7 @@ export default {
       letter-spacing: -0.005em;
       text-align: left;
       color: inherit;
+      user-select: none;
     }
 
     .sidebar__item-input {
