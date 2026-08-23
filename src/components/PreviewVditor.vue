@@ -68,10 +68,10 @@ export default {
 .preview-vditor {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  background-color: @bg-page;
+  min-height: 100%;
+  background-color: transparent;
   .flex-box-center(column);
-  padding: 28px 16px 48px;
+  padding: 12px 16px 48px;
 
   #khaleesi {
     max-width: 960px;
@@ -94,7 +94,7 @@ export default {
     .vditor-preview {
       padding: 0 20px;
       background: @paper;
-      border-radius: @radius-lg;
+      border-radius: @radius-xl;
       border: 1px solid @border-hairline;
       box-shadow: @shadow-sm;
 

@@ -179,13 +179,16 @@ export default {
 
 .sidebar {
   position: fixed;
-  top: @header-height;
-  left: 0;
-  height: calc(100vh - @header-height);
+  top: @chrome-top;
+  left: @page-gutter;
+  height: calc(100vh - @chrome-top - @page-gutter);
   z-index: 100;
   background-color: @sidebar-bg;
-  border-right: 1px solid @sidebar-border;
+  border: 1px solid @sidebar-border;
+  border-radius: @radius-xl;
+  box-shadow: @shadow-xs;
   display: flex;
+  overflow: hidden;
   transition: width @duration-normal @ease-out;
 
   &.collapsed {
@@ -237,7 +240,7 @@ export default {
     gap: 8px;
 
     .sidebar__title {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.01em;
       color: @text-secondary;
@@ -252,7 +255,7 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: @radius-sm;
+      border-radius: @radius-pill;
       transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
@@ -272,10 +275,11 @@ export default {
     display: flex;
     align-items: center;
     padding: 10px 12px;
-    margin-bottom: 1px;
-    border-radius: @radius-sm;
+    margin-bottom: 4px;
+    border-radius: @radius-pill;
     cursor: pointer;
-    transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
+    transition: background @duration-fast @ease-out, color @duration-fast @ease-out,
+      box-shadow @duration-fast @ease-out;
     position: relative;
     color: @sidebar-text;
 
@@ -288,6 +292,7 @@ export default {
       background-color: @sidebar-item-active-bg;
       color: @sidebar-text-active;
       font-weight: 500;
+      box-shadow: @shadow-xs;
 
       .sidebar__item-title {
         color: @sidebar-text-active;
@@ -321,7 +326,7 @@ export default {
       color: @text-primary;
 
       &:focus {
-        border-color: rgba(42, 42, 44, 0.2);
+        border-color: rgba(28, 25, 23, 0.2);
         box-shadow: @shadow-focus;
       }
     }
@@ -344,14 +349,15 @@ export default {
       height: 26px;
       color: @icon-grey;
       font-size: 13px;
-      border-radius: @radius-xs;
+      border-radius: @radius-pill;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
       transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
-        background-color: rgba(255, 252, 248, 0.9);
+        background-color: fade(@text-primary, 6%);
         color: @text-primary;
       }
 
@@ -373,26 +379,27 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 7px;
-    padding: 9px 14px;
+    padding: 10px 14px;
     font-size: 13px;
     font-weight: 500;
     font-family: @font-family;
     letter-spacing: -0.01em;
-    color: @text-secondary;
-    background: transparent;
+    color: @paper;
+    background: @text-primary;
     border: 1px solid transparent;
-    border-radius: 8px;
+    border-radius: @radius-pill;
     cursor: pointer;
     box-shadow: none;
-    transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
+    transition: background @duration-fast @ease-out, color @duration-fast @ease-out,
+      transform @duration-fast @ease-out;
 
     &:hover {
-      background: fade(@text-primary, 5%);
-      color: @text-primary;
+      background: lighten(@text-primary, 10%);
+      color: @paper;
     }
 
     &:active {
-      background: fade(@text-primary, 8%);
+      transform: scale(0.98);
     }
 
     .sidebar__new-icon {

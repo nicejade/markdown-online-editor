@@ -1,49 +1,52 @@
 // =============================================================================
-// Arya Design Tokens — Editorial / writing space
-// Warm paper, quiet ink, restrained accent — not a tools dashboard
+// Arya Design Tokens — editorial cream, floating pills, ink CTAs
+// Warm paper canvas inspired by quiet consumer-finance product chrome
 // =============================================================================
 
 @size-factor: 0.5rem;
 
-// —— Accent (muted ink-blue, used sparingly) ——
-@brand: #3d6b8c;
-@brand-hover: #335a77;
-@brand-active: #2a4c66;
-@brand-soft: rgba(61, 107, 140, 0.08);
-@brand-soft-strong: rgba(61, 107, 140, 0.12);
+// —— Accent (ink CTAs; yellow used only as a highlighter) ——
+@brand: #1c1917;
+@brand-hover: #2e2a26;
+@brand-active: #0c0a09;
+@brand-soft: rgba(28, 25, 23, 0.06);
+@brand-soft-strong: rgba(28, 25, 23, 0.1);
+@highlight: #f5e14a;
+@highlight-soft: rgba(245, 225, 74, 0.5);
 
 // —— Surfaces (warm paper) ——
-@bg-page: #f6f5f2;
-@bg-elevated: #fffcf8;
-@bg-grey: #f0efeb;
-@input-grey: #f0efeb;
-@white: #fffcf8;
-@paper: #fffcf8;
-@paper-side: #f3f2ee;
+@bg-page: #f7f4ee;
+@bg-elevated: #fffcf7;
+@bg-grey: #efebe3;
+@input-grey: #efebe3;
+@white: #fffcf7;
+@paper: #fffcf7;
+@paper-side: #f1ede5;
+@nav-bg: rgba(255, 252, 247, 0.84);
 
 // —— Text (ink) ——
-@text-primary: #2a2a2c;
-@text-secondary: #6b6a66;
-@text-tertiary: #8e8d88;
-@text-grey: #6b6a66;
-@deep-black: #2a2a2c;
-@black: #2a2a2c;
-@liht-black: #4a4a48;
+@text-primary: #1c1917;
+@text-secondary: #57534e;
+@text-tertiary: #8a847c;
+@text-grey: #57534e;
+@deep-black: #1c1917;
+@black: #1c1917;
+@liht-black: #44403c;
 
 // —— Icons & borders ——
-@icon-grey: #8e8d88;
-@icon-primary: #4a4a48;
-@border-hairline: rgba(42, 42, 44, 0.06);
-@border-grey: rgba(42, 42, 44, 0.09);
-@border-black: #d5d3cc;
-@separator: rgba(42, 42, 44, 0.055);
+@icon-grey: #8a847c;
+@icon-primary: #44403c;
+@border-hairline: rgba(28, 25, 23, 0.07);
+@border-grey: rgba(28, 25, 23, 0.1);
+@border-black: #d6d1c7;
+@separator: rgba(28, 25, 23, 0.06);
 
-// —— Semantic (soft system red — destructive, not alarm) ——
+// —— Semantic ——
 @red: #c23b2e;
 @red-soft: rgba(194, 59, 46, 0.1);
-@grey: #e8e6e0;
+@grey: #e8e4db;
 @orange: #c48a3a;
-@yellow: #d4b85a;
+@yellow: #f5e14a;
 @green: #5a8f6b;
 
 // —— Typography ——
@@ -54,38 +57,45 @@
 @font-caption: 0.8125rem;
 @font-micro: 0.75rem;
 
-@font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
-  'Helvetica Neue', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', sans-serif;
-@font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-  'Liberation Mono', 'Courier New', monospace;
+@font-serif: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Songti SC',
+  'Noto Serif CJK SC', Georgia, serif;
+@font-family: Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display',
+  'Helvetica Neue', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+@font-mono: 'SF Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  'Courier New', monospace;
 
-// —— Layout ——
+// —— Layout (floating chrome) ——
+@page-gutter: 12px;
+@header-offset: 10px;
 @header-height: 52px;
+@header-stack: @header-offset + @header-height;
+@panel-gap: 10px;
+@chrome-top: @header-stack + @panel-gap;
 @max-body-width: 1560px;
 @sidebar-width: 260px;
 @sidebar-collapsed-width: 48px;
 
-// —— Radius (softer, less “product”) ——
+// —— Radius ——
 @radius-xs: 6px;
-@radius-sm: 8px;
-@radius-md: 10px;
-@radius-lg: 14px;
-@radius-xl: 18px;
-@radius-pill: 980px;
+@radius-sm: 10px;
+@radius-md: 14px;
+@radius-lg: 18px;
+@radius-xl: 22px;
+@radius-pill: 999px;
 
-// —— Elevation (barely there) ——
-@shadow-xs: 0 1px 2px rgba(42, 42, 44, 0.03);
-@shadow-sm: 0 1px 3px rgba(42, 42, 44, 0.04), 0 4px 12px rgba(42, 42, 44, 0.03);
-@shadow-md: 0 4px 20px rgba(42, 42, 44, 0.05), 0 1px 3px rgba(42, 42, 44, 0.03);
-@shadow-lg: 0 12px 36px rgba(42, 42, 44, 0.08), 0 2px 8px rgba(42, 42, 44, 0.03);
-@shadow-focus: 0 0 0 3px rgba(42, 42, 44, 0.06);
+// —— Elevation ——
+@shadow-xs: 0 1px 2px rgba(28, 25, 23, 0.04);
+@shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04), 0 8px 24px rgba(28, 25, 23, 0.045);
+@shadow-md: 0 8px 28px rgba(28, 25, 23, 0.08), 0 2px 6px rgba(28, 25, 23, 0.04);
+@shadow-lg: 0 16px 48px rgba(28, 25, 23, 0.1), 0 4px 12px rgba(28, 25, 23, 0.04);
+@shadow-focus: 0 0 0 3px rgba(28, 25, 23, 0.08);
+@shadow-pill: 0 1px 2px rgba(28, 25, 23, 0.05), 0 6px 16px rgba(28, 25, 23, 0.04);
 
 // —— Glass ——
-@glass-bg: rgba(246, 245, 242, 0.82);
-@glass-bg-strong: rgba(255, 252, 248, 0.92);
-@glass-blur: 18px;
-@glass-saturate: 140%;
+@glass-bg: rgba(247, 244, 238, 0.78);
+@glass-bg-strong: rgba(255, 252, 247, 0.9);
+@glass-blur: 20px;
+@glass-saturate: 160%;
 
 // —— Motion ——
 @ease-out: cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -100,8 +110,8 @@
 
 // —— Sidebar ——
 @sidebar-bg: @paper-side;
-@sidebar-item-hover: rgba(42, 42, 44, 0.035);
-@sidebar-item-active-bg: rgba(42, 42, 44, 0.06);
+@sidebar-item-hover: rgba(28, 25, 23, 0.04);
+@sidebar-item-active-bg: @paper;
 @sidebar-border: @border-hairline;
 @sidebar-text: @text-secondary;
 @sidebar-text-active: @text-primary;

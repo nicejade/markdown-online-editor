@@ -83,12 +83,12 @@ export default {
 
 .export-ppt {
   width: 100%;
-  background: @bg-page;
+  background: transparent;
 
   .reveal {
     font-size: 2em;
     background-color: @white;
-    height: calc(100vh - @header-height);
+    height: calc(100vh - @chrome-top);
 
     h1 {
       font-size: 2em !important;

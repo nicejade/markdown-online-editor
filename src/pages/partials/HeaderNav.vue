@@ -1,13 +1,13 @@
 <template>
   <header class="header-wrapper">
     <div class="header-area">
-      <a href="/" class="header-brand" target="_self">
+      <a href="/" class="header-brand" target="_self" :aria-label="titleText">
         <img
           class="mark-markdown"
           src="@assets/images/markdown.png"
           alt="Arya 在线 Markdown 编辑器 Logo"
         />
-        <strong v-if="!isMobile" class="header-text">{{ titleText }}</strong>
+        <strong v-if="!isMobile" class="header-text">Arya</strong>
       </a>
       <nav class="button-group" aria-label="主导航">
         <a
@@ -53,6 +53,7 @@
             <icon class="header-icon" name="github" />
           </span>
         </a>
+        <span v-if="!isMobile" class="header-divider" aria-hidden="true"></span>
         <router-link to="/about-arya" class="header-link">
           <span class="hint--bottom" aria-label="关于 Arya">
             <icon class="header-icon" name="document" />
@@ -61,10 +62,19 @@
         <span class="hint--bottom header-action" @click="onImportClick" aria-label="导入文件">
           <icon class="header-icon" name="upload" />
         </span>
+        <span
+          v-if="!isMobile"
+          class="hint--bottom full-screen header-action"
+          @click="onFullScreenClick"
+          aria-label="全屏"
+        >
+          <icon class="header-icon" name="full-screen" />
+        </span>
         <el-dropdown trigger="click" @command="handleCommand">
-          <span class="hint--bottom el-dropdown-link header-action" aria-label="设置">
-            <icon class="header-icon" name="setting" />
-          </span>
+          <button type="button" class="header-cta" aria-label="导出">
+            <icon class="header-cta-icon" name="download" />
+            <span class="header-cta-label">导出</span>
+          </button>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item disabled>
               <icon class="dropdown-icon" name="set-style" />
@@ -100,14 +110,6 @@
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <span
-          v-if="!isMobile"
-          class="hint--bottom full-screen header-action"
-          @click="onFullScreenClick"
-          aria-label="全屏"
-        >
-          <icon class="header-icon" name="full-screen" />
-        </span>
       </nav>
     </div>
   </header>
@@ -240,54 +242,65 @@ export default {
 
 .header-wrapper {
   position: fixed;
-  top: 0;
-  width: 100%;
+  top: @header-offset;
+  left: @page-gutter;
+  right: @page-gutter;
   height: @header-height;
-  z-index: @hint-css-zindex;
-  background: fade(@bg-page, 90%);
-  backdrop-filter: blur(14px) saturate(130%);
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
-  border-bottom: 1px solid @border-hairline;
+  z-index: 150;
+  background: transparent;
+  border: none;
   box-shadow: none;
+  pointer-events: none;
 
   .header-area {
+    pointer-events: auto;
     width: 100%;
     height: 100%;
-    padding: 0 1.25rem;
+    padding: 0 8px 0 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+    background: @nav-bg;
+    backdrop-filter: blur(@glass-blur) saturate(@glass-saturate);
+    -webkit-backdrop-filter: blur(@glass-blur) saturate(@glass-saturate);
+    border: 1px solid @border-hairline;
+    border-radius: @radius-pill;
+    box-shadow: @shadow-pill;
 
     .header-brand {
       display: inline-flex;
       align-items: center;
-      height: @header-height;
+      height: 100%;
       text-decoration: none;
       min-width: 0;
       transition: opacity @duration-fast @ease-out;
+      cursor: pointer;
 
       &:hover {
-        opacity: 0.7;
+        opacity: 0.72;
       }
 
       .mark-markdown {
-        width: 24px;
-        height: 24px;
+        width: 26px;
+        height: 26px;
         object-fit: contain;
-        border-radius: 5px;
-        opacity: 0.94;
+        border-radius: 8px;
+        opacity: 0.96;
       }
 
       .header-text {
         margin-left: 10px;
-        font-size: 14px;
+        font-family: @font-serif;
+        font-size: 18px;
         font-weight: 500;
-        letter-spacing: -0.015em;
+        font-style: italic;
+        letter-spacing: -0.02em;
         color: @text-primary;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        line-height: 1;
       }
     }
 
@@ -296,9 +309,16 @@ export default {
       align-items: center;
       gap: 2px;
       flex-shrink: 0;
-      height: @header-height;
+      height: 100%;
 
-      // Every control shares the same geometry
+      .header-divider {
+        width: 1px;
+        height: 16px;
+        margin: 0 8px;
+        background: @separator;
+        flex-shrink: 0;
+      }
+
       .header-link,
       .header-action {
         display: inline-flex;
@@ -306,8 +326,9 @@ export default {
         justify-content: center;
         width: @header-hit;
         height: @header-hit;
-        border-radius: 8px;
+        border-radius: @radius-pill;
         line-height: 1;
+        cursor: pointer;
         transition: background @duration-fast @ease-out;
 
         &:hover {
@@ -324,80 +345,97 @@ export default {
         width: @header-icon-size;
         height: @header-icon-size;
         fill: @text-secondary;
-        opacity: 0.82;
-        transition: opacity @duration-fast @ease-out, fill @duration-fast @ease-out;
-        // Optical: dense glyphs (gear) read heavier — keep box equal
+        color: @text-secondary;
+        opacity: 0.72;
+        filter: grayscale(1);
+        transition: opacity @duration-fast @ease-out, filter @duration-fast @ease-out;
         display: block;
       }
 
       .header-link:hover .header-icon,
       .header-action:hover .header-icon {
         fill: @text-primary;
+        color: @text-primary;
         opacity: 1;
       }
 
-      // Settings: gear is visually dense — slight optical shrink
-      .icon-setting {
-        width: 15px !important;
-        height: 15px !important;
-        transform: translateY(0);
-      }
-
       .full-screen {
-        margin-right: 0;
+        margin-right: 2px;
       }
 
-      // Fix Element dropdown breaking header alignment
       .el-dropdown {
         display: inline-flex;
         align-items: center;
-        height: @header-hit;
+        height: auto;
         vertical-align: middle;
+        margin-left: 6px;
+      }
 
-        .el-dropdown-link {
-          display: inline-flex !important;
-          align-items: center;
-          justify-content: center;
-          width: @header-hit !important;
-          height: @header-hit !important;
-          min-height: @header-hit !important;
-          line-height: 1 !important;
-          border-radius: 8px;
-          padding: 0 !important;
-          border: none !important;
-          background: transparent;
-          outline: none !important;
-          box-shadow: none !important;
-          transition: background @duration-fast @ease-out;
+      .header-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        height: 36px;
+        padding: 0 16px 0 14px;
+        border: none;
+        border-radius: @radius-pill;
+        background: @text-primary;
+        color: @paper;
+        font-family: @font-family;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: -0.01em;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: none;
+        transition: background @duration-fast @ease-out, transform @duration-fast @ease-out;
 
-          &:hover {
-            background: fade(@text-primary, 5%);
-          }
-
-          &:active {
-            background: fade(@text-primary, 8%);
-          }
-
-          &:focus {
-            outline: none !important;
-            background: fade(@text-primary, 5%);
-          }
+        &:hover,
+        &:focus {
+          background: lighten(@text-primary, 10%);
+          outline: none;
         }
 
-        // When menu is open, keep a quiet pressed state
-        &.is-active .el-dropdown-link,
-        .el-dropdown-selfdefine:focus {
-          background: fade(@text-primary, 6%);
+        &:active {
+          transform: scale(0.98);
+        }
+
+        .header-cta-icon {
+          width: 14px;
+          height: 14px;
+          fill: currentColor;
+          display: block;
+        }
+
+        .header-cta-label {
+          line-height: 1;
         }
       }
     }
   }
 }
 
+@media (max-width: 1100px) {
+  .header-wrapper .header-area .button-group .header-cta {
+    width: 36px;
+    padding: 0;
+    gap: 0;
+
+    .header-cta-label {
+      display: none;
+    }
+  }
+}
+
 @media (max-width: 960px) {
   .header-wrapper {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+
     .header-area {
-      padding: 0 10px;
+      padding: 0 6px 0 12px;
 
       .header-brand .mark-markdown {
         width: 22px;
@@ -413,14 +451,10 @@ export default {
           height: 30px;
         }
 
-        .el-dropdown {
-          height: 30px;
-
-          .el-dropdown-link {
-            width: 30px !important;
-            height: 30px !important;
-            min-height: 30px !important;
-          }
+        .header-cta {
+          width: 32px;
+          height: 32px;
+          margin-left: 4px;
         }
       }
     }

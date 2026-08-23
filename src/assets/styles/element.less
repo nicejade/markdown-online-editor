@@ -30,21 +30,21 @@
 }
 
 .v-modal {
-  background: #1a1a1c !important;
-  opacity: 0.28 !important;
+  background: #1c1917 !important;
+  opacity: 0.38 !important;
 }
 
 .el-message-box {
   width: 340px !important;
   max-width: calc(100vw - 32px) !important;
   padding: 0 !important;
-  border-radius: 14px !important;
+  border-radius: @radius-lg !important;
   border: 1px solid @border-hairline !important;
   box-shadow: 0 22px 70px rgba(0, 0, 0, 0.14), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
   font-family: @font-family;
-  background: fade(@paper, 98%) !important;
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  background: @paper !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   overflow: hidden;
 
   .el-message-box__header {
@@ -129,7 +129,7 @@
       height: 34px !important;
       line-height: 1 !important;
       padding: 0 18px !important;
-      border-radius: 8px !important;
+      border-radius: @radius-pill !important;
       font-size: 13px !important;
       font-weight: 500 !important;
       letter-spacing: -0.01em;
@@ -205,7 +205,7 @@
 .el-dropdown-menu {
   margin: 0;
   min-width: 180px;
-  border-radius: 12px !important;
+  border-radius: @radius-md !important;
   border: 1px solid @border-hairline !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
   padding: 6px !important;

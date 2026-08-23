@@ -5,7 +5,10 @@
     <HeaderNav @toggle-sidebar="onToggleSidebar" />
     <div
       class="index-page__body"
-      :style="{ paddingLeft: isMobile ? 0 : sidebarCollapsed ? '48px' : '260px' }"
+      :class="{
+        'is-sidebar-collapsed': sidebarCollapsed,
+        'is-mobile': isMobile,
+      }"
     >
       <Sidebar
         v-if="!isMobile"
@@ -215,9 +218,10 @@ export default {
 
 .index-page {
   width: 100%;
+  height: 100vh;
   min-height: 100vh;
-  height: 100%;
-  background-color: @bg-page;
+  overflow: hidden;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
 
@@ -225,15 +229,25 @@ export default {
     flex: 1;
     display: flex;
     justify-content: center;
-    margin-top: @header-height;
+    margin-top: @chrome-top;
     margin-left: auto;
     margin-right: auto;
-    min-height: calc(100vh - @header-height);
+    height: calc(100vh - @chrome-top);
+    min-height: 0;
     overflow: hidden;
     position: relative;
     width: 100%;
     box-sizing: border-box;
+    padding-left: @page-gutter + @sidebar-width + @panel-gap;
     transition: padding-left @duration-normal @ease-out;
+
+    &.is-sidebar-collapsed {
+      padding-left: @page-gutter + @sidebar-collapsed-width + @panel-gap;
+    }
+
+    &.is-mobile {
+      padding-left: 0;
+    }
   }
 
   .index-page__sidebar-overlay {
@@ -243,36 +257,39 @@ export default {
     right: 0;
     bottom: 0;
     z-index: 99;
-    background: rgba(42, 42, 44, 0.12);
+    background: rgba(28, 25, 23, 0.12);
     transition: opacity @duration-normal @ease-out;
   }
 
   .index-page__editor {
     flex: 1 1 auto;
     min-width: 0;
+    min-height: 0;
     display: flex;
     flex-direction: column;
-    padding: 12px 16px 16px;
+    padding: 0 @page-gutter @page-gutter 0;
     max-width: @max-body-width;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    // allow toolbar tooltips to paint outside the editor card if needed
+    height: 100%;
     overflow: visible;
   }
 
   // Editor chrome only — do not restyle markdown preview content
   .vditor {
     flex: 1;
-    height: 100%;
-    min-height: calc(100vh - @header-height - 28px);
+    display: flex !important;
+    flex-direction: column;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: 100%;
     text-align: left;
-    // visible so toolbar tooltips are not clipped; content scrolls inside
     overflow: visible;
     border: 1px solid @border-hairline !important;
-    border-radius: @radius-lg !important;
+    border-radius: @radius-xl !important;
     background: @paper !important;
-    box-shadow: none;
+    box-shadow: @shadow-sm;
     font-family: @font-family;
 
     // Override Vditor’s product-blue tokens (#4285f4)
@@ -302,11 +319,12 @@ export default {
     .vditor-toolbar {
       position: relative;
       z-index: 30;
+      flex-shrink: 0;
       overflow: visible;
       border-bottom: 1px solid @separator !important;
       background: @paper !important;
-      padding: 6px 10px !important;
-      border-radius: @radius-lg @radius-lg 0 0;
+      padding: 8px 12px !important;
+      border-radius: @radius-xl @radius-xl 0 0;
     }
 
     .vditor-toolbar__item {
@@ -320,7 +338,7 @@ export default {
     }
 
     .vditor-toolbar__item .vditor-tooltipped {
-      border-radius: @radius-xs;
+      border-radius: @radius-pill;
       overflow: visible;
       transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
@@ -389,12 +407,12 @@ export default {
     }
 
     .vditor-content {
+      flex: 1;
       height: auto;
-      min-height: auto;
+      min-height: 0;
       border-top: none;
-      // clip body only; toolbar tooltips float above this layer
       overflow: auto;
-      border-radius: 0 0 @radius-lg @radius-lg;
+      border-radius: 0 0 @radius-xl @radius-xl;
       position: relative;
       z-index: 1;
     }
@@ -477,15 +495,15 @@ export default {
 @media (max-width: 960px) {
   .index-page {
     .index-page__editor {
-      padding: 8px;
+      padding: 0 8px 8px;
     }
 
     .vditor {
-      min-height: calc(100vh - @header-height - 16px);
-      border-radius: @radius-md !important;
+      min-height: 0 !important;
+      border-radius: @radius-lg !important;
 
       .vditor-toolbar {
-        border-radius: @radius-md @radius-md 0 0;
+        border-radius: @radius-lg @radius-lg 0 0;
       }
     }
   }

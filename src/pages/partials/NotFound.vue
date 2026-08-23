@@ -40,7 +40,7 @@ export default {
 .error-404 {
   width: 100%;
   min-height: 100vh;
-  background: @bg-page;
+  background: transparent;
   position: relative;
 }
 
@@ -52,7 +52,7 @@ export default {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding: 40px 24px;
+  padding: 48px 28px;
   background: @white;
   border-radius: @radius-xl;
   border: 1px solid @border-hairline;
@@ -61,7 +61,7 @@ export default {
   .error-404-eyebrow {
     font-size: @font-micro;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: @text-tertiary;
     margin-bottom: 8px;
@@ -69,8 +69,10 @@ export default {
 
   .error-404-body-title {
     text-align: center;
+    font-family: @font-serif;
     font-size: 5.5rem;
-    font-weight: 700;
+    font-weight: 500;
+    font-style: italic;
     letter-spacing: -0.04em;
     color: @text-primary;
     line-height: 1.1;
@@ -81,8 +83,12 @@ export default {
     }
 
     .digit--accent {
-      color: @brand;
+      background: @highlight;
+      color: @text-primary;
       margin: 0 0.05em;
+      padding: 0 0.06em;
+      border-radius: 4px;
+      font-style: italic;
     }
   }
 
@@ -125,25 +131,25 @@ export default {
       text-decoration: none;
 
       &--primary {
-        background: @brand;
-        color: @white;
-        box-shadow: 0 1px 2px rgba(0, 113, 227, 0.28);
+        background: @text-primary;
+        color: @paper;
+        box-shadow: @shadow-pill;
 
         &:hover {
           background: @brand-hover;
-          color: @white;
+          color: @paper;
         }
       }
 
       &--ghost {
-        background: @white;
+        background: transparent;
         color: @text-primary;
         border: 1px solid @border-grey;
 
         &:hover {
-          border-color: rgba(0, 0, 0, 0.18);
+          border-color: rgba(28, 25, 23, 0.18);
           color: @text-primary;
-          background: @bg-page;
+          background: fade(@text-primary, 4%);
         }
       }
 

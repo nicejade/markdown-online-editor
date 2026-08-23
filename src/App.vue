@@ -26,6 +26,6 @@ export default {
   text-align: center;
   color: @text-primary;
   min-height: 100vh;
-  background-color: @bg-page;
+  background-color: transparent;
 }
 </style>

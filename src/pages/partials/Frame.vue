@@ -34,13 +34,13 @@ export default {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: @bg-page;
+  background-color: transparent;
 
   .main-content {
     flex: 1;
     display: flex;
-    margin-top: @header-height;
-    min-height: calc(100vh - @header-height);
+    margin-top: @chrome-top;
+    min-height: calc(100vh - @chrome-top);
   }
 }
 </style>

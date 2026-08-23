@@ -24,6 +24,13 @@ body {
   letter-spacing: -0.01em;
   color: @text-primary;
   background-color: @bg-page !important;
+  background-image: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(245, 220, 170, 0.42),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(255, 236, 214, 0.3), transparent 55%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -35,7 +42,7 @@ body {
 
 // Soft, non-blue focus — only when keyboard navigating
 *:focus-visible {
-  outline: 1.5px solid rgba(42, 42, 44, 0.22);
+  outline: 1.5px solid rgba(28, 25, 23, 0.22);
   outline-offset: 2px;
   border-radius: @radius-xs;
 }
@@ -58,7 +65,7 @@ select {
 }
 
 ::selection {
-  background: rgba(42, 42, 44, 0.1);
+  background: @highlight-soft;
   color: @text-primary;
 }
 
@@ -73,13 +80,13 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(42, 42, 44, 0.12);
+  background: rgba(28, 25, 23, 0.12);
   border-radius: @radius-pill;
   border: 2px solid transparent;
   background-clip: content-box;
 
   &:hover {
-    background: rgba(42, 42, 44, 0.22);
+    background: rgba(28, 25, 23, 0.22);
     background-clip: content-box;
   }
 }
@@ -101,10 +108,10 @@ select {
 .export-page {
   width: 100%;
   height: 100%;
-  min-height: 100vh;
-  background-color: @bg-page;
+  min-height: 100%;
+  background-color: transparent;
   .flex-box-center(column);
-  padding: 28px 16px 48px;
+  padding: 12px 16px 48px;
 
   .button-group {
     width: 100%;
@@ -122,9 +129,8 @@ select {
       border-radius: @radius-pill !important;
       padding: 10px 22px !important;
       height: auto !important;
-      transition: background @duration-fast @ease-out,
-        box-shadow @duration-fast @ease-out, border-color @duration-fast @ease-out,
-        color @duration-fast @ease-out !important;
+      transition: background @duration-fast @ease-out, box-shadow @duration-fast @ease-out,
+        border-color @duration-fast @ease-out, color @duration-fast @ease-out !important;
 
       &--default {
         background: transparent !important;
@@ -134,8 +140,8 @@ select {
 
         &:hover,
         &:focus {
-          border-color: rgba(42, 42, 44, 0.18) !important;
-          background: rgba(42, 42, 44, 0.03) !important;
+          border-color: rgba(28, 25, 23, 0.18) !important;
+          background: rgba(28, 25, 23, 0.03) !important;
           color: @text-primary !important;
         }
       }
@@ -144,12 +150,12 @@ select {
         background: @text-primary !important;
         border-color: @text-primary !important;
         color: @paper !important;
-        box-shadow: none;
+        box-shadow: @shadow-pill;
 
         &:hover,
         &:focus {
-          background: lighten(@text-primary, 8%) !important;
-          border-color: lighten(@text-primary, 8%) !important;
+          background: lighten(@text-primary, 10%) !important;
+          border-color: lighten(@text-primary, 10%) !important;
         }
 
         &.is-disabled {
@@ -182,7 +188,7 @@ select {
     padding: 3 * @size-factor;
     margin: 3 * @size-factor;
     background: @paper;
-    border-radius: @radius-lg;
+    border-radius: @radius-xl;
     box-shadow: @shadow-sm;
     border: 1px solid @border-hairline;
   }
