@@ -103,6 +103,14 @@ export default {
     this.refreshDocuments()
   },
 
+  mounted() {
+    this.$root.$on('reload-content', this.refreshDocuments)
+  },
+
+  beforeDestroy() {
+    this.$root.$off('reload-content', this.refreshDocuments)
+  },
+
   methods: {
     refreshDocuments() {
       this.documents = getDocuments()
