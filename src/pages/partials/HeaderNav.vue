@@ -1,14 +1,28 @@
+<!-- @format -->
+
 <template>
   <header class="header-wrapper">
     <div class="header-area">
-      <a href="/" class="header-brand" target="_self" :aria-label="titleText">
-        <img
-          class="mark-markdown"
-          src="@assets/images/markdown.png"
-          alt="Arya 在线 Markdown 编辑器 Logo"
-        />
-        <strong v-if="!isMobile" class="header-text">Arya</strong>
-      </a>
+      <div class="header-leading">
+        <button
+          v-if="showSidebarToggle"
+          type="button"
+          class="header-sidebar-toggle"
+          aria-label="文档列表"
+          title="文档列表"
+          @click="$emit('toggle-sidebar')"
+        >
+          <icon class="header-icon" name="sidebar" />
+        </button>
+        <a href="/" class="header-brand" target="_self" :aria-label="titleText">
+          <img
+            class="mark-markdown"
+            src="@assets/images/markdown.png"
+            alt="Arya 在线 Markdown 编辑器 Logo"
+          />
+          <strong v-if="!isMobile" class="header-text">Arya</strong>
+        </a>
+      </div>
       <nav class="button-group" aria-label="主导航">
         <a
           v-if="!isMobile"
@@ -124,6 +138,13 @@ import { trackEvent } from '@helper/analytics'
 export default {
   name: 'HeaderNav',
 
+  props: {
+    showSidebarToggle: {
+      type: Boolean,
+      default: false,
+    },
+  },
+
   data() {
     return {
       isMobile: window.innerWidth <= 768,
@@ -132,7 +153,18 @@ export default {
     }
   },
 
+  mounted() {
+    window.addEventListener('resize', this.onResize)
+  },
+
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
+
   methods: {
+    onResize() {
+      this.isMobile = window.innerWidth <= 768
+    },
     launchFullScreen() {
       const element = document.getElementById('vditor')
       if (element.requestFullscreen) {
@@ -267,6 +299,42 @@ export default {
     border: 1px solid @border-hairline;
     border-radius: @radius-pill;
     box-shadow: @shadow-pill;
+
+    .header-leading {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-width: 0;
+      height: 100%;
+    }
+
+    .header-sidebar-toggle {
+      width: @header-hit;
+      height: @header-hit;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: @radius-pill;
+      background: transparent;
+      color: @icon-grey;
+      cursor: pointer;
+      transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
+
+      &:hover {
+        background: fade(@text-primary, 4%);
+        color: @text-primary;
+      }
+
+      .header-icon {
+        width: @header-icon-size;
+        height: @header-icon-size;
+        fill: currentColor;
+      }
+    }
 
     .header-brand {
       display: inline-flex;
@@ -435,7 +503,12 @@ export default {
     right: 8px;
 
     .header-area {
-      padding: 0 6px 0 12px;
+      padding: 0 6px 0 8px;
+
+      .header-sidebar-toggle {
+        width: @header-hit;
+        height: @header-hit;
+      }
 
       .header-brand .mark-markdown {
         width: 22px;

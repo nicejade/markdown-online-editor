@@ -2,7 +2,7 @@
 
 <template>
   <div class="index-page" v-loading="isLoading">
-    <HeaderNav @toggle-sidebar="onToggleSidebar" />
+    <HeaderNav :show-sidebar-toggle="isMobile" @toggle-sidebar="onToggleSidebar" />
     <div
       class="index-page__body"
       :class="{
@@ -10,14 +10,21 @@
         'is-mobile': isMobile,
       }"
     >
-      <Sidebar
-        v-if="!isMobile"
-        :collapsed="sidebarCollapsed"
-        :active-doc-id="activeDocId"
-        @select-doc="onSelectDoc"
-        @doc-deleted="onDocDeleted"
-        @toggle-sidebar="onToggleSidebar"
+      <div
+        v-if="isMobile && !sidebarCollapsed"
+        class="index-page__sidebar-overlay"
+        @click="onToggleSidebar"
       />
+      <div class="index-page__sidebar-layer">
+        <Sidebar
+          :collapsed="sidebarCollapsed"
+          :is-mobile="isMobile"
+          :active-doc-id="activeDocId"
+          @select-doc="onSelectDoc"
+          @doc-deleted="onDocDeleted"
+          @toggle-sidebar="onToggleSidebar"
+        />
+      </div>
       <div class="index-page__editor">
         <div id="vditor" class="vditor" />
       </div>
@@ -38,8 +45,10 @@ import {
   setActiveDocId,
   getDocContent,
   saveDocContent,
+  shouldPersistDocContent,
 } from '@helper/storage'
 import { trackEvent } from '@helper/analytics'
+import { isMobileViewport, sidebarCollapsedForViewport } from '@helper/layout'
 
 const SAVE_DEBOUNCE_MS = 1000
 
@@ -49,10 +58,11 @@ export default {
   data() {
     return {
       isLoading: true,
-      isMobile: window.innerWidth <= 960,
+      isMobile: isMobileViewport(),
       vditor: null,
       activeDocId: null,
-      sidebarCollapsed: window.innerWidth <= 960,
+      sidebarCollapsed: isMobileViewport(),
+      editorReady: false,
       saveTimer: null,
     }
   },
@@ -82,18 +92,26 @@ export default {
     })
     this.$root.$on('reload-content', this.reloadContent)
     window.addEventListener('resize', this.onResize)
+    window.addEventListener('orientationchange', this.onResize)
   },
 
   beforeDestroy() {
     this.saveCurrentDoc()
     this.$root.$off('reload-content', this.reloadContent)
     window.removeEventListener('resize', this.onResize)
+    window.removeEventListener('orientationchange', this.onResize)
     if (this.saveTimer) clearTimeout(this.saveTimer)
   },
 
   methods: {
     onResize() {
-      this.isMobile = window.innerWidth <= 960
+      const wasMobile = this.isMobile
+      this.isMobile = isMobileViewport()
+      this.sidebarCollapsed = sidebarCollapsedForViewport({
+        wasMobile,
+        isMobile: this.isMobile,
+        collapsed: this.sidebarCollapsed,
+      })
     },
     onToggleSidebar() {
       this.sidebarCollapsed = !this.sidebarCollapsed
@@ -101,6 +119,7 @@ export default {
     },
     initVditor() {
       const that = this
+      const initialContent = getDocContent(this.activeDocId) || defaultText
       const options = {
         width: '100%',
         height: '0',
@@ -108,6 +127,7 @@ export default {
         counter: '999999',
         typewriterMode: true,
         mode: 'sv',
+        value: initialContent,
         cache: { enable: false },
         preview: {
           delay: 100,
@@ -127,23 +147,33 @@ export default {
             request.send(formData)
           },
         },
-        input: (value) => {
-          that.debouncedSave(value)
+        input: () => {
+          that.debouncedSave()
         },
         after: () => {
           const content = getDocContent(this.activeDocId) || defaultText
           this.vditor.setValue(content)
-          this.vditor.focus()
+          this.$nextTick(() => {
+            this.editorReady = true
+            if (!this.isMobile && this.vditor && this.vditor.focus) {
+              this.vditor.focus()
+            }
+          })
         },
       }
       this.vditor = new Vditor('vditor', options)
     },
-    debouncedSave(value) {
+    persistActiveDoc(content) {
+      if (!this.activeDocId) return
+      const stored = getDocContent(this.activeDocId)
+      if (!shouldPersistDocContent(content, stored, this.editorReady)) return
+      saveDocContent(this.activeDocId, content)
+    },
+    debouncedSave() {
       if (this.saveTimer) clearTimeout(this.saveTimer)
       this.saveTimer = setTimeout(() => {
-        if (this.activeDocId && this.vditor && typeof this.vditor.getValue === 'function') {
-          const content = this.vditor.getValue()
-          saveDocContent(this.activeDocId, content)
+        if (this.vditor && typeof this.vditor.getValue === 'function') {
+          this.persistActiveDoc(this.vditor.getValue())
         }
         this.saveTimer = null
       }, SAVE_DEBOUNCE_MS)
@@ -154,7 +184,7 @@ export default {
         this.saveTimer = null
       }
       if (this.activeDocId && this.vditor && typeof this.vditor.getValue === 'function') {
-        saveDocContent(this.activeDocId, this.vditor.getValue())
+        this.persistActiveDoc(this.vditor.getValue())
       }
     },
     onSelectDoc(id) {
@@ -250,15 +280,24 @@ export default {
     }
   }
 
+  .index-page__sidebar-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 120;
+    overflow: visible;
+    pointer-events: none;
+  }
+
   .index-page__sidebar-overlay {
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 99;
-    background: rgba(28, 25, 23, 0.12);
-    transition: opacity @duration-normal @ease-out;
+    z-index: 110;
+    background: rgba(28, 25, 23, 0.18);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
   }
 
   .index-page__editor {

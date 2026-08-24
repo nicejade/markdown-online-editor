@@ -1,9 +1,9 @@
 <!-- @format -->
 
 <template>
-  <aside class="sidebar" :class="{ collapsed: collapsed }">
+  <aside class="sidebar" :class="{ collapsed: collapsed, 'is-mobile': isMobile }">
     <div
-      v-show="collapsed"
+      v-show="collapsed && !isMobile"
       class="sidebar__toggle"
       @click="$emit('toggle-sidebar')"
       aria-label="展开侧边栏"
@@ -21,6 +21,12 @@
         >
           <i class="el-icon-d-arrow-left" />
         </span>
+      </div>
+      <div class="sidebar__actions">
+        <button type="button" class="sidebar__new-btn" @click="onNewDoc">
+          <icon name="add" class="sidebar__new-icon" />
+          <span>新建文档</span>
+        </button>
       </div>
       <div class="sidebar__list">
         <div
@@ -62,12 +68,6 @@
           </span>
         </div>
       </div>
-      <div class="sidebar__footer">
-        <button type="button" class="sidebar__new-btn" @click="onNewDoc">
-          <icon name="add" class="sidebar__new-icon" />
-          <span>新建文档</span>
-        </button>
-      </div>
     </div>
   </aside>
 </template>
@@ -87,6 +87,10 @@ export default {
 
   props: {
     collapsed: {
+      type: Boolean,
+      default: false,
+    },
+    isMobile: {
       type: Boolean,
       default: false,
     },
@@ -197,6 +201,7 @@ export default {
   box-shadow: @shadow-xs;
   display: flex;
   overflow: hidden;
+  pointer-events: auto;
   transition: width @duration-normal @ease-out;
 
   &.collapsed {
@@ -235,6 +240,7 @@ export default {
   .sidebar__panel {
     flex: 1;
     min-width: 0;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -277,6 +283,7 @@ export default {
     flex: 1;
     overflow-y: auto;
     padding: 2px 10px 12px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .sidebar__item {
@@ -377,9 +384,9 @@ export default {
     }
   }
 
-  .sidebar__footer {
-    padding: 12px 14px 18px;
-    border-top: 1px solid @separator;
+  .sidebar__actions {
+    flex-shrink: 0;
+    padding: 0 14px 12px;
   }
 
   .sidebar__new-btn {
@@ -415,6 +422,38 @@ export default {
       width: 13px;
       height: 13px;
       fill: currentColor;
+    }
+  }
+
+  &.is-mobile {
+    // Absolute inside the editor body so overflow:hidden + iOS 100vh
+    // cannot clip the drawer or its actions the way position:fixed can.
+    // Keep a stable width and slide off-canvas — animating width from 0
+    // makes percentage max-width resolve circularly (~2px).
+    position: absolute;
+    top: 8px;
+    right: auto;
+    bottom: 8px;
+    left: 8px;
+    height: auto;
+    width: @sidebar-width;
+    max-width: calc(100% - 16px);
+    z-index: 120;
+    box-shadow: @shadow-md;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition: opacity @duration-normal @ease-out, transform @duration-normal @ease-out;
+
+    &.collapsed {
+      width: @sidebar-width;
+      min-width: 0;
+      max-width: calc(100% - 16px);
+      opacity: 0;
+      pointer-events: none;
+      border-color: transparent;
+      box-shadow: none;
+      transform: translateX(-110%);
     }
   }
 }

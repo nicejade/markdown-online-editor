@@ -73,6 +73,27 @@ export function getDocContent(id) {
 }
 
 /**
+ * Guard against wiping stored markdown during Vditor init or layout glitches.
+ * Empty new documents can still be persisted; non-empty docs cannot be
+ * overwritten with an empty editor value.
+ * @param {string|null|undefined} nextContent
+ * @param {string|null|undefined} storedContent
+ * @param {boolean} editorReady
+ * @returns {boolean}
+ */
+export function shouldPersistDocContent(nextContent, storedContent, editorReady) {
+  if (!editorReady) return false
+  const next = nextContent == null ? '' : String(nextContent)
+  const stored = storedContent == null ? '' : String(storedContent)
+  const nextTrim = next.replace(/^\s+|\s+$/g, '')
+  const storedTrim = stored.replace(/^\s+|\s+$/g, '')
+  // Vditor SV getMarkdown() returns "\n" for an empty editor. Never let that
+  // (or other whitespace-only snapshots) replace a real document.
+  if (nextTrim.length === 0 && storedTrim.length > 0) return false
+  return true
+}
+
+/**
  * Save document content and update document's updatedAt.
  * @param {string} id
  * @param {string} content

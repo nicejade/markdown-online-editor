@@ -86,4 +86,43 @@ describe('Sidebar.vue', () => {
 
     wrapper.destroy()
   })
+
+  it('places the new document button above the document list', () => {
+    const wrapper = shallowMount(Sidebar, {
+      stubs: ['icon'],
+      propsData: { activeDocId: existingDoc.id },
+    })
+
+    const panel = wrapper.find('.sidebar__panel')
+    const panelHtml = panel.html()
+    const actionsIndex = panelHtml.indexOf('sidebar__actions')
+    const listIndex = panelHtml.indexOf('sidebar__list')
+
+    expect(wrapper.find('.sidebar__actions .sidebar__new-btn').exists()).toBe(true)
+    expect(wrapper.find('.sidebar__footer').exists()).toBe(false)
+    expect(actionsIndex).toBeGreaterThan(-1)
+    expect(listIndex).toBeGreaterThan(-1)
+    expect(actionsIndex).toBeLessThan(listIndex)
+
+    wrapper.destroy()
+  })
+
+  it('hides the collapsed rail toggle on mobile', async () => {
+    const wrapper = shallowMount(Sidebar, {
+      stubs: ['icon'],
+      propsData: {
+        activeDocId: existingDoc.id,
+        collapsed: true,
+        isMobile: true,
+      },
+    })
+
+    expect(wrapper.find('.sidebar__toggle').isVisible()).toBe(false)
+    expect(wrapper.classes()).toContain('is-mobile')
+
+    await wrapper.setProps({ collapsed: false })
+    expect(wrapper.find('.sidebar__panel').isVisible()).toBe(true)
+
+    wrapper.destroy()
+  })
 })
