@@ -87,9 +87,6 @@ export default {
 
   mounted() {
     this.initVditor()
-    this.$nextTick(() => {
-      this.isLoading = false
-    })
     this.$root.$on('reload-content', this.reloadContent)
     window.addEventListener('resize', this.onResize)
     window.addEventListener('orientationchange', this.onResize)
@@ -151,13 +148,12 @@ export default {
           that.debouncedSave()
         },
         after: () => {
-          const content = getDocContent(this.activeDocId) || defaultText
-          this.vditor.setValue(content)
+          this.editorReady = true
+          this.setEditorValue(getDocContent(this.activeDocId) || defaultText, {
+            focus: !this.isMobile,
+          })
           this.$nextTick(() => {
-            this.editorReady = true
-            if (!this.isMobile && this.vditor && this.vditor.focus) {
-              this.vditor.focus()
-            }
+            this.isLoading = false
           })
         },
       }
@@ -169,12 +165,23 @@ export default {
       if (!shouldPersistDocContent(content, stored, this.editorReady)) return
       saveDocContent(this.activeDocId, content)
     },
+    setEditorValue(content, { focus = false } = {}) {
+      if (!this.editorReady || !this.vditor || typeof this.vditor.setValue !== 'function') return
+      this.vditor.setValue(content == null ? '' : String(content))
+      if (focus && typeof this.vditor.focus === 'function') {
+        this.vditor.focus()
+      }
+    },
+    readEditorValue() {
+      if (!this.editorReady || !this.vditor || typeof this.vditor.getValue !== 'function')
+        return null
+      return this.vditor.getValue()
+    },
     debouncedSave() {
       if (this.saveTimer) clearTimeout(this.saveTimer)
       this.saveTimer = setTimeout(() => {
-        if (this.vditor && typeof this.vditor.getValue === 'function') {
-          this.persistActiveDoc(this.vditor.getValue())
-        }
+        const content = this.readEditorValue()
+        if (content != null) this.persistActiveDoc(content)
         this.saveTimer = null
       }, SAVE_DEBOUNCE_MS)
     },
@@ -183,26 +190,22 @@ export default {
         clearTimeout(this.saveTimer)
         this.saveTimer = null
       }
-      if (this.activeDocId && this.vditor && typeof this.vditor.getValue === 'function') {
-        this.persistActiveDoc(this.vditor.getValue())
-      }
+      const content = this.readEditorValue()
+      if (content != null) this.persistActiveDoc(content)
     },
     onSelectDoc(id) {
       this.saveCurrentDoc()
       setActiveDocId(id)
       this.activeDocId = id
-      const content = getDocContent(id) || ''
-      this.vditor.setValue(content)
-      this.vditor.focus()
+      this.setEditorValue(getDocContent(id) || '', { focus: true })
       if (this.isMobile) this.sidebarCollapsed = true
     },
     onDocDeleted() {
       this.activeDocId = getActiveDocId()
-      if (this.activeDocId && this.vditor) {
-        this.vditor.setValue(getDocContent(this.activeDocId) || '')
-        this.vditor.focus()
-      } else if (this.vditor) {
-        this.vditor.setValue('')
+      if (this.activeDocId) {
+        this.setEditorValue(getDocContent(this.activeDocId) || '', { focus: true })
+      } else {
+        this.setEditorValue('')
       }
     },
     onloadCallback(oEvent) {
@@ -233,11 +236,7 @@ export default {
     },
     reloadContent() {
       this.activeDocId = getActiveDocId()
-      if (this.vditor && this.vditor.getValue) {
-        const content = getDocContent(this.activeDocId) || ''
-        this.vditor.setValue(content)
-        this.vditor.focus()
-      }
+      this.setEditorValue(getDocContent(this.activeDocId) || '', { focus: true })
     },
   },
 }
