@@ -151,9 +151,11 @@
                 {{ exportTextMap['/export/docx'] }}
               </a>
             </el-dropdown-item>
-            <el-dropdown-item command="/export/html" disabled divided>
+            <el-dropdown-item command="/export/html" divided>
               <icon class="dropdown-icon" name="download" />
-              <a href="/export/html" target="_self" class="dropdown-text">导出 HTML</a>
+              <a href="/export/html" target="_self" class="dropdown-text">
+                {{ exportTextMap['/export/html'] }}
+              </a>
             </el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>

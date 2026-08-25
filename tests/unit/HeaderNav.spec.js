@@ -88,6 +88,19 @@ describe('HeaderNav.vue', () => {
     wrapper.destroy()
   })
 
+  it('exposes HTML export as an enabled destination', () => {
+    const wrapper = shallowMount(HeaderNav, { stubs })
+    const htmlItem = wrapper
+      .findAll('el-dropdown-item-stub')
+      .wrappers.find((item) => item.attributes('command') === '/export/html')
+
+    expect(htmlItem).toBeTruthy()
+    expect(htmlItem.attributes('disabled')).toBeUndefined()
+    expect(htmlItem.text()).toContain('导出 HTML')
+
+    wrapper.destroy()
+  })
+
   it('applies the chosen theme and records it as current', () => {
     applyTheme.mockClear()
     trackEvent.mockClear()

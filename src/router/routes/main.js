@@ -38,6 +38,13 @@ export default [
         },
         component: (resolve) => require(['@pages/ExportPPT'], resolve),
       },
+      {
+        path: 'html',
+        meta: {
+          title: `导出 HTML | ${window.$appTitle}`,
+        },
+        component: (resolve) => require(['@pages/ExportHtml'], resolve),
+      },
     ],
   },
 ]
