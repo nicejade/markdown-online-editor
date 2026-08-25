@@ -16,9 +16,15 @@
         </button>
         <a href="/" class="header-brand" target="_self" :aria-label="titleText">
           <img
-            class="mark-markdown"
+            class="mark-markdown mark-markdown--light"
             src="@assets/images/markdown.png"
             alt="Arya 在线 Markdown 编辑器 Logo"
+          />
+          <img
+            class="mark-markdown mark-markdown--dark"
+            src="@assets/images/markdown-white.png"
+            alt=""
+            aria-hidden="true"
           />
           <strong v-if="!isMobile" class="header-text">Arya</strong>
         </a>
@@ -84,7 +90,34 @@
         >
           <icon class="header-icon" name="full-screen" />
         </span>
-        <el-dropdown trigger="click" @command="handleCommand">
+        <el-dropdown trigger="click" @command="onSelectTheme" placement="bottom-end">
+          <button
+            type="button"
+            class="header-action"
+            :aria-label="'切换主题，当前：' + currentThemeName"
+            :title="'切换主题，当前：' + currentThemeName"
+          >
+            <icon class="header-icon" name="adjust" />
+          </button>
+          <el-dropdown-menu slot="dropdown" class="theme-picker">
+            <el-dropdown-item
+              v-for="theme in themes"
+              :key="theme.id"
+              :command="theme.id"
+              :class="{ 'is-current': theme.id === currentThemeId }"
+            >
+              <span class="theme-picker-item">
+                <span class="theme-swatch" aria-hidden="true">
+                  <span class="theme-swatch__paper" :style="{ background: theme.swatch[0] }"></span>
+                  <span class="theme-swatch__ink" :style="{ background: theme.swatch[1] }"></span>
+                </span>
+                <span class="theme-picker-name">{{ theme.name }}</span>
+                <i class="el-icon-check theme-picker-check" aria-hidden="true"></i>
+              </span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-dropdown class="header-export" trigger="click" @command="handleCommand">
           <button type="button" class="header-cta" aria-label="导出">
             <icon class="header-cta-icon" name="download" />
             <span class="header-cta-label">导出</span>
@@ -133,6 +166,7 @@
 import 'hint.css'
 import { exportTextMap } from '@config/constant'
 import { createDocument, setActiveDocId, saveDocContent } from '@helper/storage'
+import { THEMES, getThemeId, applyTheme } from '@helper/theme'
 import { trackEvent } from '@helper/analytics'
 
 export default {
@@ -150,7 +184,16 @@ export default {
       isMobile: window.innerWidth <= 768,
       titleText: window.$appTitle,
       exportTextMap,
+      themes: THEMES,
+      currentThemeId: getThemeId(),
     }
+  },
+
+  computed: {
+    currentThemeName() {
+      const current = this.themes.find((theme) => theme.id === this.currentThemeId)
+      return current ? current.name : '纸墨'
+    },
   },
 
   mounted() {
@@ -188,7 +231,11 @@ export default {
         document.webkitExitFullscreen()
       }
     },
-    onThemeClick() {},
+    onSelectTheme(id) {
+      const theme = applyTheme(id)
+      this.currentThemeId = theme.id
+      trackEvent('header_theme', 'header', theme.id)
+    },
     onFullScreenClick() {
       const isFullScreen =
         document.fullscreenElement ||
@@ -238,7 +285,7 @@ export default {
 
 [class*='hint--']:after {
   border-radius: 6px;
-  background: fade(@text-primary, 92%) !important;
+  background: @text-a92 !important;
   font-family: @font-family !important;
   font-size: 11px !important;
   font-weight: 500;
@@ -325,7 +372,7 @@ export default {
       transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
-        background: fade(@text-primary, 4%);
+        background: @text-a04;
         color: @text-primary;
       }
 
@@ -355,6 +402,10 @@ export default {
         object-fit: contain;
         border-radius: 8px;
         opacity: 0.96;
+      }
+
+      .mark-markdown--dark {
+        display: none;
       }
 
       .header-text {
@@ -394,17 +445,23 @@ export default {
         justify-content: center;
         width: @header-hit;
         height: @header-hit;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        appearance: none;
+        -webkit-appearance: none;
         border-radius: @radius-pill;
         line-height: 1;
         cursor: pointer;
         transition: background @duration-fast @ease-out;
 
         &:hover {
-          background: fade(@text-primary, 5%);
+          background: @text-a05;
         }
 
         &:active {
-          background: fade(@text-primary, 8%);
+          background: @text-a08;
         }
       }
 
@@ -436,6 +493,9 @@ export default {
         align-items: center;
         height: auto;
         vertical-align: middle;
+      }
+
+      .header-export {
         margin-left: 6px;
       }
 
@@ -448,8 +508,8 @@ export default {
         padding: 0 16px 0 14px;
         border: none;
         border-radius: @radius-pill;
-        background: @text-primary;
-        color: @paper;
+        background: @cta;
+        color: @cta-fg;
         font-family: @font-family;
         font-size: 13px;
         font-weight: 500;
@@ -461,7 +521,7 @@ export default {
 
         &:hover,
         &:focus {
-          background: lighten(@text-primary, 10%);
+          background: @cta-hover;
           outline: none;
         }
 
@@ -481,6 +541,64 @@ export default {
         }
       }
     }
+  }
+}
+
+[data-scheme='dark'] .header-wrapper .header-area .header-brand {
+  .mark-markdown--light {
+    display: none;
+  }
+
+  .mark-markdown--dark {
+    display: block;
+  }
+}
+
+.theme-picker {
+  min-width: 168px !important;
+}
+
+.theme-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.theme-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-flex;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(127, 127, 127, 0.35);
+}
+
+.theme-swatch__paper,
+.theme-swatch__ink {
+  flex: 1;
+  height: 100%;
+}
+
+.theme-picker-name {
+  flex: 1;
+  text-align: left;
+}
+
+.theme-picker-check {
+  font-size: 12px;
+  color: @text-tertiary;
+  opacity: 0;
+  margin-left: 4px;
+}
+
+.el-dropdown-menu__item.is-current {
+  font-weight: 500;
+
+  .theme-picker-check {
+    opacity: 1;
+    color: @text-primary;
   }
 }
 

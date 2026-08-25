@@ -147,9 +147,9 @@ export default {
         border: 1px solid @border-grey;
 
         &:hover {
-          border-color: rgba(28, 25, 23, 0.18);
+          border-color: @text-a18;
           color: @text-primary;
-          background: fade(@text-primary, 4%);
+          background: @text-a04;
         }
       }
 

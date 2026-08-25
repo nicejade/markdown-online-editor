@@ -1,53 +1,81 @@
 // =============================================================================
 // Arya Design Tokens — editorial cream, floating pills, ink CTAs
+// Color values live in themes.less as CSS custom properties (runtime switchable)
 // Warm paper canvas inspired by quiet consumer-finance product chrome
 // =============================================================================
 
 @size-factor: 0.5rem;
 
 // —— Accent (ink CTAs; yellow used only as a highlighter) ——
-@brand: #1c1917;
-@brand-hover: #2e2a26;
-@brand-active: #0c0a09;
-@brand-soft: rgba(28, 25, 23, 0.06);
-@brand-soft-strong: rgba(28, 25, 23, 0.1);
-@highlight: #f5e14a;
-@highlight-soft: rgba(245, 225, 74, 0.5);
+@brand: var(--c-brand);
+@brand-hover: var(--c-brand-hover);
+@brand-active: var(--c-brand-active);
+@brand-soft: var(--c-brand-soft);
+@brand-soft-strong: var(--c-brand-soft-strong);
+@highlight: var(--c-highlight);
+@highlight-soft: var(--c-highlight-soft);
 
-// —— Surfaces (warm paper) ——
-@bg-page: #f7f4ee;
-@bg-elevated: #fffcf7;
-@bg-grey: #efebe3;
-@input-grey: #efebe3;
-@white: #fffcf7;
-@paper: #fffcf7;
-@paper-side: #f1ede5;
-@nav-bg: rgba(255, 252, 247, 0.84);
+// —— Surfaces ——
+@bg-page: var(--c-page);
+@bg-elevated: var(--c-elevated);
+@bg-grey: var(--c-grey);
+@input-grey: var(--c-input);
+@white: var(--c-white);
+@paper: var(--c-paper);
+@paper-side: var(--c-paper-side);
+@nav-bg: var(--c-nav);
 
 // —— Text (ink) ——
-@text-primary: #1c1917;
-@text-secondary: #57534e;
-@text-tertiary: #8a847c;
-@text-grey: #57534e;
-@deep-black: #1c1917;
-@black: #1c1917;
-@liht-black: #44403c;
+@text-primary: var(--c-text);
+@text-secondary: var(--c-text-2);
+@text-tertiary: var(--c-text-3);
+@text-grey: var(--c-text-grey);
+@deep-black: var(--c-deep);
+@black: var(--c-black);
+@liht-black: var(--c-light-black);
 
 // —— Icons & borders ——
-@icon-grey: #8a847c;
-@icon-primary: #44403c;
-@border-hairline: rgba(28, 25, 23, 0.07);
-@border-grey: rgba(28, 25, 23, 0.1);
-@border-black: #d6d1c7;
-@separator: rgba(28, 25, 23, 0.06);
+@icon-grey: var(--c-icon);
+@icon-primary: var(--c-icon-primary);
+@border-hairline: var(--c-border-hair);
+@border-grey: var(--c-border-grey);
+@border-black: var(--c-border-black);
+@separator: var(--c-separator);
 
 // —— Semantic ——
-@red: #c23b2e;
-@red-soft: rgba(194, 59, 46, 0.1);
-@grey: #e8e4db;
-@orange: #c48a3a;
-@yellow: #f5e14a;
-@green: #5a8f6b;
+@red: var(--c-red);
+@red-soft: var(--c-red-soft);
+@red-hover: var(--c-red-hover);
+@red-active: var(--c-red-active);
+@grey: var(--c-grey-fill);
+@orange: var(--c-orange);
+@yellow: var(--c-yellow);
+@green: var(--c-green);
+
+// —— Runtime alpha / derived (cannot use LESS fade() on CSS vars) ——
+@text-a03: var(--c-text-a03);
+@text-a04: var(--c-text-a04);
+@text-a05: var(--c-text-a05);
+@text-a06: var(--c-text-a06);
+@text-a08: var(--c-text-a08);
+@text-a12: var(--c-text-a12);
+@text-a18: var(--c-text-a18);
+@text-a22: var(--c-text-a22);
+@text-a35: var(--c-text-a35);
+@text-a92: var(--c-text-a92);
+@paper-a96: var(--c-paper-a96);
+@page-a72: var(--c-page-a72);
+@cta: var(--c-cta);
+@cta-hover: var(--c-cta-hover);
+@cta-active: var(--c-cta-active);
+@cta-fg: var(--c-cta-fg);
+@overlay: var(--c-overlay);
+@preview-bg: var(--c-preview-bg);
+@focus-ring-color: var(--c-focus-ring-color);
+@scrollbar: var(--c-scrollbar);
+@scrollbar-hover: var(--c-scrollbar-hover);
+@scrim: var(--c-scrim);
+@page-glow: var(--c-page-glow);
 
 // —— Typography ——
 @font-display: 2.4rem;
@@ -84,16 +112,16 @@
 @radius-pill: 999px;
 
 // —— Elevation ——
-@shadow-xs: 0 1px 2px rgba(28, 25, 23, 0.04);
-@shadow-sm: 0 1px 2px rgba(28, 25, 23, 0.04), 0 8px 24px rgba(28, 25, 23, 0.045);
-@shadow-md: 0 8px 28px rgba(28, 25, 23, 0.08), 0 2px 6px rgba(28, 25, 23, 0.04);
-@shadow-lg: 0 16px 48px rgba(28, 25, 23, 0.1), 0 4px 12px rgba(28, 25, 23, 0.04);
-@shadow-focus: 0 0 0 3px rgba(28, 25, 23, 0.08);
-@shadow-pill: 0 1px 2px rgba(28, 25, 23, 0.05), 0 6px 16px rgba(28, 25, 23, 0.04);
+@shadow-xs: var(--c-shadow-xs);
+@shadow-sm: var(--c-shadow-sm);
+@shadow-md: var(--c-shadow-md);
+@shadow-lg: var(--c-shadow-lg);
+@shadow-focus: var(--c-shadow-focus);
+@shadow-pill: var(--c-shadow-pill);
 
 // —— Glass ——
-@glass-bg: rgba(247, 244, 238, 0.78);
-@glass-bg-strong: rgba(255, 252, 247, 0.9);
+@glass-bg: var(--c-glass);
+@glass-bg-strong: var(--c-glass-strong);
 @glass-blur: 20px;
 @glass-saturate: 160%;
 
@@ -109,9 +137,9 @@
 @hint-css-zindex: 9999;
 
 // —— Sidebar ——
-@sidebar-bg: @paper-side;
-@sidebar-item-hover: rgba(28, 25, 23, 0.04);
-@sidebar-item-active-bg: @paper;
-@sidebar-border: @border-hairline;
-@sidebar-text: @text-secondary;
-@sidebar-text-active: @text-primary;
+@sidebar-bg: var(--c-sidebar-bg);
+@sidebar-item-hover: var(--c-sidebar-hover);
+@sidebar-item-active-bg: var(--c-sidebar-active);
+@sidebar-border: var(--c-sidebar-border);
+@sidebar-text: var(--c-sidebar-text);
+@sidebar-text-active: var(--c-sidebar-text-active);

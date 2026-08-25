@@ -294,7 +294,7 @@ export default {
     right: 0;
     bottom: 0;
     z-index: 110;
-    background: rgba(28, 25, 23, 0.18);
+    background: @overlay;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
@@ -331,8 +331,8 @@ export default {
     font-family: @font-family;
 
     // Override Vditor’s product-blue tokens (#4285f4)
-    --border-color: fade(@text-primary, 8%);
-    --second-color: fade(@text-primary, 18%);
+    --border-color: @text-a08;
+    --second-color: @text-a18;
     --panel-background-color: @paper;
     --panel-shadow: @shadow-sm;
     --toolbar-background-color: transparent;
@@ -343,9 +343,10 @@ export default {
     --resize-icon-color: @icon-grey;
     --resize-background-color: transparent;
     --resize-hover-icon-color: @text-primary;
-    --resize-hover-background-color: fade(@text-primary, 8%);
-    --count-background-color: fade(@text-primary, 4%);
+    --resize-hover-background-color: @text-a08;
+    --count-background-color: @text-a04;
     --heading-border-color: @separator;
+    --blockquote-color: @text-secondary;
 
     &:focus,
     &:focus-within {
@@ -382,7 +383,7 @@ export default {
 
       &:hover,
       &:focus {
-        background: fade(@text-primary, 4%) !important;
+        background: @text-a04 !important;
         color: @text-primary !important;
       }
     }
@@ -391,7 +392,7 @@ export default {
     // so they stay visible (Vditor uses .vditor-tooltipped__n by default).
     .vditor-toolbar {
       .vditor-tooltipped::after {
-        background: fade(@text-primary, 92%);
+        background: @text-a92;
         border-radius: 6px;
         font-family: @font-family;
         font-size: 11px;
@@ -418,7 +419,7 @@ export default {
         bottom: -5px !important;
         margin-right: -5px;
         border-top-color: transparent !important;
-        border-bottom-color: fade(@text-primary, 92%) !important;
+        border-bottom-color: @text-a92 !important;
       }
 
       // Keep south tips as-is (already correct direction)
@@ -431,7 +432,7 @@ export default {
       .vditor-tooltipped__s::before,
       .vditor-tooltipped__se::before,
       .vditor-tooltipped__sw::before {
-        border-bottom-color: fade(@text-primary, 92%);
+        border-bottom-color: @text-a92;
       }
     }
 
@@ -472,7 +473,7 @@ export default {
     }
 
     .vditor-preview {
-      background: darken(@bg-page, 0.5%) !important;
+      background: @preview-bg !important;
       border-left: 1px solid @separator !important;
     }
 
@@ -500,7 +501,7 @@ export default {
     }
 
     .vditor-upload {
-      background-color: fade(@text-primary, 35%) !important;
+      background-color: @text-a35 !important;
     }
 
     .vditor-tip,

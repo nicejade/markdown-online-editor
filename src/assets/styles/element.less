@@ -10,7 +10,7 @@
   border: 1px solid @border-hairline !important;
   box-shadow: @shadow-md !important;
   padding: 12px 16px !important;
-  background: fade(@paper, 96%) !important;
+  background: @paper-a96 !important;
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
 
@@ -30,8 +30,8 @@
 }
 
 .v-modal {
-  background: #1c1917 !important;
-  opacity: 0.38 !important;
+  background: @scrim !important;
+  opacity: 1 !important;
 }
 
 .el-message-box {
@@ -70,7 +70,7 @@
       transition: background @duration-fast @ease-out;
 
       &:hover {
-        background: fade(@text-primary, 5%);
+        background: @text-a05;
       }
 
       .el-message-box__close {
@@ -148,14 +148,14 @@
 
     // Cancel — quiet secondary
     .el-button--default {
-      background: fade(@text-primary, 5%) !important;
+      background: @text-a05 !important;
       border: 1px solid transparent !important;
       color: @text-primary !important;
       box-shadow: none !important;
 
       &:hover,
       &:focus {
-        background: fade(@text-primary, 8%) !important;
+        background: @text-a08 !important;
         border-color: transparent !important;
         color: @text-primary !important;
       }
@@ -163,20 +163,20 @@
 
     // Confirm / Delete — decisive but refined (destructive tint)
     .el-button--primary {
-      background: @text-primary !important;
+      background: @cta !important;
       border: 1px solid transparent !important;
-      color: #faf9f6 !important;
+      color: @cta-fg !important;
       box-shadow: none !important;
 
       &:hover,
       &:focus {
-        background: lighten(@text-primary, 8%) !important;
+        background: @cta-hover !important;
         border-color: transparent !important;
-        color: #faf9f6 !important;
+        color: @cta-fg !important;
       }
 
       &:active {
-        background: darken(@text-primary, 4%) !important;
+        background: @cta-active !important;
       }
     }
   }
@@ -190,12 +190,12 @@
 
       &:hover,
       &:focus {
-        background: lighten(@red, 4%) !important;
+        background: @red-hover !important;
         color: #fff !important;
       }
 
       &:active {
-        background: darken(@red, 4%) !important;
+        background: @red-active !important;
       }
     }
   }
@@ -209,7 +209,7 @@
   border: 1px solid @border-hairline !important;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04) !important;
   padding: 6px !important;
-  background: fade(@paper, 96%) !important;
+  background: @paper-a96 !important;
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
 
@@ -229,7 +229,7 @@
 
     &:hover,
     &:focus {
-      background-color: fade(@text-primary, 5%) !important;
+      background-color: @text-a05 !important;
       color: @text-primary !important;
 
       a {
@@ -283,7 +283,7 @@
 
 // Loading
 .el-loading-mask {
-  background-color: fade(@bg-page, 72%) !important;
+  background-color: @page-a72 !important;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }

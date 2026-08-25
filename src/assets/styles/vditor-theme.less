@@ -1,0 +1,59 @@
+// =============================================================================
+// Vditor markdown surface — remap hardcoded GitHub colors onto theme tokens
+// Typography/spacing left alone; only ink, paper, rules, and code chrome
+// =============================================================================
+
+.vditor-reset {
+  color: @text-primary !important;
+
+  h1,
+  h2 {
+    border-bottom-color: @separator !important;
+  }
+
+  hr {
+    background-color: @separator !important;
+  }
+
+  blockquote {
+    color: @text-secondary !important;
+    border-left-color: @separator !important;
+  }
+
+  table {
+    border-color: @border-grey !important;
+
+    th,
+    td {
+      border-color: @border-grey !important;
+    }
+
+    th,
+    tr:nth-child(2n) {
+      background-color: @bg-grey !important;
+    }
+  }
+
+  code:not(.hljs):not(.highlight-chroma) {
+    background-color: @bg-grey !important;
+    color: @text-primary !important;
+    border-color: @border-hairline;
+  }
+
+  pre,
+  pre > code {
+    background-color: @bg-grey !important;
+    color: @text-primary !important;
+  }
+
+  kbd {
+    color: @text-primary !important;
+    background-color: @bg-grey !important;
+    border-color: @border-grey !important;
+    box-shadow: inset 0 -1px 0 @border-grey !important;
+  }
+
+  a {
+    color: @text-primary !important;
+  }
+}

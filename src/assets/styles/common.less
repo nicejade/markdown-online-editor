@@ -24,12 +24,7 @@ body {
   letter-spacing: -0.01em;
   color: @text-primary;
   background-color: @bg-page !important;
-  background-image: radial-gradient(
-      ellipse 90% 55% at 50% -18%,
-      rgba(245, 220, 170, 0.42),
-      transparent 62%
-    ),
-    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(255, 236, 214, 0.3), transparent 55%);
+  background-image: @page-glow;
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -42,7 +37,7 @@ body {
 
 // Soft, non-blue focus — only when keyboard navigating
 *:focus-visible {
-  outline: 1.5px solid rgba(28, 25, 23, 0.22);
+  outline: 1.5px solid @focus-ring-color;
   outline-offset: 2px;
   border-radius: @radius-xs;
 }
@@ -80,13 +75,13 @@ select {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(28, 25, 23, 0.12);
+  background: @scrollbar;
   border-radius: @radius-pill;
   border: 2px solid transparent;
   background-clip: content-box;
 
   &:hover {
-    background: rgba(28, 25, 23, 0.22);
+    background: @scrollbar-hover;
     background-clip: content-box;
   }
 }
@@ -116,7 +111,7 @@ select {
   .button-group {
     width: 100%;
     max-width: 960px;
-    margin: 0 auto 28px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,22 +135,22 @@ select {
 
         &:hover,
         &:focus {
-          border-color: rgba(28, 25, 23, 0.18) !important;
-          background: rgba(28, 25, 23, 0.03) !important;
+          border-color: @text-a18 !important;
+          background: @text-a03 !important;
           color: @text-primary !important;
         }
       }
 
       &--primary {
-        background: @text-primary !important;
-        border-color: @text-primary !important;
-        color: @paper !important;
+        background: @cta !important;
+        border-color: @cta !important;
+        color: @cta-fg !important;
         box-shadow: @shadow-pill;
 
         &:hover,
         &:focus {
-          background: lighten(@text-primary, 10%) !important;
-          border-color: lighten(@text-primary, 10%) !important;
+          background: @cta-hover !important;
+          border-color: @cta-hover !important;
         }
 
         &.is-disabled {

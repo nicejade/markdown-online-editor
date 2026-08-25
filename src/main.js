@@ -5,6 +5,9 @@ import './global.js'
 import App from './App.vue'
 import router from './router'
 import './registerServiceWorker'
+import { initTheme } from '@helper/theme'
+
+initTheme()
 
 const updateCanonical = (url) => {
   let link = document.querySelector("link[rel='canonical']")

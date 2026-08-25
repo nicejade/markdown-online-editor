@@ -1,0 +1,266 @@
+// =============================================================================
+// Runtime palettes — compiled hex/rgba, swapped via html[data-theme]
+// Default (:root) is 纸墨 / paper so first paint matches the current editorial chrome
+// =============================================================================
+
+.theme-ink-alphas(@ink) {
+  --c-text-a03: fade(@ink, 3%);
+  --c-text-a04: fade(@ink, 4%);
+  --c-text-a05: fade(@ink, 5%);
+  --c-text-a06: fade(@ink, 6%);
+  --c-text-a08: fade(@ink, 8%);
+  --c-text-a12: fade(@ink, 12%);
+  --c-text-a18: fade(@ink, 18%);
+  --c-text-a22: fade(@ink, 22%);
+  --c-text-a35: fade(@ink, 35%);
+  --c-text-a92: fade(@ink, 92%);
+  --c-border-hair: fade(@ink, 7%);
+  --c-border-grey: fade(@ink, 10%);
+  --c-separator: fade(@ink, 6%);
+  --c-brand-soft: fade(@ink, 6%);
+  --c-brand-soft-strong: fade(@ink, 10%);
+  --c-overlay: fade(@ink, 18%);
+  --c-focus-ring-color: fade(@ink, 22%);
+  --c-scrollbar: fade(@ink, 12%);
+  --c-scrollbar-hover: fade(@ink, 22%);
+}
+
+.theme-surfaces(@paper, @page) {
+  --c-paper-a96: fade(@paper, 96%);
+  --c-page-a72: fade(@page, 72%);
+  --c-glass: fade(@page, 78%);
+  --c-glass-strong: fade(@paper, 90%);
+  --c-nav: fade(@paper, 84%);
+  --c-preview-bg: darken(@page, 0.8%);
+  --c-white: @paper;
+  --c-elevated: @paper;
+  --c-cta-fg: @paper;
+}
+
+.theme-aliases(@ink, @ink-2, @ink-3, @paper, @paper-side, @grey) {
+  --c-text: @ink;
+  --c-text-2: @ink-2;
+  --c-text-3: @ink-3;
+  --c-text-grey: @ink-2;
+  --c-deep: @ink;
+  --c-black: @ink;
+  --c-brand: @ink;
+  --c-cta: @ink;
+  --c-icon: @ink-3;
+  --c-paper: @paper;
+  --c-paper-side: @paper-side;
+  --c-grey: @grey;
+  --c-input: @grey;
+  --c-grey-fill: @grey;
+  --c-sidebar-bg: @paper-side;
+  --c-sidebar-hover: fade(@ink, 4%);
+  --c-sidebar-active: @paper;
+  --c-sidebar-border: fade(@ink, 7%);
+  --c-sidebar-text: @ink-2;
+  --c-sidebar-text-active: @ink;
+}
+
+.theme-shadows-light(@ink) {
+  --c-shadow-xs: 0 1px 2px fade(@ink, 4%);
+  --c-shadow-sm: 0 1px 2px fade(@ink, 4%), 0 8px 24px fade(@ink, 4.5%);
+  --c-shadow-md: 0 8px 28px fade(@ink, 8%), 0 2px 6px fade(@ink, 4%);
+  --c-shadow-lg: 0 16px 48px fade(@ink, 10%), 0 4px 12px fade(@ink, 4%);
+  --c-shadow-focus: 0 0 0 3px fade(@ink, 8%);
+  --c-shadow-pill: 0 1px 2px fade(@ink, 5%), 0 6px 16px fade(@ink, 4%);
+}
+
+.theme-shadows-dark() {
+  --c-shadow-xs: 0 1px 2px fade(#000, 28%);
+  --c-shadow-sm: 0 1px 2px fade(#000, 32%), 0 8px 24px fade(#000, 36%);
+  --c-shadow-md: 0 8px 28px fade(#000, 48%), 0 2px 6px fade(#000, 28%);
+  --c-shadow-lg: 0 16px 48px fade(#000, 56%), 0 4px 12px fade(#000, 32%);
+  --c-shadow-focus: 0 0 0 3px fade(#fff, 10%);
+  --c-shadow-pill: 0 1px 2px fade(#000, 36%), 0 6px 16px fade(#000, 28%);
+}
+
+.theme-semantic(@red, @orange, @green) {
+  --c-red: @red;
+  --c-red-soft: fade(@red, 12%);
+  --c-red-hover: lighten(@red, 4%);
+  --c-red-active: darken(@red, 4%);
+  --c-orange: @orange;
+  --c-green: @green;
+  --c-yellow: var(--c-highlight);
+}
+
+html {
+  color-scheme: light;
+}
+
+html[data-scheme='dark'] {
+  color-scheme: dark;
+}
+
+:root,
+[data-theme='paper'] {
+  --c-page: #f7f4ee;
+  --c-paper: #fffcf7;
+  --c-paper-side: #f1ede5;
+  --c-grey: #efebe3;
+  --c-light-black: #44403c;
+  --c-icon-primary: #44403c;
+  --c-border-black: #d6d1c7;
+  --c-highlight: #f5e14a;
+  --c-highlight-soft: fade(#f5e14a, 50%);
+  --c-brand-hover: #2e2a26;
+  --c-brand-active: #0c0a09;
+  --c-cta-hover: #2e2a26;
+  --c-cta-active: #0c0a09;
+  --c-scrim: fade(#1c1917, 38%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(245, 220, 170, 0.42),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(255, 236, 214, 0.3), transparent 55%);
+  .theme-aliases(#1c1917, #57534e, #8a847c, #fffcf7, #f1ede5, #efebe3);
+  .theme-ink-alphas(#1c1917);
+  .theme-surfaces(#fffcf7, #f7f4ee);
+  .theme-shadows-light(#1c1917);
+  .theme-semantic(#c23b2e, #c48a3a, #5a8f6b);
+}
+
+[data-theme='moon'] {
+  --c-page: #eef2f6;
+  --c-paper: #f8fafc;
+  --c-paper-side: #e7edf3;
+  --c-grey: #e2e8f0;
+  --c-light-black: #334155;
+  --c-icon-primary: #334155;
+  --c-border-black: #cbd5e1;
+  --c-highlight: #93c5fd;
+  --c-highlight-soft: fade(#93c5fd, 45%);
+  --c-brand-hover: #334155;
+  --c-brand-active: #0f172a;
+  --c-cta-hover: #334155;
+  --c-cta-active: #0f172a;
+  --c-scrim: fade(#0f172a, 40%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(180, 205, 230, 0.35),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(210, 225, 240, 0.28), transparent 55%);
+  .theme-aliases(#1e293b, #475569, #7b8794, #f8fafc, #e7edf3, #e2e8f0);
+  .theme-ink-alphas(#1e293b);
+  .theme-surfaces(#f8fafc, #eef2f6);
+  .theme-shadows-light(#1e293b);
+  .theme-semantic(#c23b2e, #c48a3a, #5a8f6b);
+}
+
+[data-theme='celadon'] {
+  --c-page: #eef3ee;
+  --c-paper: #f5faf5;
+  --c-paper-side: #e3ebe4;
+  --c-grey: #dde6df;
+  --c-light-black: #2f4539;
+  --c-icon-primary: #2f4539;
+  --c-border-black: #c5d0c7;
+  --c-highlight: #b7d4a8;
+  --c-highlight-soft: fade(#b7d4a8, 50%);
+  --c-brand-hover: #2a4336;
+  --c-brand-active: #102018;
+  --c-cta-hover: #2a4336;
+  --c-cta-active: #102018;
+  --c-scrim: fade(#1a2e24, 40%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(170, 200, 175, 0.32),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(200, 220, 200, 0.24), transparent 55%);
+  .theme-aliases(#1a2e24, #4a6156, #7a8d82, #f5faf5, #e3ebe4, #dde6df);
+  .theme-ink-alphas(#1a2e24);
+  .theme-surfaces(#f5faf5, #eef3ee);
+  .theme-shadows-light(#1a2e24);
+  .theme-semantic(#c23b2e, #c48a3a, #4f7f5e);
+}
+
+[data-theme='cinnabar'] {
+  --c-page: #f4ebe3;
+  --c-paper: #fbf6f1;
+  --c-paper-side: #eee4da;
+  --c-grey: #eadfd4;
+  --c-light-black: #4a2c20;
+  --c-icon-primary: #4a2c20;
+  --c-border-black: #d9c7b8;
+  --c-highlight: #f0c4a0;
+  --c-highlight-soft: fade(#f0c4a0, 55%);
+  --c-brand-hover: #4a2a1c;
+  --c-brand-active: #1a0c08;
+  --c-cta-hover: #4a2a1c;
+  --c-cta-active: #1a0c08;
+  --c-scrim: fade(#2c1810, 40%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(230, 180, 140, 0.38),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(240, 200, 170, 0.28), transparent 55%);
+  .theme-aliases(#2c1810, #6b4a3a, #9a7b6a, #fbf6f1, #eee4da, #eadfd4);
+  .theme-ink-alphas(#2c1810);
+  .theme-surfaces(#fbf6f1, #f4ebe3);
+  .theme-shadows-light(#2c1810);
+  .theme-semantic(#c45c3e, #c48a3a, #5a8f6b);
+}
+
+[data-theme='night'] {
+  --c-page: #14120f;
+  --c-paper: #1e1b16;
+  --c-paper-side: #1a1814;
+  --c-grey: #2a2620;
+  --c-light-black: #c4bdb0;
+  --c-icon-primary: #c4bdb0;
+  --c-border-black: #3a352c;
+  --c-highlight: #c4a35a;
+  --c-highlight-soft: fade(#c4a35a, 38%);
+  --c-brand-hover: #f4efe4;
+  --c-brand-active: #d4cbb8;
+  --c-cta-hover: #f4efe4;
+  --c-cta-active: #d4cbb8;
+  --c-scrim: fade(#000, 56%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(180, 130, 60, 0.12),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(80, 60, 30, 0.2), transparent 55%);
+  .theme-aliases(#ece6da, #b3aa9c, #8a8174, #1e1b16, #1a1814, #2a2620);
+  .theme-ink-alphas(#ece6da);
+  .theme-surfaces(#1e1b16, #14120f);
+  .theme-shadows-dark();
+  .theme-semantic(#e07060, #d4a05a, #6fa07c);
+}
+
+[data-theme='pine'] {
+  --c-page: #0f1412;
+  --c-paper: #161c1a;
+  --c-paper-side: #131916;
+  --c-grey: #1e2622;
+  --c-light-black: #b7c4bb;
+  --c-icon-primary: #b7c4bb;
+  --c-border-black: #2a332e;
+  --c-highlight: #6b9a78;
+  --c-highlight-soft: fade(#6b9a78, 40%);
+  --c-brand-hover: #e4eee6;
+  --c-brand-active: #c2d0c6;
+  --c-cta-hover: #e4eee6;
+  --c-cta-active: #c2d0c6;
+  --c-scrim: fade(#000, 56%);
+  --c-page-glow: radial-gradient(
+      ellipse 90% 55% at 50% -18%,
+      rgba(60, 110, 80, 0.16),
+      transparent 62%
+    ),
+    radial-gradient(ellipse 45% 36% at 100% 0%, rgba(30, 50, 40, 0.22), transparent 55%);
+  .theme-aliases(#d5e0d8, #8fa196, #6b7c73, #161c1a, #131916, #1e2622);
+  .theme-ink-alphas(#d5e0d8);
+  .theme-surfaces(#161c1a, #0f1412);
+  .theme-shadows-dark();
+  .theme-semantic(#d46b5c, #c4a35a, #6b9a78);
+}

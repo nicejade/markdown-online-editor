@@ -342,7 +342,7 @@ export default {
       color: @text-primary;
 
       &:focus {
-        border-color: rgba(28, 25, 23, 0.2);
+        border-color: @text-a22;
         box-shadow: @shadow-focus;
       }
     }
@@ -373,7 +373,7 @@ export default {
       transition: background @duration-fast @ease-out, color @duration-fast @ease-out;
 
       &:hover {
-        background-color: fade(@text-primary, 6%);
+        background-color: @text-a06;
         color: @text-primary;
       }
 
@@ -400,8 +400,8 @@ export default {
     font-weight: 500;
     font-family: @font-family;
     letter-spacing: -0.01em;
-    color: @paper;
-    background: @text-primary;
+    color: @cta-fg;
+    background: @cta;
     border: 1px solid transparent;
     border-radius: @radius-pill;
     cursor: pointer;
@@ -410,8 +410,8 @@ export default {
       transform @duration-fast @ease-out;
 
     &:hover {
-      background: lighten(@text-primary, 10%);
-      color: @paper;
+      background: @cta-hover;
+      color: @cta-fg;
     }
 
     &:active {
