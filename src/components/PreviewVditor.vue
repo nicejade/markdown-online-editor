@@ -80,6 +80,7 @@ export default {
     min-height: 70vh;
     margin: 0 auto;
     text-align: left;
+    padding: 0;
 
     .vditor-toolbar {
       display: none;
@@ -120,15 +121,15 @@ export default {
 
 @media (max-width: 768px) {
   .preview-vditor {
-    padding: 12px 8px 32px;
+    padding: 32px;
 
     #khaleesi {
       width: 100% !important;
+      padding: 0 !important;
       margin: 0 !important;
     }
 
     .vditor-preview {
-      padding: 0 10px;
       border-radius: @radius-md;
     }
 
