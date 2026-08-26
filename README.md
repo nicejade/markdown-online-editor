@@ -200,7 +200,14 @@ yarn deploy
 
 ## Star History
 
-[![nicejade markdown-online-editor Star History Chart](https://api.star-history.com/svg?repos=nicejade/markdown-online-editor&type=date&legend=top-left)](https://www.star-history.com/#nicejade/markdown-online-editor&type=date&legend=top-left)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)"
+      srcset=".github/shieldcn/star-chart-dark.svg" />
+    <img alt="nicejade/markdown-online-editor Star History Chart"
+      src=".github/shieldcn/star-chart-light.svg" width="800" />
+  </picture>
+</p>
 
 ## License
 
